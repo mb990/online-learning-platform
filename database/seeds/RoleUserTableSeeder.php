@@ -11,6 +11,6 @@ class RoleUserTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\RoleUser::class, 100)->create();
+        factory(App\RoleUser::class, 10)->create();
     }
 }

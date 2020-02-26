@@ -1,3 +1,6 @@
-<?php
+@extends('layout.app')
+<?php $title = 'Homepage'; ?>
+@section('content')
 
-    echo 'this is homepage from pages controller';
+    <h2>This is homepage from PagesController.</h2>
+@endsection

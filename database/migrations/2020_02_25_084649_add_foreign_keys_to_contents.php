@@ -14,7 +14,7 @@ class AddForeignKeysToContents extends Migration
     public function up()
     {
         Schema::table('contents', function (Blueprint $table) {
-            $table->foreign('course_id')->references('id')->on('courses');
+            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
         });
     }
 

@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="442411f5-d34a-45d1-97e0-f1150e714626" name="Default Changelist" comment="" />
+    <list default="true" id="442411f5-d34a-45d1-97e0-f1150e714626" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.styleci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.styleci.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_25_084441_add_foreign_keys_to_courses.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_25_084441_add_foreign_keys_to_courses.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_25_084649_add_foreign_keys_to_contents.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_25_084649_add_foreign_keys_to_contents.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_25_084706_add_foreign_keys_to_profiles.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_25_084706_add_foreign_keys_to_profiles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_25_084813_add_foreign_keys_to_roleuser.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_25_084813_add_foreign_keys_to_roleuser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_25_084905_add_foreign_keys_to_courseuser.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_25_084905_add_foreign_keys_to_courseuser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/CourseUserTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/CourseUserTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/RoleUserTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/RoleUserTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admins/edit_educator.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admins/edit_educator.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admins/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admins/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admins/show_educators.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admins/show_educators.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/homepage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/homepage.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/show_courses.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/show_courses.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,6 +29,9 @@
     <execution>
       <executable />
     </execution>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -104,6 +124,9 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1YFZT7WtdNg3F6YsWIKDE9KdP1q" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -112,7 +135,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../laradock/nginx/sites" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../.." />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RecentsManager">
@@ -139,6 +162,8 @@
       <workItem from="1582540309881" duration="18106000" />
       <workItem from="1582617434117" duration="7543000" />
       <workItem from="1582625257922" duration="19367000" />
+      <workItem from="1582703548737" duration="1725000" />
+      <workItem from="1582705296086" duration="23501000" />
     </task>
     <servers />
   </component>
@@ -150,22 +175,26 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="746" y="27" width="476" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1582639388893" />
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1582541373272">
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1582704393805">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1582541373272" />
-    <state x="789" y="478" width="399" height="149" key="NewPhpFileDialog" timestamp="1582641595767">
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1582704393805" />
+    <state x="789" y="478" width="399" height="149" key="NewPhpFileDialog" timestamp="1582726820461">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="789" y="478" width="399" height="149" key="NewPhpFileDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1582641595767" />
+    <state x="789" y="478" width="399" height="149" key="NewPhpFileDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1582726820461" />
     <state x="476" y="271" key="SettingsEditor" timestamp="1582544205027">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="476" y="271" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1582544205027" />
-    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1582627305516">
+    <state x="657" y="253" key="run.anything.popup" timestamp="1582724881155">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1582627305516" />
+    <state x="657" y="253" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1582724881155" />
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1582727820653">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1582727820653" />
     <state x="718" y="465" width="540" height="175" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1582632320935">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
