@@ -7,6 +7,7 @@ use App\Course;
 use App\Role;
 use App\RoleUser;
 use App\User;
+use App\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
@@ -24,13 +25,13 @@ class AdminsController extends Controller
 //        $this->middleware('auth:admin')->except(['showCourses', 'showEducators', 'showStudents', 'showCategories']);
 //    }
 
-    public function showCourses() {
-
-        $courses = Course::all()->get();
-
-        return view('courses')->with('courses', $courses);
-
-    }
+//    public function showCourses() {
+//
+//        $courses = Course::all();
+//
+//        return view('courses')->with('courses', $courses);
+//
+//    }
 
     public function showEducators() {
 
@@ -39,7 +40,8 @@ class AdminsController extends Controller
             ->join('profiles', 'profiles.user_id', '=', 'role_users.user_id')
             ->join('users', 'users.id', '=', 'role_users.user_id')
             ->join('roles', 'roles.id', '=', 'role_users.role_id')
-            ->where('roles.name', '=', 'educator')->get();
+            ->where('roles.name', '=', 'educator')
+            ->get();
 //        $educators = RoleUser::all()->where('role_id', '=', 3);
 
         return view('admins.show_educators')->with('educators', $educators);
@@ -187,4 +189,23 @@ class AdminsController extends Controller
         return redirect('/admin/students')->with('success', 'Student is deleted.');
     }
 
+    public function showALl() {
+
+        $users = User::all();
+
+        return view('admins.show_users', compact('users'));
+    }
+
+    public function showUser($id) {
+
+        $user = User::with('profile')->find($id);
+
+        $profile = Profile::select('*')
+            ->where('user_id', '=', $id)
+            ->get();
+
+        return view('admins.show_user')
+            ->with('user', $user)
+            ->with('profile', $profile);
+    }
 }

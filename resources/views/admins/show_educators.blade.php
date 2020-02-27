@@ -21,7 +21,7 @@
                 <input type="submit" value="Delete user">
 
             </form>
-@endforeach
+    @endforeach
 
 @endsection
 </body>

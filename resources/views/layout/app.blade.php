@@ -45,11 +45,16 @@
             height: 300px; /* only for demonstration, should be removed */
         }
 
+        td {
+            margin-left:300px;
+        }
+
         /* Clear floats after the columns */
         section:after {
             content: "";
             display: table;
             clear: both;
+            min-height: 340px;
         }
 
         /* Style the footer */
@@ -78,8 +83,15 @@
         <ul>
             <li><a href="/">Homepage</a> </li>
             <li><a href="/admin/">Admin panel</a></li>
-            <li><a href="/admin/educators">Show educators</a></li>
-            <li><a href="/admin/students">Show students</a></li>
+                @if(Request::is('admin'))
+            <li><a href="/admin/educators">Show all educators</a></li>
+            <li><a href="/admin/students">Show all students</a></li>
+            <li><a href="/admin/users">Show all users</a></li>
+                @endif
+                @if(!Request::is('admin'))
+            <li><a href="/educators">Show educators</a></li>
+            <li><a href="/courses">Show courses</a></li>
+                @endif
         </ul>
     </nav>
 
