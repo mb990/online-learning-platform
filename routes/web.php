@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 //Route::get('/', 'PagesController@index');
-Route::get('/', 'CoursesController@showPopularCourses');
+Route::get('/', 'CoursesController@index');
 Route::get('/admin', 'PagesController@admin');
 //Route::get('/courses', 'AdminsController@show_courses');
 Route::get('/admin/educators', 'AdminsController@showEducators');
@@ -33,8 +33,9 @@ Route::delete('/admin/students/{id}/delete', 'AdminsController@destroyStudent')-
 Route::get('/admin/users', 'AdminsController@showAll');
 Route::get('/admin/users/{id}/view', 'AdminsController@showUser');
 
-Route::get('/courses', 'CoursesController@showAll');
+Route::get('/courses', 'CoursesController@showAllWithCategories');
 Route::get('/courses/{id}/view', 'CoursesController@showSingle');
+Route::get('/category/{id}/view', 'CoursesController@showByCategory');
 Route::get('/courses/new', 'CoursesController@create');
 Route::post('/courses/new/submit', 'CoursesController@store');
 

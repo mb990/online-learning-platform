@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Course;
-use App\Profile;
-use App\Role;
 use App\Category;
 use Illuminate\Support\Facades\DB;
 
@@ -16,9 +14,22 @@ class CoursesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    // show 3 most popular courses
     public function index()
     {
-        //
+        $courses = Course::with('users')
+            ->withCount('users')
+            ->latest('users_count')
+            ->take(3)
+            ->get();
+
+//        $count = User::whereHas('courses', function ($q) {
+//            $q->count('user_id');
+//            })
+//            ->get();
+
+        return view('homepage')->with('courses', $courses);
     }
 
     /**
@@ -49,7 +60,7 @@ class CoursesController extends Controller
             'category_id' => 'required'
         ]);
 
-        $course = new Course;
+        $course = new Course();
 
         $course->name = $request->input('name');
         $course->description = $request->input('description');
@@ -68,43 +79,37 @@ class CoursesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    public function showAllWithCategories() {
+
+        $courses = Course::all();
+
+        $recentCourses = Course::take(3)
+            ->latest()
+            ->get();
+
+        $categories = Category::all();
+
+        return view('courses.show_courses')
+            ->with('courses', $courses)
+            ->with('categories', $categories)
+            ->with('recentCourses', $recentCourses);
+    }
+
     public function showSingle($id)
     {
         $course = Course::find($id);
 
-        $category = DB::table('categories')
-            ->where('id', '=', $course->category_id)
-            ->first();
-
         return view('courses.show_single')
-            ->with('course', $course)
-            ->with('category', $category);
+            ->with('course', $course);
     }
 
-    public function showPopularCourses() {
+    public function showByCategory($id) {
 
-//        $courses = DB::table('courses')
-//            ->join('course_users', 'course_users.course_id', '=', 'courses.id')
-//            ->join('profiles', 'profiles.user_id', '=', 'course_users.user_id')
-//            ->join('role_users', 'role_users.id', '=', 'course_users.user_id')
-//            ->join('roles', 'roles.id', '=', 'role_users.role_id')
-//            ->where('roles.name', '=', 'student')
-//            ->limit(3)
-//            ->get();
-
-        $courses = DB::table('course_users')
-            ->select(DB::raw('count(course_users.user_id) as count, courses.name, courses.video_url'))
-            ->join('courses', 'courses.id', '=', 'course_users.course_id')
-//            ->join('role_users', 'role_users.id', '=', 'course_users.user_id')
-//            ->join('roles', 'roles.id', '=', 'role_users.role_id')
-//            ->where('roles.name', '=', 'student')
-            ->groupBy('courses.name')
-            ->groupBy('courses.video_url') // ovde ce biti thumbnail
-            ->orderBy('count', 'DESC')
-            ->limit(3)
+        $courses = Course::where('category_id', '=', $id)
             ->get();
 
-        return view('homepage')->with('courses', $courses);
+        return view('courses.show_by_category')->with('courses', $courses);
     }
 
     /**

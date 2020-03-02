@@ -8,9 +8,10 @@ use App\Role;
 use App\RoleUser;
 use App\User;
 use App\Profile;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\DB;
+use function foo\func;
 
 class AdminsController extends Controller
 {
@@ -35,75 +36,47 @@ class AdminsController extends Controller
 
     public function showEducators() {
 
-        $educators = DB::table('role_users')
-            ->select('*')
-            ->join('profiles', 'profiles.user_id', '=', 'role_users.user_id')
-            ->join('users', 'users.id', '=', 'role_users.user_id')
-            ->join('roles', 'roles.id', '=', 'role_users.role_id')
-            ->where('roles.name', '=', 'educator')
+        $educators = User::whereHas('roles', function($q){
+            $q->whereIn('name', ['educator']);
+            })
             ->get();
-//        $educators = RoleUser::all()->where('role_id', '=', 3);
 
         return view('admins.show_educators')->with('educators', $educators);
-
     }
 
     public function showEducator($id) {
 
-        $educator = DB::table('role_users')
-            ->select('*')
-            ->join('profiles', 'profiles.user_id', '=', 'role_users.user_id')
-            ->join('users', 'users.id', '=', 'role_users.user_id')
-            ->join('roles', 'roles.id', '=', 'role_users.role_id')
-            ->where('roles.name', '=', 'educator')
-            ->where('role_users.user_id', '=', $id)
-            ->get();
+        $educator = User::find($id);
 
         return view('admins.show_educator')->with('educator', $educator);
     }
 
     public function editEducator($id) {
-        $educator = DB::table('role_users')
-            ->select('*')
-            ->join('profiles', 'profiles.user_id', '=', 'role_users.user_id')
-            ->join('users', 'users.id', '=', 'role_users.user_id')
-            ->join('roles', 'roles.id', '=', 'role_users.role_id')
-            ->where('roles.name', '=', 'educator')
-            ->where('role_users.user_id', '=', $id)
-            ->get();
+
+        $educator = User::find($id);
 
         return view('admins.edit_educator')->with('educator', $educator);
     }
 
-    public function updateEducator($id) {
+    public function updateEducator(Request $request, $id) {
 
-        $educator = DB::table('role_users')
-            ->join('profiles', 'profiles.user_id', '=', 'role_users.user_id')
-            ->join('users', 'users.id', '=', 'role_users.user_id')
-            ->join('roles', 'roles.id', '=', 'role_users.role_id')
-            ->where('roles.name', '=', 'educator')
-            ->where('role_users.user_id', '=', $id)
-//            ->first();
-            ->update([
-                'first_name' => request()->first_name,
-                'last_name' => request()->last_name,
-                'age' => request()->age,
-                'linkedin' => request()->linkedin,
-                'education' => request()->education,
-                'image_url' => request()->image_url,
-                'title' => request()->title,
-                'biography' => request()->biography,
-            ]);
-//        $educator->first_name = $request->input('first_name');
-//        $educator->last_name = $request->input('last_name');
-//        $educator->age = $request->input('age');
-//        $educator->linkedin = $request->input('linkedin');
-//        $educator->education = $request->input('education');
-//        $educator->image_url = $request->input('image_url');
-//        $educator->title = $request->input('title');
-//        $educator->biography = $request->input('biography');
+        $educator = User::find($id);
 
-//        $educator->save();
+        $educator->first_name = $request->input('first_name');
+        $educator->last_name = $request->input('last_name');
+        $educator->email = $request->input('email');
+        $educator->password = $request->input('password');
+        $educator->profile->age = $request->input('age');
+        $educator->profile->image_url = $request->input('image_url');
+        $educator->profile->title = $request->input('title');
+        $educator->profile->biography = $request->input('biography');
+        $educator->profile->education = $request->input('education');
+        $educator->profile->linkedin = $request->input('linkedin');
+
+        $educator->save();
+
+        return redirect('/admin/educators/' . $id . '/view')
+            ->with('$educator', $educator);
 
         return redirect('/admin/educators')->with('success', 'Educator is updated');
     }
@@ -119,65 +92,48 @@ class AdminsController extends Controller
 
     public function showStudents() {
 
-        $students = DB::table('role_users')
-            ->select('*')
-            ->join('profiles', 'profiles.user_id', '=', 'role_users.user_id')
-            ->join('users', 'users.id', '=', 'role_users.user_id')
-            ->join('roles', 'roles.id', '=', 'role_users.role_id')
-            ->where('roles.name', '=', 'student')->get();
+        $students = User::whereHas('roles', function($q){
+            $q->whereIn('name', ['student']);
+        })
+            ->get();
 
         return view('admins.show_students')->with('students', $students);
     }
 
     public function showStudent($id) {
 
-        $student = DB::table('role_users')
-            ->select('*')
-            ->join('profiles', 'profiles.user_id', '=', 'role_users.user_id')
-            ->join('users', 'users.id', '=', 'role_users.user_id')
-            ->join('roles', 'roles.id', '=', 'role_users.role_id')
-            ->where('roles.name', '=', 'student')
-            ->where('role_users.user_id', '=', $id)
-            ->get();
+        $student = User::find($id);
 
         return view('admins.show_student')->with('student', $student);
     }
 
     public function editStudent($id) {
 
-        $student = DB::table('role_users')
-            ->select('*')
-            ->join('profiles', 'profiles.user_id', '=', 'role_users.user_id')
-            ->join('users', 'users.id', '=', 'role_users.user_id')
-            ->join('roles', 'roles.id', '=', 'role_users.role_id')
-            ->where('roles.name', '=', 'student')
-            ->where('role_users.user_id', '=', $id)
-            ->get();
+        $student = User::find($id);
 
         return view('admins.edit_student')->with('student', $student);
     }
 
-    public function updateStudent($id) {
+    public function updateStudent(Request $request, $id) {
 
-        $educator = DB::table('role_users')
-            ->join('profiles', 'profiles.user_id', '=', 'role_users.user_id')
-            ->join('users', 'users.id', '=', 'role_users.user_id')
-            ->join('roles', 'roles.id', '=', 'role_users.role_id')
-            ->where('roles.name', '=', 'student')
-            ->where('role_users.user_id', '=', $id)
-//            ->first();
-            ->update([
-                'first_name' => request()->first_name,
-                'last_name' => request()->last_name,
-                'age' => request()->age,
-                'linkedin' => request()->linkedin,
-                'education' => request()->education,
-                'image_url' => request()->image_url,
-                'title' => request()->title,
-                'biography' => request()->biography,
-            ]);
+        $student = User::find($id);
 
-        return redirect('/admin/students')->with('success', 'Student is updated');
+        $student->first_name = $request->input('first_name');
+        $student->last_name = $request->input('last_name');
+        $student->email = $request->input('email');
+        $student->password = $request->input('password');
+        $student->profile->age = $request->input('age');
+        $student->profile->image_url = $request->input('image_url');
+        $student->profile->title = $request->input('title');
+        $student->profile->biography = $request->input('biography');
+        $student->profile->education = $request->input('education');
+        $student->profile->linkedin = $request->input('linkedin');
+
+        $student->save();
+        $student->profile->save();
+
+        return redirect('/admin/students/' . $id . '/view')
+            ->with('student', $student);
     }
 
     public function destroyStudent($id) {
@@ -200,12 +156,7 @@ class AdminsController extends Controller
 
         $user = User::with('profile')->find($id);
 
-        $profile = Profile::select('*')
-            ->where('user_id', '=', $id)
-            ->get();
-
         return view('admins.show_user')
-            ->with('user', $user)
-            ->with('profile', $profile);
+            ->with('user', $user);
     }
 }

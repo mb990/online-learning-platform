@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-
+use App\User;
 class PagesController extends Controller
 {
     public function index() {
@@ -16,31 +15,38 @@ class PagesController extends Controller
         return view('admins.index');
     }
 
-    public function educators() {
+    public function educators(Request $request) {
 
-        $recentEducators = DB::table('role_users')
-            ->select('*')
-            ->join('profiles', 'profiles.user_id', '=', 'role_users.user_id')
-            ->join('users', 'users.id', '=', 'role_users.user_id')
-            ->join('roles', 'roles.id', '=', 'role_users.role_id')
-            ->where('roles.name', '=', 'educator')
-            ->latest('users.created_at')
-            ->limit(3)
+        $search = $request->get('search');
+
+        $conditions = function ($query) use ($search){
+            $query->where(function ($wheres) use ($search) {
+            $wheres->where('first_name', 'like', $search . '%')
+                   ->orWhere('last_name', 'like', $search . '%');
+            });
+        };
+
+        $educators = User::whereHas('roles', function ($q) {
+            $q->whereIn('name', ['educator']);
+        })
+            ->where($conditions)
             ->get();
 
-        return view('educators')->with('recentEducators', $recentEducators);
+        $recentEducators = User::whereHas('roles', function($q){
+            $q->whereIn('name', ['educator']);
+            })
+            ->latest()
+            ->take(3)
+            ->get();
+
+        return view('educators')
+            ->with('recentEducators', $recentEducators)
+            ->with('educators', $educators);
     }
 
     public function showEducator($id) {
 
-        $educator = DB::table('role_users')
-            ->select('*')
-            ->join('profiles', 'profiles.user_id', '=', 'role_users.user_id')
-            ->join('users', 'users.id', '=', 'role_users.user_id')
-            ->join('roles', 'roles.id', '=', 'role_users.role_id')
-            ->where('roles.name', '=', 'educator')
-            ->where('role_users.user_id', '=', $id)
-            ->get();
+        $educator = User::find($id);
 
         return view('show_educator')->with('educator', $educator);
     }

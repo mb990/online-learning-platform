@@ -13,7 +13,7 @@ class AddForeignKeysToRoleuser extends Migration
      */
     public function up()
     {
-        Schema::table('role_users', function (Blueprint $table) {
+        Schema::table('role_user', function (Blueprint $table) {
             $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
@@ -26,7 +26,7 @@ class AddForeignKeysToRoleuser extends Migration
      */
     public function down()
     {
-        Schema::table('role_users', function (Blueprint $table) {
+        Schema::table('role_user', function (Blueprint $table) {
             //
         });
     }

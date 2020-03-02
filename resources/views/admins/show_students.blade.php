@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layouts.app')
 <?php $title = 'Show students'; ?>
 
 @section('content')
@@ -10,10 +10,10 @@
     <tr>
         <td>First name: {{$student->first_name}}</td><br>
         <td>Last name: {{$student->last_name}}</td><br>
-        <td><a href="/admin/students/{{$student->user_id}}/view">View profile</a></td><br>
-        <td><a href="/admin/students/{{$student->user_id}}/edit">Edit</a></td>
+        <td><a href="/admin/students/{{$student->id}}/view">View profile</a></td><br>
+        <td><a href="/admin/students/{{$student->id}}/edit">Edit</a></td>
     </tr>
-    <form action="{{action('AdminsController@showStudent', $student->user_id)}}" method="GET">
+    <form action="{{action('AdminsController@showStudent', $student->id)}}" method="GET">
 
         @csrf
 

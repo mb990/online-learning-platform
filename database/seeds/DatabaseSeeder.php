@@ -16,10 +16,10 @@ class DatabaseSeeder extends Seeder
              CategoriesTableSeeder::class,
              CoursesTableSeeder::class,
              RolesTableSeeder::class,
+             RoleUserTableSeeder::class,
              ProfilesTableSeeder::class,
              ContentsTableSeeder::class,
-             CourseUserTableSeeder::class,
-             RoleUserTableSeeder::class
+             CourseUserTableSeeder::class
          ]);
     }
 }

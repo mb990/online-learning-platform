@@ -2,25 +2,42 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="442411f5-d34a-45d1-97e0-f1150e714626" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/online-learning-platform.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/online-learning-platform.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Course.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Course.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/CourseUser.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CoursesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CoursesController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PagesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PagesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Role.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Role.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/RoleUser.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/CourseUserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/CourseUserFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/RoleUserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/RoleUserFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_24_133705_create_role_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_24_133705_create_role_user_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_24_133724_create_course_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_24_133724_create_course_user_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_25_084813_add_foreign_keys_to_roleuser.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_25_084813_add_foreign_keys_to_roleuser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_25_084905_add_foreign_keys_to_courseuser.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_25_084905_add_foreign_keys_to_courseuser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/CategoriesTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/CategoriesTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/CourseUserTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/CourseUserTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/RoleUserTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/RoleUserTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admins/edit_educator.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admins/edit_educator.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admins/edit_student.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admins/edit_student.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admins/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admins/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admins/show_educator.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admins/show_educator.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admins/show_educators.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admins/show_educators.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admins/show_student.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admins/show_student.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admins/show_students.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admins/show_students.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admins/show_user.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admins/show_user.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admins/show_users.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admins/show_users.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/courses/show_courses.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/show_courses.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/courses/show_single.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/show_single.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/educators.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/educators.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/homepage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/homepage.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layout/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/show_courses.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/show_educator.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/show_educator.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +157,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../.." />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.smartKeys" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -168,7 +185,9 @@
       <workItem from="1582625257922" duration="19367000" />
       <workItem from="1582703548737" duration="1725000" />
       <workItem from="1582705296086" duration="24252000" />
-      <workItem from="1582790660831" duration="18492000" />
+      <workItem from="1582790660831" duration="26270000" />
+      <workItem from="1582876242149" duration="26429000" />
+      <workItem from="1583136449506" duration="21715000" />
     </task>
     <servers />
   </component>
@@ -180,30 +199,30 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="746" y="27" width="476" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1582639388893" />
-    <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1582807202828">
+    <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1583143349456">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1582807202828" />
+    <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1583143349456" />
     <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1582704393805">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1582704393805" />
-    <state x="789" y="478" width="399" height="149" key="NewPhpFileDialog" timestamp="1582808670002">
+    <state x="789" y="478" width="399" height="149" key="NewPhpFileDialog" timestamp="1583149768971">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="789" y="478" width="399" height="149" key="NewPhpFileDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1582808670002" />
-    <state x="476" y="271" key="SettingsEditor" timestamp="1582544205027">
+    <state x="789" y="478" width="399" height="149" key="NewPhpFileDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1583149768971" />
+    <state x="476" y="271" key="SettingsEditor" timestamp="1583137054196">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="476" y="271" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1582544205027" />
-    <state x="657" y="253" width="672" height="677" key="run.anything.popup" timestamp="1582794007318">
+    <state x="476" y="271" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1583137054196" />
+    <state x="657" y="253" width="672" height="677" key="run.anything.popup" timestamp="1583154136560">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="657" y="253" width="672" height="677" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1582794007318" />
-    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1582800037859">
+    <state x="657" y="253" width="672" height="677" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1583154136560" />
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1583144841051">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1582800037859" />
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1583144841051" />
     <state x="718" y="465" width="540" height="175" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1582632320935">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>

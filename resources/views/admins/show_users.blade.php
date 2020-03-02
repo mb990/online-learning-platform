@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layouts.app')
 <?php $title = 'Show all users'; ?>
 
 @section('content')
@@ -7,17 +7,11 @@
 
     @foreach ($users as $user)
 
-        <tr>
-            <td>First name: {{$user->first_name}}</td><br>
-            <td>Last name: {{$user->last_name}}</td><br>
-            <td>Role: {{$user->role}}</td><br>
-            <td><a href="/admin/users/{{$user->id}}/view">View profile</a></td><br>
-            {{--            {{ method_field('DELETE') }}--}}
-            {{--            {{ csrf_field() }}--}}
-            @method('DELETE')
-            @csrf
-            <input type="submit" value="Delete user">
-        </tr>
+        First name: {{$user->first_name}}<br>
+        Last name: {{$user->last_name}}<br>
+        Role: {{$user->role}}<br>
+        <a href="/admin/users/{{$user->id}}/view">View profile</a><br>
+
     @endforeach
 
 @endsection

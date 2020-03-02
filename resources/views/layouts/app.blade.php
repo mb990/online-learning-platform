@@ -33,7 +33,17 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <li><a href="/">Homepage</a> </li>&nbsp | &nbsp
+                        <li><a href="/admin/">Admin panel</a></li>&nbsp | &nbsp
+                            @if(Request::is('admin'))
+                        <li><a href="/admin/educators">Show all educators</a></li>&nbsp | &nbsp
+                        <li><a href="/admin/students">Show all students</a></li>&nbsp | &nbsp
+                        <li><a href="/admin/users">Show all users</a></li>
+                            @endif
+                            @if(!Request::is('admin'))
+                        <li><a href="/educators">Show educators</a></li>&nbsp | &nbsp
+                        <li><a href="/courses">Show courses</a></li>
+                             @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->

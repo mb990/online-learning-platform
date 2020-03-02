@@ -1,20 +1,21 @@
-@extends('layout.app')
+@extends('layouts.app')
 <?php $title = 'Homepage'; ?>
 @section('content')
 
     <h3>Popular courses</h3>
-
+{{--{{dd($count)}}--}}
     @foreach($courses as $course)
-{{--        <form action="{{action('CoursesController@showPopularCourses', $course->id)}}" method="GET">--}}
-            @csrf
-            <tr>
-                <td>Course name: {{$course->name}}</td><br>
-                <td>Times purchased: {{$course->count}}</td><br>
-{{--                <td>Description: {{$course->description}}</td><br>--}}
-{{--                <td>Goals: {{$course->goals}}</td><br>--}}
-                <td>Video: {{$course->video_url}}</td><br>
-{{--                <td>Category: {{$category->name}}</td><br>--}}
-            </tr>
-{{--        </form>--}}
+
+        id: {{$course->id}} <br>
+        Course name: {{$course->name}} <br>
+        Times purchased:  <br>
+        Course description: {{$course->description}} <br>
+        Course goals: {{$course->goals}} <br>
+        Category: {{$course->category->name}} <br>
+        Video: {{$course->video_url}} <hr>
+
     @endforeach
+
+
+
 @endsection

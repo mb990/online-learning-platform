@@ -39,16 +39,17 @@ class User extends Authenticatable
 
     public function roles() {
 
-        return $this->hasMany(Role::class);
+        return $this->belongsToMany(Role::class);
+
     }
 
     public function profile() {
 
-        return $this->belongsTo(Profile::class);
+        return $this->hasOne(Profile::class);
     }
 
     public function courses() {
 
-        return $this->hasMany(Course::class);
+        return $this->belongsToMany(Course::class);
     }
 }
