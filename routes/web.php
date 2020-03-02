@@ -36,6 +36,8 @@ Route::get('/admin/users/{id}/view', 'AdminsController@showUser');
 Route::get('/courses', 'CoursesController@showAllWithCategories');
 Route::get('/courses/{id}/view', 'CoursesController@showSingle');
 Route::get('/category/{id}/view', 'CoursesController@showByCategory');
+Route::get('/courses/{id}/edit', 'CoursesController@edit');
+Route::put('/courses/{id}/submit', 'CoursesController@update');
 Route::get('/courses/new', 'CoursesController@create');
 Route::post('/courses/new/submit', 'CoursesController@store');
 

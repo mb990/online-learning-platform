@@ -120,7 +120,13 @@ class CoursesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $course = Course::find($id);
+
+        $categories = Category::all();
+
+        return view('courses.edit_course')
+            ->with('course', $course)
+            ->with('categories', $categories);
     }
 
     /**
@@ -132,7 +138,17 @@ class CoursesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $course = Course::find($id);
+
+        $course->name = $request->input('name');
+        $course->description = $request->input('description');
+        $course->goals = $request->input('goals');
+        $course->video_url = $request->input('video_url');
+        $course->category_id = $request->input('category_id');
+
+        $course->save();
+
+        return redirect('/courses/' . $course->id . '/view');
     }
 
     /**

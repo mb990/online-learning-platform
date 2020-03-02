@@ -3,40 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="442411f5-d34a-45d1-97e0-f1150e714626" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Course.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Course.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/CourseUser.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CoursesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CoursesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PagesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PagesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Role.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Role.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/RoleUser.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/CourseUserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/CourseUserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/RoleUserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/RoleUserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_24_133705_create_role_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_24_133705_create_role_user_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_24_133724_create_course_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_24_133724_create_course_user_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_25_084813_add_foreign_keys_to_roleuser.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_25_084813_add_foreign_keys_to_roleuser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_25_084905_add_foreign_keys_to_courseuser.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_25_084905_add_foreign_keys_to_courseuser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/CategoriesTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/CategoriesTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/CourseUserTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/CourseUserTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/RoleUserTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/RoleUserTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admins/edit_educator.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admins/edit_educator.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admins/edit_student.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admins/edit_student.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admins/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admins/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admins/show_educator.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admins/show_educator.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admins/show_educators.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admins/show_educators.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admins/show_student.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admins/show_student.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admins/show_students.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admins/show_students.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admins/show_user.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admins/show_user.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admins/show_users.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admins/show_users.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/courses/show_courses.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/show_courses.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/courses/show_single.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/show_single.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/educators.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/educators.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/homepage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/homepage.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/show_educator.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/show_educator.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/courses/create_course.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/create_course.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -187,7 +157,7 @@
       <workItem from="1582705296086" duration="24252000" />
       <workItem from="1582790660831" duration="26270000" />
       <workItem from="1582876242149" duration="26429000" />
-      <workItem from="1583136449506" duration="21715000" />
+      <workItem from="1583136449506" duration="26154000" />
     </task>
     <servers />
   </component>
@@ -207,10 +177,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1582704393805" />
-    <state x="789" y="478" width="399" height="149" key="NewPhpFileDialog" timestamp="1583149768971">
+    <state x="789" y="478" width="399" height="149" key="NewPhpFileDialog" timestamp="1583163249945">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="789" y="478" width="399" height="149" key="NewPhpFileDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1583149768971" />
+    <state x="789" y="478" width="399" height="149" key="NewPhpFileDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1583163249945" />
     <state x="476" y="271" key="SettingsEditor" timestamp="1583137054196">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
