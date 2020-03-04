@@ -21,8 +21,8 @@ class PagesController extends Controller
 
         $conditions = function ($query) use ($search){
             $query->where(function ($wheres) use ($search) {
-            $wheres->where('first_name', 'like', $search . '%')
-                   ->orWhere('last_name', 'like', $search . '%');
+            $wheres->where('first_name', 'like', '%' . $search . '%')
+                   ->orWhere('last_name', 'like', '%' . $search . '%');
             });
         };
 
@@ -49,5 +49,10 @@ class PagesController extends Controller
         $educator = User::find($id);
 
         return view('show_educator')->with('educator', $educator);
+    }
+
+    public function dashboard() {
+
+        return view('dashboard');
     }
 }

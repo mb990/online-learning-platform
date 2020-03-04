@@ -54,8 +54,11 @@ class AdminsController extends Controller
     public function editEducator($id) {
 
         $educator = User::find($id);
+        $roles = Role::all();
 
-        return view('admins.edit_educator')->with('educator', $educator);
+        return view('admins.edit_educator')
+            ->with('educator', $educator)
+            ->with('roles', $roles);
     }
 
     public function updateEducator(Request $request, $id) {
@@ -72,13 +75,15 @@ class AdminsController extends Controller
         $educator->profile->biography = $request->input('biography');
         $educator->profile->education = $request->input('education');
         $educator->profile->linkedin = $request->input('linkedin');
+        $educator->roles()->sync([$request->input('role')]);
 
         $educator->save();
+        $educator->profile->save();
 
-        return redirect('/admin/educators/' . $id . '/view')
+        return redirect('/admin/educators/')
             ->with('$educator', $educator);
 
-        return redirect('/admin/educators')->with('success', 'Educator is updated');
+        return redirect('/admin/educators');
     }
 
     public function destroyEducator($id) {
@@ -110,8 +115,11 @@ class AdminsController extends Controller
     public function editStudent($id) {
 
         $student = User::find($id);
+        $roles = Role::all();
 
-        return view('admins.edit_student')->with('student', $student);
+        return view('admins.edit_student')
+            ->with('student', $student)
+            ->with('roles', $roles);
     }
 
     public function updateStudent(Request $request, $id) {
@@ -128,11 +136,12 @@ class AdminsController extends Controller
         $student->profile->biography = $request->input('biography');
         $student->profile->education = $request->input('education');
         $student->profile->linkedin = $request->input('linkedin');
+        $student->roles()->sync([$request->input('role')]);
 
         $student->save();
         $student->profile->save();
 
-        return redirect('/admin/students/' . $id . '/view')
+        return redirect('/admin/students/')
             ->with('student', $student);
     }
 
@@ -147,16 +156,17 @@ class AdminsController extends Controller
 
     public function showALl() {
 
-        $users = User::all();
+        $users = User::whereHas('roles')
+            ->get();
 
-        return view('admins.show_users', compact('users'));
+        return view('admins.show_users')->with('users', $users);
     }
 
     public function showUser($id) {
 
-        $user = User::with('profile')->find($id);
+        $user = User::with('profile')
+            ->find($id);
 
-        return view('admins.show_user')
-            ->with('user', $user);
+        return view('admins.show_user')->with('user', $user);
     }
 }

@@ -36,15 +36,12 @@
                             <?php } ?>
                         </select><br>
 
-                        <button type="submit">Submit</button>
+                        <button class="btn btn-primary center-block" type="submit">Submit</button>
                     </form>
 
                 </div>
-
             </div>
         </div>
     </div>
 
     @endsection
-    </body>
-    </html>

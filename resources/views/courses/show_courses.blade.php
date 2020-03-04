@@ -14,39 +14,70 @@
 @section('content')
 {{--    {{dd($courses)}}--}}
 
-    <h2>Recently added courses</h2>
+    <div class="jumbotron">
+        <h1 class="text-center">Courses</h1>
+    </div>
 
-    @foreach($recentCourses as $recentCourse)
+    <div class="row justify-content-center">
 
-        Course name: {{$recentCourse->name}}<br>
+        <h2 class="text-primary">Recently added courses</h2>
 
-    @endforeach
+    </div><br><br><br>
 
-    <hr>
+    @if(count($recentCourses))
 
-<table>
+        <div class="row">
 
-    @foreach($categories as $category)
+            @foreach($recentCourses as $recentCourse)
 
-        <tr>
+                    <div class="col-md-4">
 
-            <td><a href="/category/{{$category->id}}/view">{{$category->name}}</a></td>
+{{--                        <p class="text-secondary"><strong>Course name:</strong> {{$recentCourse->name}}</p>--}}
+                        <a href="courses/{{$recentCourse->id}}/view">
+                            <img src="https://traininginbhopal.com/wp-content/uploads/2019/11/certificate-flat.png" alt="{{$recentCourse->name}} . 'image'">
+                        </a>
 
-        </tr>
+                    </div>
 
-    @endforeach
+            @endforeach
 
-</table>
+    @endif
 
-    <hr>
+        </div><br><br>
 
-    <h2>All courses:</h2>
+            <div class="row text-center">
 
-    @foreach ($courses as $course)
+                <div class="col-md-3">
 
-        Course name: {{$course->name}}<br>
-        <a href="/courses/{{$course->id}}/view">View course</a><hr>
+                    <table>
 
-    @endforeach
+                        @foreach($categories as $category)
+
+                            <tr>
+
+                                <td><a href="/category/{{$category->id}}/view">{{$category->name}}</a></td>
+
+                            </tr>
+
+                        @endforeach
+
+                    </table>
+
+                </div>
+
+            @foreach ($courses as $course)
+
+                <div class="col-md-3">
+
+                    <a href="courses/{{$course->id}}/view">
+                        <img src="https://traininginbhopal.com/wp-content/uploads/2019/11/certificate-flat.png" alt="{{$course->name}} . 'image'">
+                    </a>
+                    <p class="lead">{{$course->name}}</p>
+
+                </div>
+
+            @endforeach
+
+            </div>
 
 @endsection

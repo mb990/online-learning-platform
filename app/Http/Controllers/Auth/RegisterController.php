@@ -5,9 +5,12 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use App\Profile;
+use App\Role;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -50,7 +53,8 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -62,12 +66,55 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+
+    protected function createEducator() {
+
+        return view('auth.register_educator');
+    }
+
+    protected function storeEducator(Request $request)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+
+        $user = new User();
+        $user->first_name = $request->input('first_name');
+        $user->last_name = $request->input('last_name');
+        $user->email = $request->input('email');
+        $user->password = Hash::make($request->input('password'));
+        $user->save();
+
+        $role = Role::whereIn('name', ['educator'])->pluck('id');
+
+
+
+        $user->profile()->save(new Profile);
+        $user->profile()->user_id = $user->id;
+        $user->roles()->sync([$role[0]]);
+
+        return $user;
+    }
+
+    protected function createStudent() {
+
+        return view('auth.register_student');
+    }
+
+    protected function storeStudent(Request $request)
+    {
+        $user = new User();
+        $user->first_name = $request->input('first_name');
+        $user->last_name = $request->input('last_name');
+        $user->email = $request->input('email');
+        $user->password = Hash::make($request->input('password'));
+        $user->save();
+
+        $role = Role::whereIn('name', ['student'])->pluck('id');
+
+
+
+        $user->profile()->save(new Profile);
+        $user->profile()->user_id = $user->id;
+        $user->roles()->sync([$role[0]]);
+
+        return $user;
     }
 }

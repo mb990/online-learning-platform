@@ -3,15 +3,20 @@
 
 @section('content')
 
-    <h2>Profile for User {{$educator->id}}</h2>
+    <h2>Profile for educator {{$educator->id}}</h2><hr>
 
-        First name: {{$educator->first_name}}<br>
-        Last name: {{$educator->last_name}}<br>
-        Age: {{$educator->profile->age}}<br>
-        Linkedin: {{$educator->profile->linkedin}}<br>
-        Education: {{$educator->profile->education}}<br>
-        Image: {{$educator->profile->image_url}}<br>
-        Title: {{$educator->profile->title}}<br>
-        Biography: {{$educator->profile->biography}}<br>
+    <p class="lead"><strong>User id:</strong> {{$educator->id}}</p><br>
+    <p class="lead"><strong>First name:</strong> {{$educator->first_name}}</p><br>
+    <p class="lead"><strong>Last name:</strong> {{$educator->last_name}}</p><br>
+    <p class="lead"><strong>Email:</strong> {{$educator->email}}</p><br>
+    <p class="lead"><strong>Age:</strong> {{$educator->profile->age}}</p><br>
+    <p class="lead"><strong>Linkedin:</strong> {{$educator->profile->linkedin}}</p><br>
+    <p class="lead"><strong>Education:</strong> {{$educator->profile->education}}</p><br>
+    <p class="lead"><strong>Image:</strong> {{$educator->profile->image_url}}</p><br>
+    <p class="lead"><strong>Title:</strong> {{$educator->profile->title}}</p><br>
+    <p class="lead"><strong>Biography:</strong> {{$educator->profile->biography}}</p><br>
 
-@endsection
+    @endsection
+
+    </body>
+    </html>

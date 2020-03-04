@@ -3,17 +3,55 @@
 
 @section('content')
 
-    <h2>All users:</h2>
+    <div class="jumbotron">
+        <h1 class="text-center"> All users</h1>
+    </div>
 
-    @foreach ($users as $user)
+    @if(count($users))
+        {{--    {{dd($educators)}}--}}
+        @foreach ($users as $user)
 
-        First name: {{$user->first_name}}<br>
-        Last name: {{$user->last_name}}<br>
-        Role: {{$user->role}}<br>
-        <a href="/admin/users/{{$user->id}}/view">View profile</a><br>
+            <div class="row text-center">
 
-    @endforeach
+                <div class="col-md-4">
+
+                    <p class="text-secondary"><strong>First name:</strong> {{$user->first_name}}</p>
+                    <p class="text-secondary"><strong>Last name:</strong> {{$user->last_name}}</p>
+                    {{--                            <p class="text-secondary"><strong>Role:</strong> {{$educator->roles[0]->name}}</p><br>--}}
+
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <a href="/admin/educators/{{$user->id}}/view">View profile</a><br>
+                    <a href="/admin/educators/{{$user->id}}/edit">Edit profile</a><br><br>
+
+
+                </div>
+
+                <div class="col-md-4">
+                    <form action="{{action('AdminsController@destroyEducator', $user->id)}}" method="POST">
+
+                        @method('DELETE')
+                        @csrf
+                        <input class="btn btn-danger" type="submit" value="Delete user">
+
+                    </form>
+
+                </div>
+
+
+            </div>
+
+            <hr>
+
+        @endforeach
+
+    @else
+
+        <p>No educators to show.</p>
+
+    @endif
 
 @endsection
-</body>
-</html>

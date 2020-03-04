@@ -16,22 +16,22 @@ use Illuminate\Support\Facades\Auth;
 
 //Route::get('/', 'PagesController@index');
 Route::get('/', 'CoursesController@index');
-Route::get('/admin', 'PagesController@admin');
+Route::get('/admin', 'PagesController@admin')->name('admin');
 //Route::get('/courses', 'AdminsController@show_courses');
-Route::get('/admin/educators', 'AdminsController@showEducators');
-Route::get('/admin/educators/{id}/view', 'AdminsController@showEducator');
-Route::get('/admin/educators/{id}/edit', 'AdminsController@editEducator')->name('editEducator');
-Route::put('/admin/educators/{id}/submit', 'AdminsController@updateEducator')->name('updateEducator');
-Route::delete('/admin/educators/{id}/delete', 'AdminsController@destroyEducator')->name('deleteEducator');
+Route::get('/admin/educators', 'AdminsController@showEducators')->name('adminShowEducators');
+Route::get('/admin/educators/{id}/view', 'AdminsController@showEducator')->name('adminShowEducator');
+Route::get('/admin/educators/{id}/edit', 'AdminsController@editEducator')->name('adminEditEducator');
+Route::put('/admin/educators/{id}/submit', 'AdminsController@updateEducator');
+Route::delete('/admin/educators/{id}/delete', 'AdminsController@destroyEducator');
 
-Route::get('/admin/students', 'AdminsController@showStudents');
-Route::get('/admin/students/{id}/view', 'AdminsController@showStudent');
-Route::get('/admin/students/{id}/edit', 'AdminsController@editStudent')->name('editStudent');
-Route::put('/admin/students/{id}/submit', 'AdminsController@updateStudent')->name('updateStudent');
-Route::delete('/admin/students/{id}/delete', 'AdminsController@destroyStudent')->name('deleteStudent');
+Route::get('/admin/students', 'AdminsController@showStudents')->name('adminShowStudents');
+Route::get('/admin/students/{id}/view', 'AdminsController@showStudent')->name('adminShowStudent');
+Route::get('/admin/students/{id}/edit', 'AdminsController@editStudent')->name('adminEditStudent');
+Route::put('/admin/students/{id}/submit', 'AdminsController@updateStudent');
+Route::delete('/admin/students/{id}/delete', 'AdminsController@destroyStudent');
 
-Route::get('/admin/users', 'AdminsController@showAll');
-Route::get('/admin/users/{id}/view', 'AdminsController@showUser');
+Route::get('/admin/users', 'AdminsController@showAll')->name('adminShowAll');
+Route::get('/admin/users/{id}/view', 'AdminsController@showUser')->name('adminShowUser');
 
 Route::get('/courses', 'CoursesController@showAllWithCategories');
 Route::get('/courses/{id}/view', 'CoursesController@showSingle');
@@ -45,6 +45,16 @@ Route::get('/educators', 'PagesController@educators');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('register/educator', 'Auth\RegisterController@createEducator')->name('educatorRegistration');
+Route::post('register/educator/submit', 'Auth\RegisterController@storeEducator');
+
+Route::get('register/student', 'Auth\RegisterController@createStudent')->name('studentRegistration');
+Route::post('register/student/submit', 'Auth\RegisterController@storeStudent');
+
+//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/profile/{id}/edit', 'UsersController@editProfile');
+Route::put('/profile/{id}/submit', 'UsersController@updateProfile');
+
+Route::get('/dashboard', 'PagesController@dashboard');
 
 Route::get('/educators/{id}/view', 'PagesController@showEducator');

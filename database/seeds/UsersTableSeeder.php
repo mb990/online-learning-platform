@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\User;
+use App\Role;
+use Faker\Generator as Faker;
 
 class UsersTableSeeder extends Seeder
 {
@@ -12,5 +15,6 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         factory(App\User::class, 12)->create();
+
     }
 }

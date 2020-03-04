@@ -3,23 +3,55 @@
 
 @section('content')
 
-<h2>All students:</h2>
+    <div class="jumbotron">
+        <h1 class="text-center"> Students </h1>
+    </div>
 
-@foreach ($students as $student)
+    @if(count($students))
+        {{--    {{dd($educators)}}--}}
+        @foreach ($students as $student)
 
-    <tr>
-        <td>First name: {{$student->first_name}}</td><br>
-        <td>Last name: {{$student->last_name}}</td><br>
-        <td><a href="/admin/students/{{$student->id}}/view">View profile</a></td><br>
-        <td><a href="/admin/students/{{$student->id}}/edit">Edit</a></td>
-    </tr>
-    <form action="{{action('AdminsController@showStudent', $student->id)}}" method="GET">
+            <div class="row text-center">
 
-        @csrf
+                <div class="col-md-4">
 
-    </form>
-@endforeach
+                    <p class="text-secondary"><strong>First name:</strong> {{$student->first_name}}</p>
+                    <p class="text-secondary"><strong>Last name:</strong> {{$student->last_name}}</p>
+                    {{--                            <p class="text-secondary"><strong>Role:</strong> {{$educator->roles[0]->name}}</p><br>--}}
+
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <a href="/admin/students/{{$student->id}}/view">View profile</a><br>
+                    <a href="/admin/students/{{$student->id}}/edit">Edit profile</a><br><br>
+
+
+                </div>
+
+                <div class="col-md-4">
+                    <form action="{{action('AdminsController@destroyStudent', $student->id)}}" method="POST">
+
+                        @method('DELETE')
+                        @csrf
+                        <input class="btn btn-danger" type="submit" value="Delete user">
+
+                    </form>
+
+                </div>
+
+
+            </div>
+
+            <hr>
+
+        @endforeach
+
+    @else
+
+        <p>No educators to show.</p>
+
+    @endif
 
 @endsection
-</body>
-</html>

@@ -3,16 +3,18 @@
 
 @section('content')
 
-    <h2>Profile for User {{$student->id}}</h2>
+    <h2>Profile for student {{$student->id}}</h2><hr>
 
-        First name: {{$student->first_name}}<br>
-        Last name: {{$student->last_name}}<br>
-        Age: {{$student->profile->age}}<br>
-        Linkedin: {{$student->profile->linkedin}}<br>
-        Education: {{$student->profile->education}}<br>
-        Image: {{$student->profile->image_url}}<br>
-        Title: {{$student->profile->title}}<br>
-        Biography: {{$student->profile->biography}}<br>
+    <p class="lead"><strong>User id:</strong> {{$student->id}}</p><br>
+    <p class="lead"><strong>First name:</strong> {{$student->first_name}}</p><br>
+    <p class="lead"><strong>Last name:</strong> {{$student->last_name}}</p><br>
+    <p class="lead"><strong>Email:</strong> {{$student->email}}</p><br>
+    <p class="lead"><strong>Age:</strong> {{$student->profile->age}}</p><br>
+    <p class="lead"><strong>Linkedin:</strong> {{$student->profile->linkedin}}</p><br>
+    <p class="lead"><strong>Education:</strong> {{$student->profile->education}}</p><br>
+    <p class="lead"><strong>Image:</strong> {{$student->profile->image_url}}</p><br>
+    <p class="lead"><strong>Title:</strong> {{$student->profile->title}}</p><br>
+    <p class="lead"><strong>Biography:</strong> {{$student->profile->biography}}</p><br>
 
 @endsection
 </body>
