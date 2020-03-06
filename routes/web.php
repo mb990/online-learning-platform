@@ -35,7 +35,7 @@ Route::get('/admin/users/{id}/view', 'AdminsController@showUser')->name('adminSh
 
 Route::get('/courses', 'CoursesController@showAllWithCategories');
 Route::get('/courses/{id}/view', 'CoursesController@showSingle');
-Route::get('/category/{id}/view', 'CoursesController@showByCategory');
+Route::get('/category/{name}', 'CoursesController@showByCategory');
 Route::get('/courses/{id}/edit', 'CoursesController@edit');
 Route::put('/courses/{id}/submit', 'CoursesController@update');
 Route::get('/courses/new', 'CoursesController@create');
@@ -51,10 +51,11 @@ Route::post('register/educator/submit', 'Auth\RegisterController@storeEducator')
 Route::get('register/student', 'Auth\RegisterController@createStudent')->name('studentRegistration');
 Route::post('register/student/submit', 'Auth\RegisterController@storeStudent');
 
-//Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/profile/{id}/edit', 'UsersController@editProfile');
-Route::put('/profile/{id}/submit', 'UsersController@updateProfile');
+Route::get('/profiles/{id}/edit', 'UsersController@editProfile');
+Route::put('/profiles/{id}/submit', 'UsersController@updateProfile');
+Route::get('/profiles/{id}/fill', 'UsersController@fillProfile');
+Route::put('/profiles/{id}/fill/submit', 'UsersController@fillUpdateProfile');
 
-Route::get('/dashboard', 'PagesController@dashboard');
+Route::get('/dashboard', 'HomeController@index');
 
 Route::get('/educators/{id}/view', 'PagesController@showEducator');

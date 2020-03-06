@@ -1,5 +1,7 @@
 @extends('layouts.app')
-<?php $title = 'Show single educator'; ?>
+@section('title')
+    Show single educator
+@endsection
 
 @section('content')
 
@@ -16,7 +18,7 @@
     <p class="lead"><strong>Title:</strong> {{$educator->profile->title}}</p><br>
     <p class="lead"><strong>Biography:</strong> {{$educator->profile->biography}}</p><br>
 
-    @endsection
+@endsection
 
-    </body>
-    </html>
+</body>
+</html>

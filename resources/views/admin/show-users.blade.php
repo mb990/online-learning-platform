@@ -1,5 +1,7 @@
 @extends('layouts.app')
-<?php $title = 'Show all users'; ?>
+@section('title')
+    Show all users
+@endsection
 
 @section('content')
 
@@ -53,5 +55,11 @@
         <p>No educators to show.</p>
 
     @endif
+
+    <div class="row justify-content-center">
+
+        {{$users->links()}}
+
+    </div>
 
 @endsection

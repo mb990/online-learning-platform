@@ -1,5 +1,7 @@
 @extends('layouts.app')
-<?php $title = 'Show educators'; ?>
+@section('title')
+    Show educators
+@endsection
 
 @section('content')
 
@@ -8,7 +10,7 @@
     </div>
 
         @if(count($educators))
-{{--    {{dd($educators)}}--}}
+
             @foreach ($educators as $educator)
 
                 <div class="row text-center">
@@ -17,8 +19,6 @@
 
                         <p class="text-secondary"><strong>First name:</strong> {{$educator->first_name}}</p>
                         <p class="text-secondary"><strong>Last name:</strong> {{$educator->last_name}}</p>
-                        {{--                            <p class="text-secondary"><strong>Role:</strong> {{$educator->roles[0]->name}}</p><br>--}}
-
 
                     </div>
 
@@ -53,5 +53,11 @@
             <p>No educators to show.</p>
 
         @endif
+
+    <div class="row justify-content-center">
+
+        {{$educators->links()}}
+
+    </div>
 
 @endsection

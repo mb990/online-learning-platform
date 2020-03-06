@@ -20,6 +20,7 @@ class CreateCoursesTable extends Migration
             $table->bigInteger('category_id')->unsigned();
             $table->string('goals');
             $table->string('video_url');
+            $table->bigInteger('user_id')->unsigned();
             $table->timestamps();
         });
     }

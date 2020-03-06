@@ -1,5 +1,7 @@
 @extends('layouts.app')
-<?php $title = 'Edit profile'; ?>
+@section('title')
+    Edit profile
+@endsection
 
 @section('content')
 

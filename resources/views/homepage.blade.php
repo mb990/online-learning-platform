@@ -1,30 +1,37 @@
 @extends('layouts.app')
-<?php $title = 'Homepage'; ?>
+@section('title')
+    Homepage
+@endsection
+
 @section('content')
 
-    <div class="row text-center">
+    @guest
 
-        <div class="col-md-6">
+        <div class="row text-center">
 
-            <img src="http://vle.stgabriels.co.uk/pluginfile.php/5018/coursecat/description/lion.png" alt="educators">
+            <div class="col-md-6">
 
-            <h2 class="text-secondary"><strong>Želiš da postaviš svoj kurs?</strong></h2><br>
+                <img src="http://vle.stgabriels.co.uk/pluginfile.php/5018/coursecat/description/lion.png" alt="educators">
 
-            <h4><a href="/register/educator ">Prijavi se</a></h4>
+                <h2 class="text-secondary"><strong>Želiš da postaviš svoj kurs?</strong></h2><br>
 
-        </div>
+                <h4><a href="/register/educator ">Prijavi se</a></h4>
 
-        <div class="col-md-6">
+            </div>
 
-            <img src="https://rctmoodle.org/esisict/file.php/3/FP/games_kids.png" alt="students">
+            <div class="col-md-6">
 
-            <h2 class="text-secondary"><strong>Želiš da pohadjaš neki od kurseva?</strong></h2><br>
+                <img src="https://rctmoodle.org/esisict/file.php/3/FP/games_kids.png" alt="students">
 
-            <h4><a href="/register/student">Prijavi se</a></h4>
+                <h2 class="text-secondary"><strong>Želiš da pohadjaš neki od kurseva?</strong></h2><br>
 
-        </div>
+                <h4><a href="/register/student">Prijavi se</a></h4>
 
-    </div> <br><br><br>
+            </div>
+
+        </div> <br><br><br>
+
+    @endguest
 
     <div class="row text-center">
 
@@ -80,7 +87,7 @@
 
                 <a href="/courses/{{$course->id}}/view">
 
-                    <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/video-course-536883.png" alt="course_image"><br>
+                    <img src="{{$course->image_url}}" width="150" height="150" alt="course_image"><br>
                     <p class="lead"><strong>Course name:</strong> {{$course->name}}</p>
 
                 </a>

@@ -1,5 +1,7 @@
 @extends('layouts.app')
-<?php $title = 'Admin panel'; ?>
+@section('title')
+    Admin panel
+@endsection
 
 @section('content')
 

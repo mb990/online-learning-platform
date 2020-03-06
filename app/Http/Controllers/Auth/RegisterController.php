@@ -11,7 +11,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class RegisterController extends Controller
 {
     /*
@@ -32,7 +32,9 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+//    protected $redirectTo = RouteServiceProvider::HOME;
+
+//    protected $redirectTo = '/dashboard';
 
     /**
      * Create a new controller instance.
@@ -69,7 +71,7 @@ class RegisterController extends Controller
 
     protected function createEducator() {
 
-        return view('auth.register_educator');
+        return view('auth.register-educator');
     }
 
     protected function storeEducator(Request $request)
@@ -82,20 +84,19 @@ class RegisterController extends Controller
         $user->password = Hash::make($request->input('password'));
         $user->save();
 
-        $role = Role::whereIn('name', ['educator'])->pluck('id');
-
-
+        $role = Role::where('name', ['educator'])->pluck('id');
 
         $user->profile()->save(new Profile);
-        $user->profile()->user_id = $user->id;
         $user->roles()->sync([$role[0]]);
 
-        return $user;
+        Auth::login($user);
+
+        return redirect('/profiles/' . $user->id . '/fill');
     }
 
     protected function createStudent() {
 
-        return view('auth.register_student');
+        return view('auth.register-student');
     }
 
     protected function storeStudent(Request $request)
@@ -107,14 +108,13 @@ class RegisterController extends Controller
         $user->password = Hash::make($request->input('password'));
         $user->save();
 
-        $role = Role::whereIn('name', ['student'])->pluck('id');
-
-
+        $role = Role::where('name', ['student'])->pluck('id');
 
         $user->profile()->save(new Profile);
-        $user->profile()->user_id = $user->id;
         $user->roles()->sync([$role[0]]);
 
-        return $user;
+        Auth::login($user);
+
+        return redirect('/profiles/' . $user->id . '/fill');
     }
 }

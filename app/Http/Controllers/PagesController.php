@@ -12,7 +12,7 @@ class PagesController extends Controller
 
     public function admin() {
 
-        return view('admins.index');
+        return view('admin.index');
     }
 
     public function educators(Request $request) {
@@ -30,7 +30,7 @@ class PagesController extends Controller
             $q->whereIn('name', ['educator']);
         })
             ->where($conditions)
-            ->get();
+            ->paginate(10);
 
         $recentEducators = User::whereHas('roles', function($q){
             $q->whereIn('name', ['educator']);
@@ -48,7 +48,7 @@ class PagesController extends Controller
 
         $educator = User::find($id);
 
-        return view('show_educator')->with('educator', $educator);
+        return view('show-educator')->with('educator', $educator);
     }
 
     public function dashboard() {

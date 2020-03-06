@@ -1,5 +1,7 @@
 @extends('layouts.app')
-<?php $title = 'Edit profile'; ?>
+@section('title')
+    Edit profile
+@endsection
 
 @section('content')
 
@@ -14,7 +16,7 @@
 
                 <div class="panel-body">
 
-                    <form action="{{action('UsersController@updateProfile', $user->id)}}" method="POST">
+                    <form action="{{action('UsersController@fillUpdateProfile', $user->id)}}" method="POST">
                         @csrf
                         @method('PUT')
 
@@ -36,12 +38,12 @@
                         <label for="biography">Biography</label>
                         <textarea class="form-control" name="biography" id="biography"></textarea><br>
 
-                        <label for="role">role</label>
-                        <select disabled name="role" id="role">
+{{--                        <label for="role">role</label><br><br>--}}
+{{--                        <select disabled name="role" id="role">--}}
 
-                            <option selected value="{{$user->roles[0]->id}}">{{$user->roles[0]->name}}</option>
+{{--                            <option selected value="{{$user->roles[0]->id}}">{{$user->roles[0]->name}}</option>--}}
 
-                        </select><br><br>
+{{--                        </select><br><br>--}}
 
                         <button class="btn btn-primary center-block" type="submit">Submit</button>
                     </form><br>

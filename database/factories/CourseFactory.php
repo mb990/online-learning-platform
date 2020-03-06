@@ -4,11 +4,19 @@
 
 use App\Course;
 use App\Category;
+use App\User;
 use Faker\Generator as Faker;
 
 $factory->define(Course::class, function (Faker $faker) {
 
     $categories = Category::all()->pluck('id')->toArray();
+
+    $owners = User::whereHas('roles', function($q){
+        $q->whereIn('name', ['educator']);
+        })
+        ->get();
+
+//    $owners = User::all();
 
 
     return [
@@ -16,6 +24,7 @@ $factory->define(Course::class, function (Faker $faker) {
         'description' => $faker->text,
         'goals' => $faker->text($maxNbChars = 10),
         'video_url' => $faker->url,
-        'category_id' => $faker->randomElement($categories)
+        'category_id' => $faker->randomElement($categories),
+        'user_id' => $faker->randomElement($owners)
     ];
 });

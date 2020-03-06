@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddForeignKeysToCourses extends Migration
+class AddImageUrlToCourses extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,7 @@ class AddForeignKeysToCourses extends Migration
     public function up()
     {
         Schema::table('courses', function (Blueprint $table) {
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('image_url');
         });
     }
 

@@ -1,40 +1,88 @@
 @extends('layouts.app')
 
-<?php $title = 'Educators'; ?>
+@section('title')
+    Educators
+@endsection
 
 @section('content')
-{{--{{dd($recentEducators, $educators)}}--}}
+
     <h2>Recently joined</h2>
+
+<div class="row text-center">
 
     @foreach ($recentEducators as $recentEducator)
 
-        First name: {{$recentEducator->first_name}}<br>
-        Last name: {{$recentEducator->last_name}}<br>
-        <a href="/educators/{{$recentEducator->id}}/view">View profile</a><br>
+        <div class="col-md-4">
+
+            @if(!$recentEducator->profile->image_url)
+
+                <img src="https://previews.123rf.com/images/pikepicture/pikepicture1612/pikepicture161200526/68824651-male-default-placeholder-avatar-profile-gray-picture-isolated-on-white-background-for-your-design-ve.jpg" width="150" height="150" alt="profile picture">
+
+            @else
+
+                <img src="{{$recentEducator->profile->image_url}}" width="150" height="150" alt="profile picture">
+
+            @endif
+
+            <p class="text-secondary"> {{$recentEducator->first_name}} {{$recentEducator->last_name}}</p>
+
+        </div>
 
     @endforeach
 
-    <hr>
+</div><br><br>
 
-    <form action='{{action('PagesController@educators')}}' method="get">
+    <div class="row text-center justify-content-center">
 
-        <input type="search" name="search">
-        <span>
-            <button type="submit">Search</button>
-        </span>
+        <form action='{{action('PagesController@educators')}}' method="get">
 
-    </form>
-    <hr>
+            <input class="form-control" type="search" name="search"><br>
+            <button class="btn btn-info" type="submit">Search</button>
 
-    <h2>All educators</h2>
+        </form>
 
-    @foreach($educators as $educator)
+    </div><br>
 
-        First name: {{$educator->first_name}}<br>
-        Last name: {{$educator->last_name}}<br>
-{{--        Role: {{$educator->role[0]->name}}<br>--}}
-        <a href="/educators/{{$educator->id}}/view">View profile</a><br>
+<div class="jumbotron">
+    <h1 class="text-center">Educators</h1>
+</div>
 
-    @endforeach
+<div class="row text-center">
+
+    @if(count($educators))
+
+        @foreach ($educators as $educator)
+
+            <div class="col-md-3">
+
+                @if(!$educator->profile->image_url)
+
+                    <img src="https://previews.123rf.com/images/pikepicture/pikepicture1612/pikepicture161200526/68824651-male-default-placeholder-avatar-profile-gray-picture-isolated-on-white-background-for-your-design-ve.jpg" width="150" height="150" alt="profile picture">
+
+                @else
+
+                    <img src="{{$educator->profile->image_url}}" width="150" height="150" alt="profile picture">
+
+                @endif
+
+                    <p class="text-secondary"> {{$educator->first_name}} {{$educator->last_name}}</p>
+
+            </div>
+
+        @endforeach
+
+</div>
+
+@else
+
+    <p>No educators to show.</p>
+
+@endif
+
+<div class="row justify-content-center">
+
+    {{$educators->links()}}
+
+</div><br>
 
 @endsection

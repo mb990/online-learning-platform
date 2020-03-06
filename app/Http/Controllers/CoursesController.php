@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use App\Course;
 use App\Category;
 use Illuminate\Support\Facades\DB;
+use function foo\func;
 
 class CoursesController extends Controller
 {
@@ -18,9 +20,9 @@ class CoursesController extends Controller
     // show 3 most popular courses
     public function index()
     {
-        $courses = Course::with('users')
-            ->withCount('users')
-            ->latest('users_count')
+        $courses = Course::with('owner')
+            ->withCount('buyers')
+            ->latest('buyers_count')
             ->take(3)
             ->get();
 
@@ -41,7 +43,7 @@ class CoursesController extends Controller
     {
         $categories = Category::all();
 
-       return view('courses.create_course')->with('categories', $categories);
+       return view('courses.create-course')->with('categories', $categories);
     }
 
     /**
@@ -70,7 +72,7 @@ class CoursesController extends Controller
 
         $course->save();
 
-        return redirect('courses.show_courses');
+        return redirect('courses.show-courses');
     }
 
     /**
@@ -82,7 +84,7 @@ class CoursesController extends Controller
 
     public function showAllWithCategories() {
 
-        $courses = Course::all();
+        $courses = Course::paginate(9);
 
         $recentCourses = Course::take(3)
             ->latest()
@@ -90,7 +92,7 @@ class CoursesController extends Controller
 
         $categories = Category::all();
 
-        return view('courses.show_courses')
+        return view('courses.show-courses')
             ->with('courses', $courses)
             ->with('categories', $categories)
             ->with('recentCourses', $recentCourses);
@@ -100,16 +102,36 @@ class CoursesController extends Controller
     {
         $course = Course::find($id);
 
-        return view('courses.show_single')
-            ->with('course', $course);
+//        $owner = User::whereHas('createdCourses', function($q) use($id) {
+//            $q->whereIn('courses.id', [$id]);
+//            })
+//            ->first();
+
+        $goals = explode(' ', $course->goals);
+
+        $category = Category::where('id', '=', $course->category_id)->first();
+
+        $buyer = User::whereHas('boughtCourses', function ($q) use($id) {
+           $q->where('course_id', '=', $id);
+        });
+
+        return view('courses.show-single')
+            ->with('course', $course)
+            ->with('category', $category)
+            ->with('goals', $goals)
+            ->with('buyer', $buyer);
     }
 
-    public function showByCategory($id) {
+    public function showByCategory($category_name) {
 
-        $courses = Course::where('category_id', '=', $id)
+        $category = Category::where('name', '=', $category_name)->first();
+
+        $courses = Course::where('category_id', '=', $category->id)
             ->get();
 
-        return view('courses.show_by_category')->with('courses', $courses);
+        return view('courses.show-by-category')
+            ->with('courses', $courses)
+            ->with('category', $category);
     }
 
     /**
@@ -124,7 +146,7 @@ class CoursesController extends Controller
 
         $categories = Category::all();
 
-        return view('courses.edit_course')
+        return view('courses.edit-course')
             ->with('course', $course)
             ->with('categories', $categories);
     }
@@ -161,4 +183,5 @@ class CoursesController extends Controller
     {
         //
     }
+
 }

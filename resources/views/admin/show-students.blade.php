@@ -1,5 +1,7 @@
 @extends('layouts.app')
-<?php $title = 'Show students'; ?>
+@section('title')
+    Show students
+@endsection
 
 @section('content')
 
@@ -53,5 +55,11 @@
         <p>No educators to show.</p>
 
     @endif
+
+    <div class="row justify-content-center">
+
+        {{$students->links()}}
+
+    </div>
 
 @endsection

@@ -20,7 +20,7 @@ class UsersController extends Controller
 
         $roles = Role::all();
 
-        return view('editProfile')
+        return view('profiles.edit-profile')
             ->with('user', $user)
             ->with('roles', $roles);
     }
@@ -31,9 +31,25 @@ class UsersController extends Controller
 
         $roles = Role::all();
 
-        return view('fillProfile')
+        return view('profiles.fill-profile')
             ->with('user', $user)
             ->with('roles', $roles);
+    }
+
+    public function fillUpdateProfile(Request $request, $id) {
+
+        $user = User::find($id);
+
+        $user->profile->age = $request->input('age');
+        $user->profile->image_url = $request->input('image_url');
+        $user->profile->title = $request->input('title');
+        $user->profile->biography = $request->input('biography');
+        $user->profile->education = $request->input('education');
+        $user->profile->linkedin = $request->input('linkedin');
+
+        $user->profile->save();
+
+        return redirect('/dashboard');
     }
 
     public function updateProfile(Request $request, $id) {
@@ -48,7 +64,6 @@ class UsersController extends Controller
         $user->profile->biography = $request->input('biography');
         $user->profile->education = $request->input('education');
         $user->profile->linkedin = $request->input('linkedin');
-//        $user->roles()->sync([$request->input('role')]);
 
         $user->save();
         $user->profile->save();

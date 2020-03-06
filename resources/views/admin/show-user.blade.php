@@ -1,5 +1,7 @@
 @extends('layouts.app')
-<?php $title='Show user'; ?>
+@section('title')
+    Show user
+@endsection
 
 @section('content')
 

@@ -39,16 +39,16 @@ class AdminsController extends Controller
         $educators = User::whereHas('roles', function($q){
             $q->whereIn('name', ['educator']);
             })
-            ->get();
+            ->paginate(10);
 
-        return view('admins.show_educators')->with('educators', $educators);
+        return view('admin.show-educators')->with('educators', $educators);
     }
 
     public function showEducator($id) {
 
         $educator = User::find($id);
 
-        return view('admins.show_educator')->with('educator', $educator);
+        return view('admin.show-educator')->with('educator', $educator);
     }
 
     public function editEducator($id) {
@@ -56,7 +56,7 @@ class AdminsController extends Controller
         $educator = User::find($id);
         $roles = Role::all();
 
-        return view('admins.edit_educator')
+        return view('admin.edit_educator')
             ->with('educator', $educator)
             ->with('roles', $roles);
     }
@@ -100,16 +100,16 @@ class AdminsController extends Controller
         $students = User::whereHas('roles', function($q){
             $q->whereIn('name', ['student']);
         })
-            ->get();
+            ->paginate(10);
 
-        return view('admins.show_students')->with('students', $students);
+        return view('admin.show-students')->with('students', $students);
     }
 
     public function showStudent($id) {
 
         $student = User::find($id);
 
-        return view('admins.show_student')->with('student', $student);
+        return view('admin.show-student')->with('student', $student);
     }
 
     public function editStudent($id) {
@@ -117,7 +117,7 @@ class AdminsController extends Controller
         $student = User::find($id);
         $roles = Role::all();
 
-        return view('admins.edit_student')
+        return view('admin.edit-student')
             ->with('student', $student)
             ->with('roles', $roles);
     }
@@ -157,16 +157,16 @@ class AdminsController extends Controller
     public function showALl() {
 
         $users = User::whereHas('roles')
-            ->get();
+            ->paginate(10);
 
-        return view('admins.show_users')->with('users', $users);
+        return view('admin.show-users')->with('users', $users);
     }
 
     public function showUser($id) {
 
-        $user = User::with('profile')
+        $user = User::with('profiles')
             ->find($id);
 
-        return view('admins.show_user')->with('user', $user);
+        return view('admin.show-user')->with('user', $user);
     }
 }
