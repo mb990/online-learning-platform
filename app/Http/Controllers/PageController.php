@@ -2,12 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Course;
 use Illuminate\Http\Request;
 use App\User;
-class PagesController extends Controller
+class PageController extends Controller
 {
-    public function index() {
-        return view('homepage');
+    // show 3 most popular courses
+    public function index()
+    {
+        $courses = Course::with('owner')
+            ->withCount('buyers')
+            ->latest('buyers_count')
+            ->take(3)
+            ->get();
+
+        return view('homepage')->with('courses', $courses);
     }
 
     public function admin() {

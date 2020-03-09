@@ -110,11 +110,11 @@ class RegisterController extends Controller
 
         $role = Role::where('name', ['student'])->pluck('id');
 
-        $user->profile()->save(new Profile);
+//        $user->profile()->save(new Profile);
         $user->roles()->sync([$role[0]]);
 
         Auth::login($user);
 
-        return redirect('/profiles/' . $user->id . '/fill');
+        return redirect('/');
     }
 }

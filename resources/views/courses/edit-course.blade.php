@@ -16,7 +16,7 @@
 
                 <div class="panel-body">
 
-                    <form action="{{action('CoursesController@update', $course->id)}}" method="POST" xmlns="http://www.w3.org/1999/html">
+                    <form action="{{action('CourseController@update', $course->id)}}" method="POST" xmlns="http://www.w3.org/1999/html">
                         @csrf
                         @method('PUT')
                         <label for="course_name">Course name</label>
@@ -33,9 +33,9 @@
 
                         <label for="category">Category</label>
                         <select class="form-control" name="category_id">
-                            <?php foreach ($categories as $category) { ?>
-                            <option value="{{ $category->name }}">{{ $category->name }}</option>
-                            <?php } ?>
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
                         </select><br>
 
                         <button class="btn btn-primary center-block" type="submit">Submit</button>

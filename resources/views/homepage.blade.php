@@ -85,7 +85,7 @@
 
             <div class="col-md-4">
 
-                <a href="/courses/{{$course->id}}/view">
+                <a href="/courses/{{$course->id}}">
 
                     <img src="{{$course->image_url}}" width="150" height="150" alt="course_image"><br>
                     <p class="lead"><strong>Course name:</strong> {{$course->name}}</p>

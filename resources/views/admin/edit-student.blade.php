@@ -16,7 +16,7 @@
 
                 <div class="panel-body">
 
-                    <form action="{{action('AdminsController@updateStudent', $student->id)}}" method="POST">
+                    <form action="{{action('AdminUserController@updateStudent', $student->id)}}" method="POST">
                         @csrf
                         @method('PUT')
                         <label for="first_name">First name</label>
@@ -31,26 +31,26 @@
                         <label for="password">Password</label>
                         <input class="form-control" name="password" type="text" id="password" value="{{$student->password}}"><br>
 
-                        <label for="age">Age</label>
-                        <input class="form-control"name="age" type="number" id="age" value="{{$student->profile->age}}"><br>
+{{--                        <label for="age">Age</label>--}}
+{{--                        <input class="form-control"name="age" type="number" id="age" value="{{$student->profile->age}}"><br>--}}
 
-                        <label for="linkedin">Linkedin</label>
-                        <input class="form-control" name="linkedin" type="url" id="linkedin" value="{{$student->profile->linkedin}}"><br>
+{{--                        <label for="linkedin">Linkedin</label>--}}
+{{--                        <input class="form-control" name="linkedin" type="url" id="linkedin" value="{{$student->profile->linkedin}}"><br>--}}
 
-                        <label for="education">Education</label>
-                        <input class="form-control" name="education" type="text" id="education" value="{{$student->profile->education}}"><br>
+{{--                        <label for="education">Education</label>--}}
+{{--                        <input class="form-control" name="education" type="text" id="education" value="{{$student->profile->education}}"><br>--}}
 
-                        <label for="image_url">Image URL</label>
-                        <input class="form-control" name="image_url" type="url" id="image_url" value="{{$student->profile->image_url}}"><br>
+{{--                        <label for="image_url">Image URL</label>--}}
+{{--                        <input class="form-control" name="image_url" type="url" id="image_url" value="{{$student->profile->image_url}}"><br>--}}
 
-                        <label for="title">Title</label>
-                        <input class="form-control" name="title" type="text" id="title" value="{{$student->profile->title}}"><br>
+{{--                        <label for="title">Title</label>--}}
+{{--                        <input class="form-control" name="title" type="text" id="title" value="{{$student->profile->title}}"><br>--}}
 
-                        <label for="biography">Biography</label>
-                        <textarea class="form-control" name="biography" id="biography">{{$student->profile->biography}}</textarea><br>
+{{--                        <label for="biography">Biography</label>--}}
+{{--                        <textarea class="form-control" name="biography" id="biography">{{$student->profile->biography}}</textarea><br>--}}
 
-                        <label for="role">role</label>
-                        <select name="role" id="role">
+{{--                        <label for="role">role</label>--}}
+                        <select class="form-control" name="role" id="role">
 
                             @foreach($roles as $role)
 

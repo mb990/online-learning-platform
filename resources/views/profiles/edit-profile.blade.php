@@ -16,7 +16,7 @@
 
                 <div class="panel-body">
 
-                    <form action="{{action('UsersController@updateProfile', $user->id)}}" method="POST">
+                    <form action="{{action('ProfileController@update', $user->id)}}" method="POST">
                         @csrf
                         @method('PUT')
                         <label for="first_name">First name</label>
@@ -49,22 +49,23 @@
                         <label for="biography">Biography</label>
                         <textarea class="form-control" name="biography" id="biography">@if($user->profile) {{$user->profile->biography}} @endif</textarea><br>
 
-                        <label for="role">role</label>
-                        <select name="role" id="role">
+{{--                        <label for="role">role</label>--}}
+{{--                        <select name="role" id="role">--}}
 
-                            @if(!$user->roles)
+{{--                            @if(!$user->roles)--}}
 
-                                <option disabled selected value> -- select an option -- </option>
+{{--                                <option disabled selected value> -- select an option -- </option>--}}
 
-                            @endif
+{{--                            @endif--}}
 
-                            @foreach($roles as $role)
+{{--                            @foreach($roles as $role)--}}
 
-                                <option @if($role->id === $user->roles[0]->id) selected @endif value="{{$role->id}}">{{$role->name}}</option>
+{{--                                <option @if($role->id === $user->roles[0]->id) selected @endif value="{{$role->id}}">{{$role->name}}</option>--}}
 
-                            @endforeach
+{{--                            @endforeach--}}
 
-                        </select><br><br>
+{{--                        </select>--}}
+                        <br><br>
 
                         <button class="btn btn-primary center-block" type="submit">Submit</button>
                     </form><br>

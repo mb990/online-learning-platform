@@ -15,7 +15,7 @@
 
         <div class="col-md-6">
 
-            <h2>Create new course, buddy</h2>
+            <h2>Napravi novi kurs, kolega</h2>
 
         </div>
 
@@ -23,7 +23,7 @@
 
         <div class="col-md-6">
 
-            <h2>Your courses</h2>
+            <h2>Moji kursevi</h2>
 
             @if($courses)
 
@@ -31,7 +31,7 @@
 
                 <div class="col-md-4">
 
-                    <a href="/courses/{{$course->id}}/view">
+                    <a href="/courses/{{$course->id}}">
                         <img src="{{$course->image_url}}" width="150" height="150" alt="profile picture">
                         <p class="lead">{{$course->name}}</p><br>
                     </a>
@@ -42,7 +42,7 @@
 
             @else
 
-                <p class="lead">You dont have courses.</p><br>
+                <p class="lead">Nemate aktivnih kurseva.</p><br>
 
             @endif
 

@@ -26,14 +26,17 @@
 
                 <div class="col-md-4">
 
-                    <a href="/admin/educators/{{$user->id}}/view">View profile</a><br>
-                    <a href="/admin/educators/{{$user->id}}/edit">Edit profile</a><br><br>
-
+                    @if($user->hasRole('educator'))
+                        <a href="/admin/educators/{{$user->id}}">View profile</a><br>
+                        <a href="/admin/educators/{{$user->id}}/edit">Edit profile</a><br><br>
+                    @else
+                        <a href="/admin/students/{{$user->id}}">View profile</a><br>
+                    @endif
 
                 </div>
 
                 <div class="col-md-4">
-                    <form action="{{action('AdminsController@destroyEducator', $user->id)}}" method="POST">
+                    <form action="{{action('AdminUserController@destroyEducator', $user->id)}}" method="POST">
 
                         @method('DELETE')
                         @csrf

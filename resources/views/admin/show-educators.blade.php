@@ -24,14 +24,14 @@
 
                     <div class="col-md-4">
 
-                        <a href="/admin/educators/{{$educator->id}}/view">View profile</a><br>
+                        <a href="/admin/educators/{{$educator->id}}">View profile</a><br>
                         <a href="/admin/educators/{{$educator->id}}/edit">Edit profile</a><br><br>
 
 
                     </div>
 
                     <div class="col-md-4">
-                        <form action="{{action('AdminsController@destroyEducator', $educator->id)}}" method="POST">
+                        <form action="{{action('AdminUserController@destroyEducator', $educator->id)}}" method="POST">
 
                             @method('DELETE')
                             @csrf

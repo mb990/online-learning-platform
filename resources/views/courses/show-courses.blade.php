@@ -34,8 +34,7 @@
 
                     <div class="col-md-4 text-center">
 
-{{--                        <p class="text-secondary"><strong>Course name:</strong> {{$recentCourse->name}}</p>--}}
-                        <a href="courses/{{$recentCourse->id}}/view">
+                        <a href="courses/{{$recentCourse->id}}">
                             <img src="{{$recentCourse->image_url}}" width="150" height="150" alt="course_image"><br>
                             <p class="lead">{{$recentCourse->name}}</p>
                         </a>
@@ -82,7 +81,7 @@
 
                             <div class="col-md-4">
 
-                                <a href="courses/{{$course->id}}/view">
+                                <a href="courses/{{$course->id}}">
                                     <img src="{{$course->image_url}}" width="150" height="150" alt="course_image"><br>
                                     <p class="lead">{{$course->name}}</p>
                                 </a>

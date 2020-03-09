@@ -30,20 +30,27 @@
 {{--                    </li>--}}
 {{--                @endif--}}
             @else
-                @auth
-                    <li><a class="nav-link {{ Request::is('dahsboard') ? 'active' : '' }}" href="/dashboard">Dashboard</a></li>
-                @endauth
+{{--                @auth--}}
+{{--                    <li><a class="nav-link {{ Request::is('dahsboard') ? 'active' : '' }}" href="/dashboard">Dashboard</a></li>--}}
+{{--                @endauth--}}
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ auth()->user()->first_name }} {{ auth()->user()->last_name }} <span class="caret"></span>
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                           onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
+                        @if(auth()->user()->hasRole('educator'))
+                            <a class="dropdown-item" href="/profiles/{{auth()->user()->profile->id}}">Moj profil</a>
+                            <a class="dropdown-item" href="/dashboard">Moji kursevi</a>
+                        @endif
+                        @if(auth()->user()->hasRole('student'))
+                            <a class="dropdown-item" href="/profiles/{{auth()->user()->profile->id}}">Moji kursevi</a>
+                        @endif
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                {{ __('Odjava') }}
+                            </a>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf

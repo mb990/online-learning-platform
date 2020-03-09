@@ -15,8 +15,10 @@ class CourseUserTableSeeder extends Seeder
     {
         $courses = Course::all();
 
-        User::all()->each(function ($user) use ($courses) {
-            $user->courses()->attach($courses->random((rand(1, 3))));
+        User::whereHas('roles', function($q){
+            $q->where('name', '=', 'student');
+        })->each(function ($user) use ($courses) {
+            $user->boughtCourses()->attach($courses->random((rand(1, 3))));
         });
     }
 }

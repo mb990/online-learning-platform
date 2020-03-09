@@ -3,18 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Role;
-use App\User;;
+use App\User;
 use Illuminate\Http\Request;
 
-class UsersController extends Controller
+class ProfileController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
 
-    public function editProfile($id) {
+public function show($id) {
+
+    $user = User::find($id);
+
+    return view('my-profile')->with('user', $user);
+}
+
+    public function edit($id) {
 
         $user = User::find($id);
 
@@ -25,34 +27,7 @@ class UsersController extends Controller
             ->with('roles', $roles);
     }
 
-    public function fillProfile($id) {
-
-        $user = User::find($id);
-
-        $roles = Role::all();
-
-        return view('profiles.fill-profile')
-            ->with('user', $user)
-            ->with('roles', $roles);
-    }
-
-    public function fillUpdateProfile(Request $request, $id) {
-
-        $user = User::find($id);
-
-        $user->profile->age = $request->input('age');
-        $user->profile->image_url = $request->input('image_url');
-        $user->profile->title = $request->input('title');
-        $user->profile->biography = $request->input('biography');
-        $user->profile->education = $request->input('education');
-        $user->profile->linkedin = $request->input('linkedin');
-
-        $user->profile->save();
-
-        return redirect('/dashboard');
-    }
-
-    public function updateProfile(Request $request, $id) {
+    public function update(Request $request, $id) {
 
         $user = User::find($id);
 
@@ -66,6 +41,33 @@ class UsersController extends Controller
         $user->profile->linkedin = $request->input('linkedin');
 
         $user->save();
+        $user->profile->save();
+
+        return redirect('/dashboard');
+    }
+
+    public function fill($id) {
+
+        $user = User::find($id);
+
+        $roles = Role::all();
+
+        return view('profiles.fill-profile')
+            ->with('user', $user)
+            ->with('roles', $roles);
+    }
+
+    public function store(Request $request, $id) {
+
+        $user = User::find($id);
+
+        $user->profile->age = $request->input('age');
+        $user->profile->image_url = $request->input('image_url');
+        $user->profile->title = $request->input('title');
+        $user->profile->biography = $request->input('biography');
+        $user->profile->education = $request->input('education');
+        $user->profile->linkedin = $request->input('linkedin');
+
         $user->profile->save();
 
         return redirect('/dashboard');

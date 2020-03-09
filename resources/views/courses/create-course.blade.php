@@ -16,7 +16,7 @@
 
                 <div class="panel-body">
 
-                    <form action="{{action('CoursesController@store')}}" method="POST" xmlns="http://www.w3.org/1999/html">
+                    <form action="{{action('CourseController@store')}}" method="POST" xmlns="http://www.w3.org/1999/html">
                         @csrf
                         <label for="course_name">Course name</label>
                         <input class="form-control" name="name" type="text" id="name"><br>

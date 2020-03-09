@@ -3,13 +3,17 @@
 @section('title')
     Show single course
 @endsection
-
+{{--{{dd($course->boughtBy(auth()->user()->id))}}--}}
 @section('content')
 
 <br>
-<div class="row">
+<div class="row text-center">
 
-    <h1>{{$course->name}}</h1>
+    <div class="col-md-12">
+
+        <h1 class="text-uppercase">{{$course->name}}</h1>
+
+    </div>
 
 </div><br>
 
@@ -17,17 +21,24 @@
 
 {{--    @if(auth()->user()->boughtCourses->contains($course->id))--}}
 {{--{{ dd($course->boughtBy(14)->toSql())  }}--}}
-    <div class="row text-center">
 
-        @if($course->boughtBy(auth()->user()->id))
+@if($course->boughtBy(auth()->user()->id) === false || $course->owner->id !== auth()->user()->id)
 
-            <div class="col-md-5">
+    <h2 class="text-center text-danger">Kupite ovaj kurs da vidite ceo sadrzaj</h2><br>
 
-                <iframe width="400" height="200" src="{{$course->video_url}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+@endif
 
-            </div>
+<div class="row text-center">
 
-        @endif
+    @if($course->boughtBy(auth()->user()->id) || $course->owner->id === auth()->user()->id)
+
+        <div class="col-md-5">
+
+            <iframe width="400" height="200" src="{{$course->video_url}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        </div>
+
+    @endif
 
         <div class="col-md-7">
 
@@ -56,11 +67,11 @@
 
     <div class="row">
 
-        <h3>Table of content</h3>
+        <h3>Sadrzaj kursa</h3>
 
         <ol class="connected list no2" style="width: 1000px; min-height:200px; border: 1px solid black">
 
-            @if($course->boughtBy(auth()->user()->id))
+            @if($course->boughtBy(auth()->user()->id) || $course->owner->id === auth()->user()->id)
 
                 @if(count($course->contents))
 
@@ -74,25 +85,30 @@
 
                 @endif
 
-                @else
+            @else
+
+                @if(count($course->contents))
 
                     <li>
                         {{$course->contents[0]->description}}
                     </li>
 
                     <li>
-                        <strong>Buy this course to see the rest.</strong>
+                        <strong>Kupite ovaj kurs da vidite ostatak.</strong>
                     </li>
+
+                @endif
 
                 @if(!count($course->contents))
 
                     <li>
-                        No content for this course.
+                        Ovaj kurs nema sadrzaj.
                     </li>
 
                 @endif
 
             @endif
+
 
         </ol>
 
@@ -119,7 +135,7 @@
             @else
 
                 <li>
-                    No goals for this course.
+                    Ovaj kurs nema definisane ciljeve.
                 </li>
 
             @endif

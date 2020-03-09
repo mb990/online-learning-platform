@@ -16,7 +16,7 @@
 
                 <div class="panel-body">
 
-                    <form action="{{action('UsersController@fillUpdateProfile', $user->id)}}" method="POST">
+                    <form action="{{action('ProfileController@store', $user->id)}}" method="POST">
                         @csrf
                         @method('PUT')
 
