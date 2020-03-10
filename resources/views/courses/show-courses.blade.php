@@ -39,6 +39,26 @@
                             <p class="lead">{{$recentCourse->name}}</p>
                         </a>
 
+                        @if(auth()->user()->hasRole('student') && !$recentCourse->followedBy(auth()->user()->id))
+
+                            <form action="{{action('StudentController@followCourse', $recentCourse->id)}}" method="POST">
+                                @csrf
+                                <input class="form-control" type="submit" value="Prijavi se">
+
+                            </form>
+
+                        @elseif(auth()->user()->hasRole('student') && $recentCourse->followedBy(auth()->user()->id))
+
+                            <form action="{{action('StudentController@unfollowCourse', $recentCourse->id)}}" method="POST">
+
+                                @method('DELETE')
+                                @csrf
+                                <input class="form-control-odjava" type="submit" value="Odjavi se">
+
+                            </form>
+
+                        @endif
+
                     </div>
 
             @endforeach
@@ -77,18 +97,47 @@
 
                     <div class="row">
 
-                        @foreach ($courses as $course)
+                        @if(count($courses))
 
-                            <div class="col-md-4">
+                            @foreach ($courses as $course)
 
-                                <a href="courses/{{$course->id}}">
-                                    <img src="{{$course->image_url}}" width="150" height="150" alt="course_image"><br>
-                                    <p class="lead">{{$course->name}}</p>
-                                </a>
+                                <div class="col-md-4">
 
-                            </div>
+                                    <a href="courses/{{$course->id}}">
+                                        <img src="{{$course->image_url}}" width="150" height="150" alt="course_image"><br>
+                                        <p class="lead">{{$course->name}}</p>
+                                    </a>
 
-                        @endforeach
+                                    @if(auth()->user()->hasRole('student') && !$course->followedBy(auth()->user()->id))
+
+                                        <form action="{{action('StudentController@followCourse', $course->id)}}" method="POST">
+
+                                            @csrf
+                                            <input class="form-control" type="submit" value="Prijavi se">
+
+                                        </form>
+
+                                    @elseif(auth()->user()->hasRole('student') && $course->followedBy(auth()->user()->id))
+
+                                        <form action="{{action('StudentController@unfollowCourse', $course->id)}}" method="POST">
+
+                                            @method('DELETE')
+                                            @csrf
+                                            <input class="form-control-odjava" type="submit" value="Odjavi se">
+
+                                        </form>
+
+                                    @endif
+
+                                </div>
+
+                            @endforeach
+
+                        @else
+
+                            <p class="p-3 mb-2 bg-warning text-dark">Trenutno nema kurseva.</p>
+
+                        @endif
 
                     </div>
 

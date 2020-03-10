@@ -13,7 +13,7 @@ class EducatorController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('role:ROLE_EDUCATOR');
+        $this->middleware('role:educator');
     }
 
     public function create()
@@ -56,8 +56,11 @@ class EducatorController extends Controller
 
         $course = Course::find($id);
 
+        $categories = Category::all();
+
         return view('courses.edit-course')
-            ->with('user', $course);
+            ->with('course', $course)
+            ->with('categories', $categories);
     }
 
     public function update(Request $request, $id) {
@@ -75,5 +78,14 @@ class EducatorController extends Controller
         $course->save();
 
         return redirect('/courses/' . $course->id . '/');
+    }
+
+    public function destroy($id) {
+
+        $course = Course::find($id);
+
+        $course->delete();
+
+        return redirect('/profiles/' . auth()->user()->id);
     }
 }

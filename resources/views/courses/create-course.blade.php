@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    Create new course
+    Kreiraj kurs
 @endsection
 
 @section('content')
@@ -10,34 +10,35 @@
             <div class="panel panel-default">
                 <div class="panel-heading text-center">
 
-                    <h3 class="text-info">Create new course</h3>
+                    <h3 class="text-info">Novi kurs</h3>
 
-                </div>
+                </div><br>
 
                 <div class="panel-body">
 
-                    <form action="{{action('CourseController@store')}}" method="POST" xmlns="http://www.w3.org/1999/html">
+                    <form action="{{action('EducatorController@store')}}" method="POST" xmlns="http://www.w3.org/1999/html">
                         @csrf
-                        <label for="course_name">Course name</label>
-                        <input class="form-control" name="name" type="text" id="name"><br>
+                        <label for="course_name">Ime kursa</label>
+                        <input class="form-control" name="name" type="text" id="name" placeholder="Ime kursa"><br>
 
-                        <label for="description">Course description</label>
-                        <textarea class="form-control" name="description" id="description" placeholder="Course description"></textarea><br>
+                        <label for="description">Opis kursa</label>
+                        <textarea class="form-control" name="description" id="description" placeholder="Opis kursa"></textarea><br>
 
-                        <label for="goals">Course goals</label>
-                        <input class="form-control" name="goals" type="text" id="goals"><br>
+                        <label for="goals">Ciljevi</label>
+                        <input class="form-control" name="goals" type="text" id="goals" placeholder="Ciljevi kursa"><br>
 
-                        <label for="video_url">Video URL</label>
-                        <input class="form-control" name="video_url" type="url" id="video_url"><br>
+                        <label for="video_url">Video</label>
+                        <input class="form-control" name="video_url" type="url" id="video_url" placeholder="Video"><br>
 
-                        <label for="category">Category</label>
+                        <label for="category">Kategorija</label>
                         <select class="form-control" name="category_id">
+                            <option style="display: none" disabled selected value> -- izaberi kategoriju -- </option>
                             <?php foreach ($categories as $category) { ?>
                             <option value="{{ $category->name }}">{{ $category->name }}</option>
                             <?php } ?>
                         </select><br>
 
-                        <button class="btn btn-primary" type="submit">Submit</button>
+                        <button class="btn btn-primary" type="submit">Potvrdi</button>
                     </form>
 
                 </div>

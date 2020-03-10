@@ -38,7 +38,7 @@
 
         <main class="container">
             @if(!Request::is('/'))
-                <a class="btn btn-default" onclick="history.go(-1);">Back</a>
+                <a class="btn btn-default" onclick="history.go(-1);">Nazad</a>
             @endif
             @yield('content')
         </main>

@@ -50,11 +50,18 @@ class CourseController extends Controller
            $q->where('course_id', '=', $id);
         });
 
+        $recommendedCourses = Course::where('user_id', '=', $course->user_id)
+            ->where('id', '!=', $course->id)
+            ->inRandomOrder()
+            ->take(3)
+            ->get();
+
         return view('courses.show-single')
             ->with('course', $course)
             ->with('category', $category)
             ->with('goals', $goals)
-            ->with('buyer', $buyer);
+            ->with('buyer', $buyer)
+            ->with('recommendedCourses', $recommendedCourses);
     }
 
     public function showByCategory($category_name) {

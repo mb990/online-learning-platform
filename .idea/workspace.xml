@@ -2,34 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="442411f5-d34a-45d1-97e0-f1150e714626" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminUserController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminsController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Course.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Course.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CoursesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PagesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UsersController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EducatorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EducatorController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/CourseUserTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/CourseUserTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/edit-educator.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/edit-educator.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/edit-student.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/edit-student.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/show-educators.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/show-educators.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/show-student.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/show-student.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/show-students.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/show-students.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/show-users.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/show-users.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/courses/create-course.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/create-course.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/courses/edit-course.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/edit-course.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/courses/show-by-category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/show-by-category.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/courses/show-courses.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/show-courses.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/courses/show-single.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/show-single.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/educators.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/educators.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/homepage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/homepage.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/includes/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/navbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/my-profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/educator.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/profiles/edit-profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profiles/edit-profile.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/profiles/fill-profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profiles/fill-profile.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/show-educator.blade.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -154,8 +149,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/views/profile" />
       <recent name="$PROJECT_DIR$/resources/views" />
+      <recent name="$PROJECT_DIR$/resources/views/profile" />
       <recent name="$PROJECT_DIR$/resources/views/auth" />
       <recent name="$PROJECT_DIR$/resources/views/users" />
     </key>
@@ -190,7 +185,8 @@
       <workItem from="1583395900659" duration="28779000" />
       <workItem from="1583482444024" duration="23999000" />
       <workItem from="1583741942416" duration="7000000" />
-      <workItem from="1583749253820" duration="16091000" />
+      <workItem from="1583749253820" duration="16878000" />
+      <workItem from="1583828780214" duration="25360000" />
     </task>
     <servers />
   </component>
@@ -210,18 +206,18 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1582704393805" />
-    <state x="789" y="478" width="399" height="149" key="NewPhpFileDialog" timestamp="1583761083821">
+    <state x="789" y="478" width="399" height="149" key="NewPhpFileDialog" timestamp="1583844353505">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="789" y="478" width="399" height="149" key="NewPhpFileDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1583761083821" />
+    <state x="789" y="478" width="399" height="149" key="NewPhpFileDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1583844353505" />
     <state x="476" y="271" key="SettingsEditor" timestamp="1583137054196">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="476" y="271" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1583137054196" />
-    <state x="657" y="253" width="672" height="677" key="run.anything.popup" timestamp="1583506977311">
+    <state x="657" y="253" width="672" height="677" key="run.anything.popup" timestamp="1583830481975">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="657" y="253" width="672" height="677" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1583506977311" />
+    <state x="657" y="253" width="672" height="677" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1583830481975" />
     <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1583764906710">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -235,7 +231,7 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/resources/views/my-profile.blade.php</url>
+          <url>file://$PROJECT_DIR$/resources/views/educator.blade.php</url>
           <line>22</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    Show course by category
+    Kategorije
 @endsection
 
 @section('content')
@@ -9,7 +9,7 @@
 
         <div class="col-md-12">
 
-            <h1>{{ ucfirst($category->name) }} courses</h1><br>
+            <h1>{{ ucfirst($category->name) }} kursevi</h1><br>
 
         </div>
 
@@ -26,7 +26,7 @@
                     <a href="/courses/{{$course->id}}/view">
 
                         <iframe width="300" height="155" src="{{$course->video_url}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <p class="lead"><strong>Course name:</strong> {{$course->name}}</p>
+                        <p class="lead"><strong>Ime kursa:</strong> {{$course->name}}</p>
 
                     </a>
 
@@ -36,7 +36,7 @@
 
         @else
 
-         <p class="lead">No courses for this category.</p>
+         <p class="lead">Ova kategorija nema kreirane kurseve.</p>
 
         @endif
 

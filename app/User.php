@@ -48,7 +48,7 @@ class User extends Authenticatable
         return $this->hasOne(Profile::class);
     }
 
-    public function boughtCourses() {
+    public function followedCourses() {
 
         return $this->belongsToMany(Course::class)->withTimestamps();
     }
@@ -58,7 +58,7 @@ class User extends Authenticatable
         return $this->hasMany(Course::class);
     }
 
-    public function ifBoughtCourse($id) {
+    public function isFollowingCourse($id) {
 
         return $this->boughtCourses()->find($id);
     }

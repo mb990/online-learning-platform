@@ -13,7 +13,7 @@ public function show($id) {
 
     $user = User::find($id);
 
-    return view('my-profile')->with('user', $user);
+    return view('educator')->with('user', $user);
 }
 
     public function edit($id) {
@@ -43,7 +43,7 @@ public function show($id) {
         $user->save();
         $user->profile->save();
 
-        return redirect('/dashboard');
+        return redirect('/profiles/' . $user->profile->id);
     }
 
     public function fill($id) {

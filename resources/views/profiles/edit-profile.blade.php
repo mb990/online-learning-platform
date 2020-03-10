@@ -1,78 +1,94 @@
 @extends('layouts.app')
 @section('title')
-    Edit profile
+    Izmeni profil
 @endsection
 
 @section('content')
 
-    <div class="row justify-content-center">
-        <div class="col-sm-4 col-md-4 col-lg-4">
-            <div class="panel panel-default">
-                <div class="panel-heading text-center">
+    @if($user->id !== auth()->user()->id)
 
-                    <h3 class="text-info">Edit profile</h3>
+        <div class="row justify-content-center">
 
-                </div>
+            <div class="col-md-6">
 
-                <div class="panel-body">
+                <img width="400" height="400" src="https://images.8tracks.com/cover/i/000/104/534/3973376_700b-5093.jpg?rect=67,0,565,565&q=98&fm=jpg&fit=max" alt="">
 
-                    <form action="{{action('ProfileController@update', $user->id)}}" method="POST">
-                        @csrf
-                        @method('PUT')
-                        <label for="first_name">First name</label>
-                        <input class="form-control" name="first_name" type="text" id="first_name" value="{{$user->first_name}}" ><br>
+            </div>
 
-                        <label for="last_name">Last name</label>
-                        <input class="form-control" name="last_name" type="text" id="last_name" value="{{$user->last_name}}"><br>
+        </div>
 
-                        <label for="email">Email</label>
-                        <input class="form-control" name="email" type="text" id="email" value="{{$user->email}}"><br>
+    @else
 
-{{--                        <label for="password">Password</label>--}}
-                        <input class="form-control" name="password" type="hidden" id="password" value="{{$user->password}}"><br>
+        <div class="row justify-content-center">
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center">
 
-                        <label for="age">Age</label>
-                        <input class="form-control" name="age" type="number" id="age" value="@if($user->profile) {{$user->profile->age}} @endif"><br>
+                        <h3 class="text-info">Izmeni profil</h3>
 
-                        <label for="linkedin">Linkedin</label>
-                        <input class="form-control" name="linkedin" type="url" id="linkedin" value="@if($user->profile) {{$user->profile->linkedin}} @endif"><br>
+                    </div>
 
-                        <label for="education">Education</label>
-                        <input class="form-control" name="education" type="text" id="education" value="@if($user->profile) {{$user->profile->education}} @endif"><br>
+                    <div class="panel-body">
 
-                        <label for="image_url">Image URL</label>
-                        <input class="form-control" name="image_url" type="url" id="image_url" value="@if($user->profile) {{$user->profile->image_url}} @endif"><br>
+                        <form action="{{action('ProfileController@update', $user->id)}}" method="POST">
+                            @csrf
+                            @method('PUT')
+                            <label for="first_name">Ime</label>
+                            <input class="form-control" name="first_name" type="text" id="first_name" value="{{$user->first_name}}" ><br>
 
-                        <label for="title">Title</label>
-                        <input class="form-control" name="title" type="text" id="title" value="@if($user->profile) {{$user->profile->title}} @endif"><br>
+                            <label for="last_name">Prezime</label>
+                            <input class="form-control" name="last_name" type="text" id="last_name" value="{{$user->last_name}}"><br>
 
-                        <label for="biography">Biography</label>
-                        <textarea class="form-control" name="biography" id="biography">@if($user->profile) {{$user->profile->biography}} @endif</textarea><br>
+    {{--                        <label for="email">Email</label>--}}
+    {{--                        <input class="form-control" name="email" type="text" id="email" value="{{$user->email}}"><br>--}}
 
-{{--                        <label for="role">role</label>--}}
-{{--                        <select name="role" id="role">--}}
+    {{--                        <label for="password">Password</label>--}}
+    {{--                        <input class="form-control" name="password" type="hidden" id="password" value="{{$user->password}}"><br>--}}
 
-{{--                            @if(!$user->roles)--}}
+                            <label for="age">Godine</label>
+                            <input class="form-control" name="age" type="number" id="age" placeholder="Age" value={{$user->profile->age}}><br>
 
-{{--                                <option disabled selected value> -- select an option -- </option>--}}
+                            <label for="linkedin">Linkedin</label>
+                            <input class="form-control" name="linkedin" type="url" id="linkedin" placeholder="Your linkedin url" value="{{$user->profile->linkedin}}"><br>
 
-{{--                            @endif--}}
+                            <label for="education">Obrazovanje</label>
+                            <input class="form-control" name="education" type="text" id="education" placeholder="Your education" value="{{$user->profile->education}}"><br>
 
-{{--                            @foreach($roles as $role)--}}
+                            <label for="image_url">Profilna slika</label>
+                            <input class="form-control" name="image_url" type="url" id="image_url" placeholder="Your profile picture" value="{{$user->profile->image_url}}"><br>
 
-{{--                                <option @if($role->id === $user->roles[0]->id) selected @endif value="{{$role->id}}">{{$role->name}}</option>--}}
+                            <label for="title">Zvanje</label>
+                            <input class="form-control" name="title" type="text" id="title" placeholder="Your title" value="{{$user->profile->title}}"><br>
 
-{{--                            @endforeach--}}
+                            <label for="biography">Biografija</label>
+                            <textarea class="form-control" name="biography" placeholder="Enter you biography" id="biography">{{$user->profile->biography}}</textarea><br>
 
-{{--                        </select>--}}
-                        <br><br>
+    {{--                        <label for="role">role</label>--}}
+    {{--                        <select name="role" id="role">--}}
 
-                        <button class="btn btn-primary center-block" type="submit">Submit</button>
-                    </form><br>
+    {{--                            @if(!$user->roles)--}}
 
+    {{--                                <option disabled selected value> -- select an option -- </option>--}}
+
+    {{--                            @endif--}}
+
+    {{--                            @foreach($roles as $role)--}}
+
+    {{--                                <option @if($role->id === $user->roles[0]->id) selected @endif value="{{$role->id}}">{{$role->name}}</option>--}}
+
+    {{--                            @endforeach--}}
+
+    {{--                        </select>--}}
+                            <br><br>
+
+                            <button class="btn btn-primary center-block" type="submit">Potvrdi</button>
+                        </form><br>
+
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+
+    @endif
 
 @endsection

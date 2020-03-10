@@ -11,8 +11,8 @@ class PageController extends Controller
     public function index()
     {
         $courses = Course::with('owner')
-            ->withCount('buyers')
-            ->latest('buyers_count')
+            ->withCount('followers')
+            ->latest('followers_count')
             ->take(3)
             ->get();
 
@@ -55,13 +55,24 @@ class PageController extends Controller
 
     public function showEducator($id) {
 
-        $educator = User::find($id);
+        $user = User::find($id);
 
-        return view('show-educator')->with('educator', $educator);
+        return view('educator')->with('user', $user);
     }
 
-    public function dashboard() {
+    public function myCourses() {
 
-        return view('dashboard');
+        $educatorCourses = Course::with('owner')
+            ->where('user_id', '=', auth()->user()->id)
+            ->get();
+
+        $studentCourses = Course::whereHas('followers', function ($q) {
+            $q->where('users.id', '=', auth()->user()->id);
+            })
+            ->get();
+
+        return view('my-courses')
+            ->with('educatorCourses', $educatorCourses)
+            ->with('studentCourses', $studentCourses);
     }
 }

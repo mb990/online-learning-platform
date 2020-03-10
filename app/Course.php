@@ -18,7 +18,7 @@ class Course extends Model
         return $this->hasMany(Content::class);
     }
 
-    public function buyers() {
+    public function followers() {
 
         return $this->belongsToMany(User::class)->withTimestamps();
     }
@@ -28,8 +28,8 @@ class Course extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function boughtBy($id) {
+    public function followedBy($id) {
 
-        return $this->buyers()->find($id);
+        return $this->followers()->find($id);
     }
 }

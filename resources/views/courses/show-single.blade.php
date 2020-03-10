@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Show single course
+    Prikazi kurs
 @endsection
 {{--{{dd($course->boughtBy(auth()->user()->id))}}--}}
 @section('content')
@@ -16,13 +16,11 @@
     </div>
 
 </div><br>
-
 {{--{{dd($course->boughtBy(auth()->user()->id))}}--}}
-
 {{--    @if(auth()->user()->boughtCourses->contains($course->id))--}}
 {{--{{ dd($course->boughtBy(14)->toSql())  }}--}}
 
-@if($course->boughtBy(auth()->user()->id) === false || $course->owner->id !== auth()->user()->id)
+@if(auth()->user()->hasRole('student') && !$course->followedBy(auth()->user()->id))
 
     <h2 class="text-center text-danger">Kupite ovaj kurs da vidite ceo sadrzaj</h2><br>
 
@@ -30,7 +28,7 @@
 
 <div class="row text-center">
 
-    @if($course->boughtBy(auth()->user()->id) || $course->owner->id === auth()->user()->id)
+    @if($course->followedBy(auth()->user()->id) || $course->owner->id === auth()->user()->id)
 
         <div class="col-md-5">
 
@@ -71,7 +69,7 @@
 
         <ol class="connected list no2" style="width: 1000px; min-height:200px; border: 1px solid black">
 
-            @if($course->boughtBy(auth()->user()->id) || $course->owner->id === auth()->user()->id)
+            @if($course->followedBy(auth()->user()->id) || $course->owner->id === auth()->user()->id)
 
                 @if(count($course->contents))
 
@@ -82,6 +80,12 @@
                         </li>
 
                     @endforeach
+
+                @else
+
+                    <li>
+                        Ovaj kurs nema sadrzaj.
+                    </li>
 
                 @endif
 
@@ -97,9 +101,7 @@
                         <strong>Kupite ovaj kurs da vidite ostatak.</strong>
                     </li>
 
-                @endif
-
-                @if(!count($course->contents))
+                @else
 
                     <li>
                         Ovaj kurs nema sadrzaj.
@@ -139,6 +141,45 @@
                 </li>
 
             @endif
+    </div>
+
+    @if($course->owner->id !== auth()->user()->id)
+
+        <div class="row text-center">
+
+            <div class="col-md-12">
+
+                <h2 class="text-primary">Preporuceni kursevi</h2>
+
+            </div>
+
+        </div>
+
+        <div class="row justify-content-center text-center">
+
+            @if(count($recommendedCourses))
+
+                @foreach ($recommendedCourses as $course)
+
+                    <div class="col-md-4">
+
+                        <a href="/courses/{{$course->id}}">
+                            <img src="{{$course->image_url}}" width="150" height="150" alt="course_image"><br>
+                            <p class="lead">{{$course->name}}</p>
+                        </a>
+
+                    </div>
+
+                @endforeach
+
+            @else
+
+                <p class="p-3 mb-2 bg-warning text-dark">Trenutno nema preporucenih kurseva.</p>
+
+            @endif
+
+        @endif
+
     </div>
 
 @endsection
