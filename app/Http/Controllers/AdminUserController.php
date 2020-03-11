@@ -11,6 +11,7 @@ use App\Profile;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Hash;
 use function foo\func;
 
 class AdminUserController extends Controller
@@ -21,15 +22,10 @@ class AdminUserController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function __construct()
-    {
-        $this->middleware('auth');
-        $this->middleware('role:ROLE_ADMIN');
-    }
-
     public function showALl() {
 
-        $users = User::whereHas('roles')
+        $users = User::withTrashed()
+            ->whereHas('roles')
             ->paginate(10);
 
         return view('admin.show-users')->with('users', $users);
@@ -41,5 +37,27 @@ class AdminUserController extends Controller
             ->find($id);
 
         return view('admin.show-user')->with('user', $user);
+    }
+
+    public function createAdmin() {
+
+        return view('admin.create-new-admin');
+    }
+
+    public function storeAdmin(Request $request) {
+
+        $admin = new User();
+
+        $admin->first_name = $request->input('first_name');
+        $admin->last_name = $request->input('last_name');
+        $admin->email = $request->input('email');
+        $admin->password = Hash::make($request->input('password'));
+
+        $admin->save();
+
+        $role = Role::where('name', '=', 'admin')->first();
+        $admin->roles()->sync($role->id);
+
+        return redirect('/admin');
     }
 }

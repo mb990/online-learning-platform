@@ -92,26 +92,30 @@
 
                 </a>
 
-                @if(auth()->user()->hasRole('student') && !$course->followedBy(auth()->user()->id))
+                @auth
 
-                    <form action="{{action('StudentController@followCourse', $course->id)}}" method="POST">
+                    @if(auth()->user()->hasRole('student') && !$course->followedBy(auth()->user()->id))
 
-                        @csrf
-                        <input class="form-control" type="submit" value="Prijavi se">
+                        <form action="{{action('StudentController@followCourse', $course->id)}}" method="POST">
 
-                    </form>
+                            @csrf
+                            <input class="form-control" type="submit" value="Prijavi se">
 
-                @elseif(auth()->user()->hasRole('student') && $course->followedBy(auth()->user()->id))
+                        </form>
 
-                    <form action="{{action('StudentController@unfollowCourse', $course->id)}}" method="POST">
+                    @elseif(auth()->user()->hasRole('student') && $course->followedBy(auth()->user()->id))
 
-                        @method('DELETE')
-                        @csrf
-                        <input class="form-control-odjava" type="submit" value="Odjavi se">
+                        <form action="{{action('StudentController@unfollowCourse', $course->id)}}" method="POST">
 
-                    </form>
+                            @method('DELETE')
+                            @csrf
+                            <input class="form-control-odjava" type="submit" value="Odjavi se">
 
-                @endif
+                        </form>
+
+                    @endif
+
+                @endauth
 
             </div>
 

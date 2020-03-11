@@ -33,7 +33,7 @@
                 </div>
 
                 <div class="col-md-4">
-                    <form action="{{action('AdminUserController@destroyStudent', $student->id)}}" method="POST">
+                    <form action="{{action('AdminStudentController@destroy', $student->id)}}" method="POST">
 
                         @method('DELETE')
                         @csrf

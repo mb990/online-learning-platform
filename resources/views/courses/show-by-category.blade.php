@@ -36,7 +36,7 @@
 
         @else
 
-         <p class="lead">Ova kategorija nema kreirane kurseve.</p>
+         <p class="p-3 mb-2 bg-warning text-dark">Ova kategorija nema kreirane kurseve.</p>
 
         @endif
 

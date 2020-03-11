@@ -25,22 +25,29 @@
                     <div class="col-md-4">
 
                         <a href="/admin/educators/{{$educator->id}}">View profile</a><br>
-                        <a href="/admin/educators/{{$educator->id}}/edit">Edit profile</a><br><br>
 
+                            @if(!$educator->trashed())
+
+                                <form action="{{action('AdminEducatorController@destroy', $educator->id)}}" method="POST">
+
+                                    @method('DELETE')
+                                    @csrf
+                                    <input class="btn btn-danger" type="submit" value="Deactivate user">
+
+                                </form>
+
+                            @else
+
+                                <form action="{{action('AdminEducatorController@retrieve', $educator->id)}}" method="GET">
+
+                                    @csrf
+                                    <input class="btn btn-success " type="submit" value="Retrieve user">
+
+                                </form>
+
+                        @endif
 
                     </div>
-
-                    <div class="col-md-4">
-                        <form action="{{action('AdminUserController@destroyEducator', $educator->id)}}" method="POST">
-
-                            @method('DELETE')
-                            @csrf
-                            <input class="btn btn-danger" type="submit" value="Delete user">
-
-                        </form>
-
-                    </div>
-
 
                 </div>
 
@@ -50,7 +57,7 @@
 
         @else
 
-            <p>No educators to show.</p>
+            <p class="p-3 mb-2 bg-warning text-dark">Trenutno nema edukatora.</p>
 
         @endif
 

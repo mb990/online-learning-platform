@@ -20,23 +20,31 @@
 {{--    @if(auth()->user()->boughtCourses->contains($course->id))--}}
 {{--{{ dd($course->boughtBy(14)->toSql())  }}--}}
 
-@if(auth()->user()->hasRole('student') && !$course->followedBy(auth()->user()->id))
+@auth
 
-    <h2 class="text-center text-danger">Kupite ovaj kurs da vidite ceo sadrzaj</h2><br>
+    @if(auth()->user()->hasRole('student') && !$course->followedBy(auth()->user()->id))
 
-@endif
+        <h2 class="text-center text-danger">Kupite ovaj kurs da vidite ceo sadrzaj</h2><br>
+
+    @endif
+
+@endauth
 
 <div class="row text-center">
 
-    @if($course->followedBy(auth()->user()->id) || $course->owner->id === auth()->user()->id)
+    @auth
 
-        <div class="col-md-5">
+        @if($course->followedBy(auth()->user()->id) || $course->owner->id === auth()->user()->id)
 
-            <iframe width="400" height="200" src="{{$course->video_url}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="col-md-5">
 
-        </div>
+                <iframe width="400" height="200" src="{{$course->video_url}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-    @endif
+            </div>
+
+        @endif
+
+    @endauth
 
         <div class="col-md-7">
 
@@ -69,6 +77,8 @@
 
         <ol class="connected list no2" style="width: 1000px; min-height:200px; border: 1px solid black">
 
+        @auth
+
             @if($course->followedBy(auth()->user()->id) || $course->owner->id === auth()->user()->id)
 
                 @if(count($course->contents))
@@ -88,6 +98,8 @@
                     </li>
 
                 @endif
+
+        @endauth
 
             @else
 
@@ -143,42 +155,46 @@
             @endif
     </div>
 
-    @if($course->owner->id !== auth()->user()->id)
+    @auth
 
-        <div class="row text-center">
+        @if($course->owner->id !== auth()->user()->id)
 
-            <div class="col-md-12">
+            <div class="row text-center">
 
-                <h2 class="text-primary">Preporuceni kursevi</h2>
+                <div class="col-md-12">
+
+                    <h2 class="text-primary">Preporuceni kursevi</h2>
+
+                </div>
 
             </div>
 
-        </div>
+            <div class="row justify-content-center text-center">
 
-        <div class="row justify-content-center text-center">
+                @if(count($recommendedCourses))
 
-            @if(count($recommendedCourses))
+                    @foreach ($recommendedCourses as $course)
 
-                @foreach ($recommendedCourses as $course)
+                        <div class="col-md-4">
 
-                    <div class="col-md-4">
+                            <a href="/courses/{{$course->id}}">
+                                <img src="{{$course->image_url}}" width="150" height="150" alt="course_image"><br>
+                                <p class="lead">{{$course->name}}</p>
+                            </a>
 
-                        <a href="/courses/{{$course->id}}">
-                            <img src="{{$course->image_url}}" width="150" height="150" alt="course_image"><br>
-                            <p class="lead">{{$course->name}}</p>
-                        </a>
+                        </div>
 
-                    </div>
+                    @endforeach
 
-                @endforeach
+                @else
 
-            @else
+                    <p class="p-3 mb-2 bg-warning text-dark">Trenutno nema preporucenih kurseva.</p>
 
-                <p class="p-3 mb-2 bg-warning text-dark">Trenutno nema preporucenih kurseva.</p>
-
-            @endif
+                @endif
 
         @endif
+
+        @endauth
 
     </div>
 

@@ -21,31 +21,17 @@
                     <p class="text-secondary"><strong>Last name:</strong> {{$user->last_name}}</p>
                     {{--                            <p class="text-secondary"><strong>Role:</strong> {{$educator->roles[0]->name}}</p><br>--}}
 
-
                 </div>
 
                 <div class="col-md-4">
 
                     @if($user->hasRole('educator'))
                         <a href="/admin/educators/{{$user->id}}">View profile</a><br>
-                        <a href="/admin/educators/{{$user->id}}/edit">Edit profile</a><br><br>
                     @else
                         <a href="/admin/students/{{$user->id}}">View profile</a><br>
                     @endif
 
                 </div>
-
-                <div class="col-md-4">
-                    <form action="{{action('AdminUserController@destroyEducator', $user->id)}}" method="POST">
-
-                        @method('DELETE')
-                        @csrf
-                        <input class="btn btn-danger" type="submit" value="Delete user">
-
-                    </form>
-
-                </div>
-
 
             </div>
 

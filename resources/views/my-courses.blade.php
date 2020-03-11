@@ -82,16 +82,16 @@
                         <img src="{{$course->image_url}}" width="150" height="150" alt="slika-kursa">
                         <p class="lead">{{$course->name}}</p>
                     </a>
-                    @if(!$course->followedBy(auth()->user()->id))
+{{--                    @if(!$course->followedBy(auth()->user()->id))--}}
 
-                        <form action="{{action('StudentController@followCourse', $course->id)}}" method="POST">
+{{--                        <form action="{{action('StudentController@followCourse', $course->id)}}" method="POST">--}}
 
-                            @csrf
-                            <input class="form-control" type="submit" value="Prijavi se">
+{{--                            @csrf--}}
+{{--                            <input class="form-control" type="submit" value="Prijavi se">--}}
 
-                        </form>
+{{--                        </form>--}}
 
-                    @elseif($course->followedBy(auth()->user()->id))
+                    @if($course->followedBy(auth()->user()->id))
 
                         <form action="{{action('StudentController@unfollowCourse', $course->id)}}" method="POST">
 

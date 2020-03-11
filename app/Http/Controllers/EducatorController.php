@@ -26,7 +26,7 @@ class EducatorController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -49,10 +49,11 @@ class EducatorController extends Controller
 
         $course->save();
 
-        return redirect('courses.show-courses');
+        return redirect('/courses');
     }
 
-    public function edit($id) {
+    public function edit($id)
+    {
 
         $course = Course::find($id);
 
@@ -63,7 +64,8 @@ class EducatorController extends Controller
             ->with('categories', $categories);
     }
 
-    public function update(Request $request, $id) {
+    public function update(Request $request, $id)
+    {
 
         $course = User::find($id);
 
@@ -80,7 +82,8 @@ class EducatorController extends Controller
         return redirect('/courses/' . $course->id . '/');
     }
 
-    public function destroy($id) {
+    public function destroy($id)
+    {
 
         $course = Course::find($id);
 

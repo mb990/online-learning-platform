@@ -10,7 +10,7 @@ class PageController extends Controller
     // show 3 most popular courses
     public function index()
     {
-        $courses = Course::with('owner')
+        $courses = Course::has('owner')
             ->withCount('followers')
             ->latest('followers_count')
             ->take(3)

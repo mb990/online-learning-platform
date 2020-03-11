@@ -84,7 +84,7 @@ class RegisterController extends Controller
         $user->password = Hash::make($request->input('password'));
         $user->save();
 
-        $role = Role::where('name', ['educator'])->pluck('id');
+        $role = Role::where('name', '=', 'educator')->pluck('id');
 
         $user->profile()->save(new Profile);
         $user->roles()->sync([$role[0]]);
@@ -108,7 +108,7 @@ class RegisterController extends Controller
         $user->password = Hash::make($request->input('password'));
         $user->save();
 
-        $role = Role::where('name', ['student'])->pluck('id');
+        $role = Role::where('name', '=', 'student')->pluck('id');
 
 //        $user->profile()->save(new Profile);
         $user->roles()->sync([$role[0]]);

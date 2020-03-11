@@ -14,13 +14,14 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+
 Route::middleware(['role:admin'])->group(function () {
     Route::get('/admin', 'PageController@admin');
     Route::get('/admin/educators', 'AdminEducatorController@showAll');
     Route::get('/admin/educators/{id}', 'AdminEducatorController@showSingle');
-    Route::get('/admin/educators/{id}/edit', 'AdminEducatorController@edit');
     Route::put('/admin/educators/{id}/submit', 'AdminEducatorController@update');
     Route::delete('/admin/educators/{id}/delete', 'AdminEducatorController@destroy');
+    Route::get('admin/educators/{id}/retrieve', 'AdminEducatorController@retrieve');
 
     Route::get('/admin/students', 'AdminStudentController@showAll');
     Route::get('/admin/students/{id}', 'AdminStudentController@showSingle');
@@ -30,6 +31,8 @@ Route::middleware(['role:admin'])->group(function () {
 
     Route::get('/admin/users', 'AdminUserController@showAll');
     Route::get('/admin/users/{id}', 'AdminUserController@showUser');
+    Route::get('/admin/new', 'AdminUserController@createAdmin');
+    Route::post('/admin/new/submit', 'AdminUserController@storeAdmin');
 });
 
 Route::middleware(['role:educator'])->group(function () {
@@ -68,4 +71,4 @@ Route::post('register/student/submit', 'Auth\RegisterController@storeStudent');
 
 Route::get('/profiles/{id}', 'ProfileController@show');
 
-Route::get('/my-courses/{id}', 'PageController@myCourses');
+Route::get('/my-courses', 'PageController@myCourses');

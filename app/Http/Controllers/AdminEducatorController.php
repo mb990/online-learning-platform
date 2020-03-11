@@ -8,15 +8,11 @@ use Illuminate\Http\Request;
 
 class AdminEducatorController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-        $this->middleware('role:ROLE_ADMIN');
-    }
 
     public function showAll() {
 
-        $educators = User::whereHas('roles', function($q){
+        $educators = User::withTrashed()
+            ->whereHas('roles', function($q){
             $q->whereIn('name', ['educator']);
         })
             ->paginate(10);
@@ -26,7 +22,8 @@ class AdminEducatorController extends Controller
 
     public function showSingle($id) {
 
-        $educator = User::find($id);
+        $educator = User::withTrashed()
+            ->find($id);
 
         return view('admin.show-educator')->with('educator', $educator);
     }
@@ -73,5 +70,15 @@ class AdminEducatorController extends Controller
         $educator->delete();
 
         return redirect('/admin/educators')->with('success', 'Educator is deleted.');
+    }
+
+    public function retrieve($id) {
+
+        $educator = User::withTrashed()
+            ->find($id);
+
+        $educator->restore();
+
+        return redirect('/admin/educators');
     }
 }

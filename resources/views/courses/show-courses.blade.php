@@ -32,12 +32,14 @@
 
             @foreach($recentCourses as $recentCourse)
 
-                    <div class="col-md-4 text-center">
+                <div class="col-md-4 text-center">
 
-                        <a href="courses/{{$recentCourse->id}}">
-                            <img src="{{$recentCourse->image_url}}" width="150" height="150" alt="course_image"><br>
-                            <p class="lead">{{$recentCourse->name}}</p>
-                        </a>
+                    <a href="courses/{{$recentCourse->id}}">
+                        <img src="{{$recentCourse->image_url}}" width="150" height="150" alt="course_image"><br>
+                        <p class="lead">{{$recentCourse->name}}</p>
+                    </a>
+
+                    @auth
 
                         @if(auth()->user()->hasRole('student') && !$recentCourse->followedBy(auth()->user()->id))
 
@@ -59,7 +61,9 @@
 
                         @endif
 
-                    </div>
+                    @endauth
+
+                </div>
 
             @endforeach
 
@@ -108,26 +112,30 @@
                                         <p class="lead">{{$course->name}}</p>
                                     </a>
 
-                                    @if(auth()->user()->hasRole('student') && !$course->followedBy(auth()->user()->id))
+                                    @auth
 
-                                        <form action="{{action('StudentController@followCourse', $course->id)}}" method="POST">
+                                        @if(auth()->user()->hasRole('student') && !$course->followedBy(auth()->user()->id))
 
-                                            @csrf
-                                            <input class="form-control" type="submit" value="Prijavi se">
+                                            <form action="{{action('StudentController@followCourse', $course->id)}}" method="POST">
 
-                                        </form>
+                                                @csrf
+                                                <input class="form-control" type="submit" value="Prijavi se">
 
-                                    @elseif(auth()->user()->hasRole('student') && $course->followedBy(auth()->user()->id))
+                                            </form>
 
-                                        <form action="{{action('StudentController@unfollowCourse', $course->id)}}" method="POST">
+                                        @elseif(auth()->user()->hasRole('student') && $course->followedBy(auth()->user()->id))
 
-                                            @method('DELETE')
-                                            @csrf
-                                            <input class="form-control-odjava" type="submit" value="Odjavi se">
+                                            <form action="{{action('StudentController@unfollowCourse', $course->id)}}" method="POST">
 
-                                        </form>
+                                                @method('DELETE')
+                                                @csrf
+                                                <input class="form-control-odjava" type="submit" value="Odjavi se">
 
-                                    @endif
+                                            </form>
+
+                                        @endif
+
+                                    @endauth
 
                                 </div>
 

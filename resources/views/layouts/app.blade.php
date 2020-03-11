@@ -20,28 +20,30 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
+<div id="app">
 
-@include('includes.navbar')
+    @include('includes.navbar')
 
-        @if(Request::is('/'))
+    @if(Request::is('/'))
 
-            <div class="container-fluid">
+        <div class="container-fluid">
 
-                <div class="jumbotron text-center">
-                    <h1 class="text-primary">Edukacija za nove generacije</h1>
-                </div>
-
+            <div class="jumbotron text-center">
+                <h1 class="text-primary">Edukacija za nove generacije</h1>
             </div>
 
-        @endif
+        </div>
 
-        <main class="container">
-            @if(!Request::is('/'))
-                <a class="btn btn-default" onclick="history.go(-1);">Nazad</a>
-            @endif
-            @yield('content')
-        </main>
-    </div>
+    @endif
+
+    <main class="container" style="min-height: 800px;">
+        @if(!Request::is('/'))
+            <a class="btn btn-default" onclick="history.go(-1);">Nazad</a>
+        @endif
+        @yield('content')
+    </main>
+    @include('includes.footer')
+
+</div>
 </body>
 </html>

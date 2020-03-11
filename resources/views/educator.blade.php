@@ -30,15 +30,19 @@
 
         </div>
 
-        @if($user->id === auth()->user()->id)
+        @auth
 
-            <div class="offset-3 col-md-3">
+            @if($user->id === auth()->user()->id)
 
-                <br><br><a class="lead" href="/profiles/{{$user->profile->id}}/edit">Izmeni</a>
+                <div class="offset-3 col-md-3">
 
-            </div>
+                    <br><br><a class="lead" href="/profiles/{{$user->profile->id}}/edit">Izmeni</a>
 
-        @endif
+                </div>
+
+            @endif
+
+        @endauth
 
     </div><br><br>
 
@@ -80,16 +84,20 @@
                         <img src="{{$course->image_url}}" width="150" height="150" alt="slika-kursa">
                         <p class="lead">{{$course->name}}</p>
                     </a>
-                    @if(auth()->user()->id === $course->user_id)
 
-                        <a href="/courses/{{$course->id}}/edit">Edit</a>
-                        <form action="{{action('EducatorController@destroy', $course->id)}}" method="POST">
+                    @auth
+                        @if(auth()->user()->id === $course->user_id)
 
-                            @method('DELETE')
-                            @csrf
-                            <input class="btn btn-danger" type="submit" value="Delete">
+                            <a href="/courses/{{$course->id}}/edit">Edit</a>
+                            <form action="{{action('EducatorController@destroy', $course->id)}}" method="POST">
 
-                        </form>
+                                @method('DELETE')
+                                @csrf
+                                <input class="btn btn-danger" type="submit" value="Delete">
+
+                            </form>
+
+                        @endif
 
                     @endif
 

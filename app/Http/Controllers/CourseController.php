@@ -19,9 +19,16 @@ class CourseController extends Controller
 
     public function showAllWithCategories() {
 
-        $courses = Course::paginate(9);
+//        $courses = Course::whereHas('owner', function ($q) {
+//            $q->where('deleted_at', '=', null);
+//        })
+//            ->paginate(9);
 
-        $recentCourses = Course::take(3)
+        $courses = Course::has('owner')
+            ->paginate(9);
+
+        $recentCourses = Course::has('owner')
+            ->take(3)
             ->latest()
             ->get();
 
@@ -46,7 +53,7 @@ class CourseController extends Controller
 
         $category = Category::where('id', '=', $course->category_id)->first();
 
-        $buyer = User::whereHas('boughtCourses', function ($q) use($id) {
+        $buyer = User::whereHas('followedCourses', function ($q) use($id) {
            $q->where('course_id', '=', $id);
         });
 
@@ -68,7 +75,8 @@ class CourseController extends Controller
 
         $category = Category::where('name', '=', $category_name)->first();
 
-        $courses = Course::where('category_id', '=', $category->id)
+        $courses = Course::has('owner')
+            ->where('category_id', '=', $category->id)
             ->get();
 
         return view('courses.show-by-category')
