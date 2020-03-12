@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    Show courses
+    Kursevi
 @endsection
 <style>
 
@@ -17,12 +17,12 @@
 {{--    {{dd($courses)}}--}}
 
     <div class="jumbotron">
-        <h1 class="text-center">Courses</h1>
+        <h1 class="text-center">Kursevi</h1>
     </div>
 
     <div class="row justify-content-center">
 
-        <h2 class="text-primary">Recently added courses</h2>
+        <h2 class="text-primary">Najnoviji kursevi</h2>
 
     </div><br><br><br>
 
@@ -32,40 +32,52 @@
 
             @foreach($recentCourses as $recentCourse)
 
-                <div class="col-md-4 text-center">
+                @if($recentCourse->owner->active)
 
-                    <a href="courses/{{$recentCourse->id}}">
-                        <img src="{{$recentCourse->image_url}}" width="150" height="150" alt="course_image"><br>
-                        <p class="lead">{{$recentCourse->name}}</p>
-                    </a>
+                    <div class="col-md-4 text-center">
 
-                    @auth
+                        <a href="/courses/{{$recentCourse->slug}}">
+                            <img src="{{$recentCourse->image_url}}" width="150" height="150" alt="course_image"><br>
+                            <p class="lead">{{$recentCourse->name}}</p>
+                        </a>
 
-                        @if(auth()->user()->hasRole('student') && !$recentCourse->followedBy(auth()->user()->id))
+                        @auth
 
-                            <form action="{{action('StudentController@followCourse', $recentCourse->id)}}" method="POST">
-                                @csrf
-                                <input class="form-control" type="submit" value="Prijavi se">
+                            @if(auth()->user()->hasRole('student') && !$recentCourse->followedBy(auth()->user()->id))
 
-                            </form>
+                                <form action="{{action('StudentController@followCourse', $recentCourse->id)}}" method="POST">
+                                    @csrf
+                                    <input class="form-control" type="submit" value="Prijavi se">
 
-                        @elseif(auth()->user()->hasRole('student') && $recentCourse->followedBy(auth()->user()->id))
+                                </form>
 
-                            <form action="{{action('StudentController@unfollowCourse', $recentCourse->id)}}" method="POST">
+                            @elseif(auth()->user()->hasRole('student') && $recentCourse->followedBy(auth()->user()->id))
 
-                                @method('DELETE')
-                                @csrf
-                                <input class="form-control-odjava" type="submit" value="Odjavi se">
+                                <form action="{{action('StudentController@unfollowCourse', $recentCourse->id)}}" method="POST">
 
-                            </form>
+                                    @method('DELETE')
+                                    @csrf
+                                    <input class="form-control-odjava" type="submit" value="Odjavi se">
 
-                        @endif
+                                </form>
 
-                    @endauth
+                            @endif
 
-                </div>
+                        @endauth
+
+                    </div>
+
+                @endif
 
             @endforeach
+
+    @else
+
+        <div class="offset-4 col-md-4 text-center">
+
+            <p class="p-3 mb-2 bg-warning text-dark">Trenutno nema kurseva</p>
+
+        </div>
 
     @endif
 
@@ -73,7 +85,7 @@
 
         <div class="row justify-content-center">
 
-            <h2 class="text-primary">All courses</h2>
+            <h2 class="text-primary">Svi kursevi</h2>
 
         </div><br><br><br>
 
@@ -87,7 +99,7 @@
 
                             <tr>
 
-                                <td><a href="/category/{{$category->name}}">{{ ucfirst($category->name) }}</a></td>
+                                <td><a href="/category/{{$category->slug}}">{{ ucfirst($category->name) }}</a></td>
 
                             </tr>
 
@@ -105,45 +117,53 @@
 
                             @foreach ($courses as $course)
 
-                                <div class="col-md-4">
+                                @if($course->owner->active)
 
-                                    <a href="courses/{{$course->id}}">
-                                        <img src="{{$course->image_url}}" width="150" height="150" alt="course_image"><br>
-                                        <p class="lead">{{$course->name}}</p>
-                                    </a>
+                                    <div class="col-md-4">
 
-                                    @auth
+                                        <a href="/courses/{{$course->slug}}">
+                                            <img src="{{$course->image_url}}" width="150" height="150" alt="course_image"><br>
+                                            <p class="lead">{{$course->name}}</p>
+                                        </a>
 
-                                        @if(auth()->user()->hasRole('student') && !$course->followedBy(auth()->user()->id))
+                                        @auth
 
-                                            <form action="{{action('StudentController@followCourse', $course->id)}}" method="POST">
+                                            @if(auth()->user()->hasRole('student') && !$course->followedBy(auth()->user()->id))
 
-                                                @csrf
-                                                <input class="form-control" type="submit" value="Prijavi se">
+                                                <form action="{{action('StudentController@followCourse', $course->slug)}}" method="POST">
 
-                                            </form>
+                                                    @csrf
+                                                    <input class="form-control" type="submit" value="Prijavi se">
 
-                                        @elseif(auth()->user()->hasRole('student') && $course->followedBy(auth()->user()->id))
+                                                </form>
 
-                                            <form action="{{action('StudentController@unfollowCourse', $course->id)}}" method="POST">
+                                            @elseif(auth()->user()->hasRole('student') && $course->followedBy(auth()->user()->id))
 
-                                                @method('DELETE')
-                                                @csrf
-                                                <input class="form-control-odjava" type="submit" value="Odjavi se">
+                                                <form action="{{action('StudentController@unfollowCourse', $course->slug)}}" method="POST">
 
-                                            </form>
+                                                    @method('DELETE')
+                                                    @csrf
+                                                    <input class="form-control-odjava" type="submit" value="Odjavi se">
 
-                                        @endif
+                                                </form>
 
-                                    @endauth
+                                            @endif
 
-                                </div>
+                                        @endauth
+
+                                    </div>
+
+                                @endif
 
                             @endforeach
 
                         @else
 
-                            <p class="p-3 mb-2 bg-warning text-dark">Trenutno nema kurseva.</p>
+                            <div class="offset-2 col-md-3">
+
+                                <p class="p-3 mb-2 bg-warning text-dark">Trenutno nema kurseva.</p>
+
+                            </div>
 
                         @endif
 

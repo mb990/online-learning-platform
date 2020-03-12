@@ -19,15 +19,14 @@ class CourseController extends Controller
 
     public function showAllWithCategories() {
 
-//        $courses = Course::whereHas('owner', function ($q) {
-//            $q->where('deleted_at', '=', null);
-//        })
-//            ->paginate(9);
-
-        $courses = Course::has('owner')
+        $courses = Course::whereHas('owner', function ($q) {
+            $q->where('active', '=', true);
+        })
             ->paginate(9);
 
-        $recentCourses = Course::has('owner')
+        $recentCourses = Course::whereHas('owner', function ($q) {
+            $q->where('active', '=', true);
+        })
             ->take(3)
             ->latest()
             ->get();
@@ -40,9 +39,10 @@ class CourseController extends Controller
             ->with('recentCourses', $recentCourses);
     }
 
-    public function showSingle($id)
+    public function showSingle($slug)
     {
-        $course = Course::find($id);
+        $course = Course::where('slug', '=', $slug)->first();
+//        dd($course->toSql());
 
 //        $owner = User::whereHas('createdCourses', function($q) use($id) {
 //            $q->whereIn('courses.id', [$id]);
@@ -53,11 +53,14 @@ class CourseController extends Controller
 
         $category = Category::where('id', '=', $course->category_id)->first();
 
-        $buyer = User::whereHas('followedCourses', function ($q) use($id) {
-           $q->where('course_id', '=', $id);
-        });
+//        $buyer = User::whereHas('followedCourses', function ($q) use($id) {
+//           $q->where('course_id', '=', $id);
+//        });
 
-        $recommendedCourses = Course::where('user_id', '=', $course->user_id)
+        $recommendedCourses = Course::whereHas('owner', function ($q) {
+            $q->where('active', '=', true);
+        })
+            ->where('user_id', '=', $course->user_id)
             ->where('id', '!=', $course->id)
             ->inRandomOrder()
             ->take(3)
@@ -67,7 +70,7 @@ class CourseController extends Controller
             ->with('course', $course)
             ->with('category', $category)
             ->with('goals', $goals)
-            ->with('buyer', $buyer)
+//            ->with('buyer', $buyer)
             ->with('recommendedCourses', $recommendedCourses);
     }
 
@@ -75,7 +78,9 @@ class CourseController extends Controller
 
         $category = Category::where('name', '=', $category_name)->first();
 
-        $courses = Course::has('owner')
+        $courses = Course::whereHas('owner', function ($q) {
+            $q->where('active', '=', true);
+        })
             ->where('category_id', '=', $category->id)
             ->get();
 

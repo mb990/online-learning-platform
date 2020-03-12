@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('title')
-    Show all users
+    Svi korisnici
 @endsection
 
 @section('content')
 
     <div class="jumbotron">
-        <h1 class="text-center"> All users</h1>
+        <h1 class="text-center"> Svi korisnici</h1>
     </div>
 
     @if(count($users))
@@ -17,18 +17,18 @@
 
                 <div class="col-md-4">
 
-                    <p class="text-secondary"><strong>First name:</strong> {{$user->first_name}}</p>
-                    <p class="text-secondary"><strong>Last name:</strong> {{$user->last_name}}</p>
+                    <p class="text-secondary"><strong>Ime:</strong> {{$user->first_name}}</p>
+                    <p class="text-secondary"><strong>Prezime:</strong> {{$user->last_name}}</p>
                     {{--                            <p class="text-secondary"><strong>Role:</strong> {{$educator->roles[0]->name}}</p><br>--}}
 
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4"><br>
 
                     @if($user->hasRole('educator'))
-                        <a href="/admin/educators/{{$user->id}}">View profile</a><br>
+                        <a href="/admin/educators/{{$user->slug}}">View profile</a><br>
                     @else
-                        <a href="/admin/students/{{$user->id}}">View profile</a><br>
+                        <a href="/admin/students/{{$user->slug}}">View profile</a><br>
                     @endif
 
                 </div>
@@ -41,7 +41,7 @@
 
     @else
 
-        <p>No educators to show.</p>
+        <p class="p-3 mb-2 bg-warning text-dark">Trenutno nema korisnika.</p>
 
     @endif
 

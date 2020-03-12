@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Course;
 use App\Role;
 use App\User;
 use Illuminate\Http\Request;
@@ -20,10 +21,11 @@ class AdminEducatorController extends Controller
         return view('admin.show-educators')->with('educators', $educators);
     }
 
-    public function showSingle($id) {
+    public function showSingle($slug) {
 
         $educator = User::withTrashed()
-            ->find($id);
+            ->where('slug', '=', $slug)
+            ->first();
 
         return view('admin.show-educator')->with('educator', $educator);
     }
@@ -63,22 +65,35 @@ class AdminEducatorController extends Controller
         return redirect('/admin/educators');
     }
 
-    public function destroy($id) {
+    public function deactivate($slug) {
 
-        $educator = User::find($id);
+        $educator = User::where('slug', '=', $slug)
+            ->first();
 
-        $educator->delete();
-
-        return redirect('/admin/educators')->with('success', 'Educator is deleted.');
-    }
-
-    public function retrieve($id) {
-
-        $educator = User::withTrashed()
-            ->find($id);
-
-        $educator->restore();
+        $educator->active = false;
+        $educator->save();
 
         return redirect('/admin/educators');
+    }
+
+    public function activate($slug) {
+
+        $educator = User::where('slug', '=', $slug)
+            ->first();
+
+        $educator->active = true;
+        $educator->save();
+
+        return redirect('/admin/educators');
+    }
+
+    public function destroy($slug) {
+
+        $educator = User::where('slug', '=', $slug)
+             ->first();
+
+        $educator->forceDelete();
+
+        return redirect('/admin/educators')->with('success', 'Educator is deleted.');
     }
 }

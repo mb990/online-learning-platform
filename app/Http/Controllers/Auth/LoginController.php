@@ -50,6 +50,6 @@ class LoginController extends Controller
             return redirect('/');
         }
 
-        return redirect('/profiles/' . auth()->user()->id);
+        return redirect('/profiles/' . auth()->user()->slug);
     }
 }

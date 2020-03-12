@@ -10,26 +10,29 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
 {{--                <li><a class="nav-link" href="/admin/">Admin panel</a></li>--}}
-                &nbsp | &nbsp
+{{--                &nbsp | &nbsp--}}
                 @auth
+
                     @if(auth()->user()->hasRole('admin'))
 
                         <li><a class="nav-link {{ Request::is('admin/educators') ? 'active' : '' }}"
-                               href="/admin/educators">Predavaci</a></li>&nbsp | &nbsp
-                        <li><a class="nav-link {{ Request::is('admin/students') ? 'active' : '' }}" href="/admin/students">Studenti</a></li>&nbsp | &nbsp
-                        <li><a class="nav-link {{ Request::is('admin/users') ? 'active' : '' }}" href="/admin/users">Svi korisnici</a></li>&nbsp | &nbsp
-                        <li><a class="nav-link {{ Request::is('admin/new') ? 'active' : '' }}" href="/admin/new">Napravi admina</a></li>
+                               href="/admin/educators">Predavaci-admin</a></li>&nbsp | &nbsp
+                        <li><a class="nav-link {{ Request::is('admin/courses') ? 'active' : '' }}"
+                               href="/admin/courses">Kursevi-admin</a></li>&nbsp | &nbsp
+                        <li><a class="nav-link {{ Request::is('admin/students') ? 'active' : '' }}"
+                               href="/admin/students">Studenti</a></li>&nbsp | &nbsp
+                        <li><a class="nav-link {{ Request::is('admin/users') ? 'active' : '' }}"
+                               href="/admin/users">Svi korisnici</a></li>&nbsp | &nbsp
+                        <li><a class="nav-link {{ Request::is('admin/new') ? 'active' : '' }}"
+                               href="/admin/new">Napravi admina</a></li>&nbsp | &nbsp
+
+                    @endif
 
                 @endauth
 
-                    @else
+                    <li><a class="nav-link {{ Request::is('educators') ? 'active' : '' }}" href="/educators">Predavaci</a></li>&nbsp | &nbsp
+                    <li><a class="nav-link {{ Request::is('courses') ? 'active' : '' }}" href="/courses">Kursevi</a></li>
 
-                        <li><a class="nav-link {{ Request::is('educators') ? 'active' : '' }}" href="/educators">Show
-                                educators</a></li>&nbsp | &nbsp
-                        <li><a class="nav-link {{ Request::is('courses') ? 'active' : '' }}" href="/courses">Show
-                                courses</a></li>
-
-                    @endif
             </ul>
 
             <ul class="navbar-nav ml-auto">
@@ -56,7 +59,7 @@
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             @if(auth()->user()->hasRole('educator'))
-                                <a class="dropdown-item" href="/profiles/{{auth()->user()->profile->id}}">Moj profil</a>
+                                <a class="dropdown-item" href="/profiles/{{auth()->user()->slug}}">Moj profil</a>
                                 <a class="dropdown-item" href="/my-courses">Moji kursevi</a>
                             @endif
                             @if(auth()->user()->hasRole('student'))

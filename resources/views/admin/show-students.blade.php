@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('title')
-    Show students
+    Studenti
 @endsection
 
 @section('content')
 
     <div class="jumbotron">
-        <h1 class="text-center"> Students </h1>
+        <h1 class="text-center">Studenti</h1>
     </div>
 
     @if(count($students))
@@ -17,23 +17,23 @@
 
                 <div class="col-md-4">
 
-                    <p class="text-secondary"><strong>First name:</strong> {{$student->first_name}}</p>
-                    <p class="text-secondary"><strong>Last name:</strong> {{$student->last_name}}</p>
+                    <p class="text-secondary"><strong>Ime:</strong> {{$student->first_name}}</p>
+                    <p class="text-secondary"><strong>Prezime:</strong> {{$student->last_name}}</p>
                     {{--                            <p class="text-secondary"><strong>Role:</strong> {{$educator->roles[0]->name}}</p><br>--}}
 
 
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4"><br>
 
-                    <a href="/admin/students/{{$student->id}}">View profile</a><br>
+                    <a href="/admin/students/{{$student->slug}}">Profil</a><br>
 {{--                    <a href="/admin/students/{{$student->id}}/edit">Edit profile</a><br><br>--}}
 
 
                 </div>
 
                 <div class="col-md-4">
-                    <form action="{{action('AdminStudentController@destroy', $student->id)}}" method="POST">
+                    <form action="{{action('AdminStudentController@destroy', $student->slug)}}" method="POST">
 
                         @method('DELETE')
                         @csrf

@@ -9,16 +9,18 @@ use Illuminate\Http\Request;
 class ProfileController extends Controller
 {
 
-public function show($id) {
+public function show($slug) {
 
-    $user = User::find($id);
+    $user = User::where('slug', '=', $slug)
+        ->first();
 
     return view('educator')->with('user', $user);
 }
 
-    public function edit($id) {
+    public function edit($slug) {
 
-        $user = User::find($id);
+        $user = User::where('slug', '=', $slug)
+        ->first();
 
         $roles = Role::all();
 
@@ -27,9 +29,10 @@ public function show($id) {
             ->with('roles', $roles);
     }
 
-    public function update(Request $request, $id) {
+    public function update(Request $request, $slug) {
 
-        $user = User::find($id);
+        $user = User::where('slug', '=', $slug)
+            ->first();
 
         $user->first_name = $request->input('first_name');
         $user->last_name = $request->input('last_name');
@@ -43,12 +46,13 @@ public function show($id) {
         $user->save();
         $user->profile->save();
 
-        return redirect('/profiles/' . $user->profile->id);
+        return redirect('/profiles/' . $user->slug);
     }
 
-    public function fill($id) {
+    public function fill($slug) {
 
-        $user = User::find($id);
+        $user = User::where('slug', '=', $slug)
+            ->first();
 
         $roles = Role::all();
 
@@ -57,9 +61,10 @@ public function show($id) {
             ->with('roles', $roles);
     }
 
-    public function store(Request $request, $id) {
+    public function store(Request $request, $slug) {
 
-        $user = User::find($id);
+        $user = User::where('slug', '=', $slug)
+            ->first();
 
         $user->profile->age = $request->input('age');
         $user->profile->image_url = $request->input('image_url');
@@ -70,6 +75,6 @@ public function show($id) {
 
         $user->profile->save();
 
-        return redirect('/dashboard');
+        return redirect('/profiles/' . $user->slug);
     }
 }

@@ -35,7 +35,7 @@
 
                     <div class="panel-body">
 
-                        <form action="{{action('EducatorController@update', $course->id)}}" method="POST" xmlns="http://www.w3.org/1999/html">
+                        <form action="{{action('EducatorController@update', $course->slug)}}" method="POST" xmlns="http://www.w3.org/1999/html">
                             @csrf
                             @method('PUT')
                             <label for="course_name">Ime kursa</label>

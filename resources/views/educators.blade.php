@@ -14,7 +14,7 @@
 
         <div class="col-md-4">
 
-            <a href="/educators/{{$recentEducator->id}}">
+            <a href="/educators/{{$recentEducator->slug}}">
 
                 @if(!$recentEducator->profile->image_url)
 

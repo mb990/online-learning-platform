@@ -27,28 +27,33 @@
 
     </div><br><hr>
 
-    <div class="row justify-content-center">
+    <div class="row">
 
-        @if($educatorCourses)
+        @if(count($educatorCourses))
 
             @foreach($educatorCourses as $course)
 
                 <div class="col-md-4 text-center">
 
-                    <a href="/courses/{{$course->id}}">
+                    <a href="/courses/{{$course->slug}}">
                         <img src="{{$course->image_url}}" width="150" height="150" alt="slika-kursa">
                         <p class="lead">{{$course->name}}</p>
                     </a>
+
                     @if(auth()->user()->id === $course->user_id)
 
-                        <a href="/courses/{{$course->id}}/edit">Izmeni</a>
-                        <form action="{{action('EducatorController@destroy', $course->id)}}" method="POST">
+                        <a href="/courses/{{$course->slug}}/edit">Izmeni</a>
+                        <form action="{{action('EducatorController@destroy', $course->slug)}}" method="POST">
 
                             @method('DELETE')
                             @csrf
                             <input class="btn btn-danger" type="submit" value="Obrisi">
 
                         </form>
+
+                        @if(!$course->active)
+                            <p class="text-danger">Ovaj kurs sadrzi nedozvoljen sadrzaj.</p>
+                        @endif
 
                     @endif
 
@@ -58,7 +63,7 @@
 
         @else
 
-            <div class="offset-3 col-md-6">
+            <div class="offset-3 col-md-6 text-center">
 
                 <p class="p-3 mb-2 bg-warning text-dark">Trenutno nemate nijedan kurs.</p>
 
@@ -78,7 +83,7 @@
 
                 <div class="col-md-4 text-center">
 
-                    <a href="/courses/{{$course->id}}">
+                    <a href="/courses/{{$course->slug}}">
                         <img src="{{$course->image_url}}" width="150" height="150" alt="slika-kursa">
                         <p class="lead">{{$course->name}}</p>
                     </a>
@@ -93,7 +98,7 @@
 
                     @if($course->followedBy(auth()->user()->id))
 
-                        <form action="{{action('StudentController@unfollowCourse', $course->id)}}" method="POST">
+                        <form action="{{action('StudentController@unfollowCourse', $course->slug)}}" method="POST">
 
                             @method('DELETE')
                             @csrf

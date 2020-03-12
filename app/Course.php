@@ -3,10 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Course extends Model
 {
-    protected $fillable = ['name', 'description', 'goals', 'category_id', 'video_url', 'image_url', 'user_id'];
+    use Sluggable, SoftDeletes;
+
+    protected $fillable = ['name', 'slug', 'description', 'goals', 'category_id', 'video_url', 'image_url', 'user_id'];
 
     public function category() {
 
@@ -31,5 +35,14 @@ class Course extends Model
     public function followedBy($id) {
 
         return $this->followers()->find($id);
+    }
+
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
     }
 }

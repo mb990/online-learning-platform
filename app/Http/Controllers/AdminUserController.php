@@ -31,10 +31,11 @@ class AdminUserController extends Controller
         return view('admin.show-users')->with('users', $users);
     }
 
-    public function showUser($id) {
+    public function showUser($slug) {
 
         $user = User::with('profiles')
-            ->find($id);
+            ->where('slug', '=', $slug)
+            ->first();
 
         return view('admin.show-user')->with('user', $user);
     }

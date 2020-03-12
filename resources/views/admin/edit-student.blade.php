@@ -16,7 +16,7 @@
 
                 <div class="panel-body">
 
-                    <form action="{{action('AdminUserController@updateStudent', $student->id)}}" method="POST">
+                    <form action="{{action('AdminUserController@updateStudent', $student->slug)}}" method="POST">
                         @csrf
                         @method('PUT')
                         <label for="first_name">First name</label>

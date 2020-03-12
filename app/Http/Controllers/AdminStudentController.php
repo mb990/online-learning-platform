@@ -19,16 +19,18 @@ class AdminStudentController extends Controller
         return view('admin.show-students')->with('students', $students);
     }
 
-    public function showSingle($id) {
+    public function showSingle($slug) {
 
-        $student = User::find($id);
+        $student = User::where('slug', '=', $slug)
+            ->first();
 
         return view('admin.show-student')->with('student', $student);
     }
 
-    public function edit($id) {
+    public function edit($slug) {
 
-        $student = User::find($id);
+        $student = User::where('slug', '=', $slug)
+            ->first();
         $roles = Role::all();
 
         return view('admin.edit-student')
@@ -36,9 +38,10 @@ class AdminStudentController extends Controller
             ->with('roles', $roles);
     }
 
-    public function update(Request $request, $id) {
+    public function update(Request $request, $slug) {
 
-        $student = User::find($id);
+        $student = User::where('slug', '=', $slug)
+            ->first();
 
         $student->first_name = $request->input('first_name');
         $student->last_name = $request->input('last_name');
@@ -59,9 +62,10 @@ class AdminStudentController extends Controller
             ->with('student', $student);
     }
 
-    public function destroy($id) {
+    public function destroy($slug) {
 
-        $student = User::find($id);
+        $student = User::where('slug', '=', $slug)
+            ->first();
 
         $student->delete();
 

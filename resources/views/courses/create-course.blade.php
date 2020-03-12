@@ -30,11 +30,14 @@
                         <label for="video_url">Video</label>
                         <input class="form-control" name="video_url" type="url" id="video_url" placeholder="Video"><br>
 
+                        <label for="image_url">Slika</label>
+                        <input class="form-control" name="image_url" type="url" id="image_url" placeholder="Slika"><br>
+
                         <label for="category">Kategorija</label>
                         <select class="form-control" name="category_id">
                             <option style="display: none" disabled selected value> -- izaberi kategoriju -- </option>
                             <?php foreach ($categories as $category) { ?>
-                            <option value="{{ $category->name }}">{{ $category->name }}</option>
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
                             <?php } ?>
                         </select><br>
 

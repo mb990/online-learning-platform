@@ -10,11 +10,6 @@ use Illuminate\Http\Request;
 
 class EducatorController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-        $this->middleware('role:educator');
-    }
 
     public function create()
     {
@@ -42,9 +37,11 @@ class EducatorController extends Controller
         $course = new Course();
 
         $course->name = $request->input('name');
+        $course->user_id = auth()->user()->id;
         $course->description = $request->input('description');
         $course->goals = $request->input('goals');
         $course->video_url = $request->input('video_url');
+        $course->image_url = $request->input('image_url');
         $course->category_id = $request->input('category_id');
 
         $course->save();
@@ -52,10 +49,10 @@ class EducatorController extends Controller
         return redirect('/courses');
     }
 
-    public function edit($id)
+    public function edit($slug)
     {
 
-        $course = Course::find($id);
+        $course = Course::where('slug', '=', $slug)->first();
 
         $categories = Category::all();
 
@@ -64,10 +61,10 @@ class EducatorController extends Controller
             ->with('categories', $categories);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $slug)
     {
 
-        $course = User::find($id);
+        $course = Course::where('slug', '=', $slug)->first();
 
         $course->name = $request->input('name');
         $course->description = $request->input('description');
@@ -79,13 +76,13 @@ class EducatorController extends Controller
 
         $course->save();
 
-        return redirect('/courses/' . $course->id . '/');
+        return redirect('/courses/' . $course->slug . '/');
     }
 
-    public function destroy($id)
+    public function destroy($slug)
     {
 
-        $course = Course::find($id);
+        $course = Course::where('slug', '=', $slug);
 
         $course->delete();
 

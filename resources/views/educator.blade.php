@@ -36,7 +36,7 @@
 
                 <div class="offset-3 col-md-3">
 
-                    <br><br><a class="lead" href="/profiles/{{$user->profile->id}}/edit">Izmeni</a>
+                    <br><br><a class="lead" href="/profiles/{{$user->slug}}/edit">Izmeni</a>
 
                 </div>
 
@@ -80,7 +80,7 @@
 
                 <div class="col-md-4 text-center">
 
-                    <a href="/courses/{{$course->id}}">
+                    <a href="/courses/{{$course->slug}}">
                         <img src="{{$course->image_url}}" width="150" height="150" alt="slika-kursa">
                         <p class="lead">{{$course->name}}</p>
                     </a>
@@ -88,14 +88,18 @@
                     @auth
                         @if(auth()->user()->id === $course->user_id)
 
-                            <a href="/courses/{{$course->id}}/edit">Edit</a>
-                            <form action="{{action('EducatorController@destroy', $course->id)}}" method="POST">
+                            <a href="/courses/{{$course->slug}}/edit">Edit</a>
+                            <form action="{{action('EducatorController@destroy', $course->slug)}}" method="POST">
 
                                 @method('DELETE')
                                 @csrf
                                 <input class="btn btn-danger" type="submit" value="Delete">
 
                             </form>
+
+                            @if(!$course->active)
+                                <p class="text-danger">Ovaj kurs sadrzi nedozvoljen sadrzaj.</p>
+                            @endif
 
                         @endif
 

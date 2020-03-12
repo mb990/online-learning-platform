@@ -6,10 +6,11 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class User extends Authenticatable
 {
-    use Notifiable, SoftDeletes;
+    use Notifiable, SoftDeletes, Sluggable;
 
     /**
      * The attributes that are mass assignable.
@@ -17,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'email', 'password', 'first_name', 'last_name'
+        'email', 'password', 'first_name', 'last_name', 'slug'
     ];
 
     /**
@@ -59,9 +60,9 @@ class User extends Authenticatable
         return $this->hasMany(Course::class);
     }
 
-    public function isFollowingCourse($id) {
+    public function isFollowingCourse($slug) {
 
-        return $this->boughtCourses()->find($id);
+        return $this->followedCourses()->find($slug);
     }
 
     public function authorizeRoles($roles)
@@ -93,4 +94,26 @@ class User extends Authenticatable
         }
         return false;
     }
+
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => ['first_name', 'last_name']
+            ]
+        ];
+    }
+
+//    public function checkIfDeactivated($slug) {
+//
+//        $user = User::where('slug', '=', $slug)
+//            ->first();
+//
+//        if ($user->active){
+//            return true;
+//        }
+//        else {
+//            return false;
+//        }
+//    }
 }

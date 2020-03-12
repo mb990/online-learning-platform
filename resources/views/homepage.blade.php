@@ -85,7 +85,7 @@
 
             <div class="col-md-4">
 
-                <a href="/courses/{{$course->id}}">
+                <a href="/courses/{{$course->slug}}">
 
                     <img src="{{$course->image_url}}" width="150" height="150" alt="course_image"><br>
                     <p class="lead"><strong>Course name:</strong> {{$course->name}}</p>
@@ -96,7 +96,7 @@
 
                     @if(auth()->user()->hasRole('student') && !$course->followedBy(auth()->user()->id))
 
-                        <form action="{{action('StudentController@followCourse', $course->id)}}" method="POST">
+                        <form action="{{action('StudentController@followCourse', $course->slug)}}" method="POST">
 
                             @csrf
                             <input class="form-control" type="submit" value="Prijavi se">
@@ -105,7 +105,7 @@
 
                     @elseif(auth()->user()->hasRole('student') && $course->followedBy(auth()->user()->id))
 
-                        <form action="{{action('StudentController@unfollowCourse', $course->id)}}" method="POST">
+                        <form action="{{action('StudentController@unfollowCourse', $course->slug)}}" method="POST">
 
                             @method('DELETE')
                             @csrf

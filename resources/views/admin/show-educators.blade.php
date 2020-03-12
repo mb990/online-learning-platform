@@ -1,65 +1,79 @@
 @extends('layouts.app')
 @section('title')
-    Show educators
+    Predavaci
 @endsection
 
 @section('content')
 
     <div class="jumbotron">
-        <h1 class="text-center"> Educators </h1>
+        <h1 class="text-center">Predavaci</h1>
     </div>
 
-        @if(count($educators))
+    @if(count($educators))
 
-            @foreach ($educators as $educator)
+        @foreach ($educators as $educator)
 
-                <div class="row text-center">
+            <div class="row text-center">
 
-                    <div class="col-md-4">
+                <div class="col-md-4">
 
-                        <p class="text-secondary"><strong>First name:</strong> {{$educator->first_name}}</p>
-                        <p class="text-secondary"><strong>Last name:</strong> {{$educator->last_name}}</p>
+                    <a href="/admin/educators/{{$educator->slug}}">
 
-                    </div>
+                        <p class="text-secondary"><strong>Predavac:</strong> {{$educator->first_name}} {{$educator->last_name}}</p>
 
-                    <div class="col-md-4">
-
-                        <a href="/admin/educators/{{$educator->id}}">View profile</a><br>
-
-                            @if(!$educator->trashed())
-
-                                <form action="{{action('AdminEducatorController@destroy', $educator->id)}}" method="POST">
-
-                                    @method('DELETE')
-                                    @csrf
-                                    <input class="btn btn-danger" type="submit" value="Deactivate user">
-
-                                </form>
-
-                            @else
-
-                                <form action="{{action('AdminEducatorController@retrieve', $educator->id)}}" method="GET">
-
-                                    @csrf
-                                    <input class="btn btn-success " type="submit" value="Retrieve user">
-
-                                </form>
-
-                        @endif
-
-                    </div>
+                    </a>
 
                 </div>
 
-                <hr>
+                <div class="col-md-4">
 
-            @endforeach
+                    @if($educator->active)
 
-        @else
+                        <form action="{{action('AdminEducatorController@deactivate', $educator->slug)}}" method="POST">
 
-            <p class="p-3 mb-2 bg-warning text-dark">Trenutno nema edukatora.</p>
+                            @method('PUT')
+                            @csrf
+                            <input class="btn btn-danger" type="submit" value="Deaktiviraj">
 
-        @endif
+                        </form>
+
+                    @else
+
+                        <form action="{{action('AdminEducatorController@activate', $educator->slug)}}" method="POST">
+
+                            @method('PUT')
+                            @csrf
+                            <input class="btn btn-success " type="submit" value="Aktiviraj">
+
+                        </form>
+
+                    @endif
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <form action="{{action('AdminEducatorController@destroy', $educator->slug)}}" method="POST">
+
+                        @method('DELETE')
+                        @csrf
+                        <input class="btn btn-danger" type="submit" value="Obrisi">
+
+                    </form>
+
+                </div>
+
+            </div>
+
+            <hr>
+
+        @endforeach
+
+    @else
+
+        <p class="p-3 mb-2 bg-warning text-dark">Trenutno nema edukatora.</p>
+
+    @endif
 
     <div class="row justify-content-center">
 

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Prikazi kurs
+    Pregledaj kurs
 @endsection
 {{--{{dd($course->boughtBy(auth()->user()->id))}}--}}
 @section('content')
@@ -177,7 +177,7 @@
 
                         <div class="col-md-4">
 
-                            <a href="/courses/{{$course->id}}">
+                            <a href="/courses/{{$course->slug}}">
                                 <img src="{{$course->image_url}}" width="150" height="150" alt="course_image"><br>
                                 <p class="lead">{{$course->name}}</p>
                             </a>

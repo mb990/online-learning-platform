@@ -10,7 +10,9 @@ class PageController extends Controller
     // show 3 most popular courses
     public function index()
     {
-        $courses = Course::has('owner')
+        $courses = Course::whereHas('owner', function ($q) {
+            $q->where('active', '=', true);
+        })
             ->withCount('followers')
             ->latest('followers_count')
             ->take(3)
@@ -53,21 +55,27 @@ class PageController extends Controller
             ->with('educators', $educators);
     }
 
-    public function showEducator($id) {
+    public function showEducator($slug) {
 
-        $user = User::find($id);
+        $user = User::where('slug', '=', $slug)->first();
 
         return view('educator')->with('user', $user);
     }
 
     public function myCourses() {
 
-        $educatorCourses = Course::with('owner')
+        $educatorCourses = Course::whereHas('owner', function ($q) {
+            $q->where('active', '=', true);
+        })
+            ->with('owner')
             ->where('user_id', '=', auth()->user()->id)
             ->get();
 
         $studentCourses = Course::whereHas('followers', function ($q) {
-            $q->where('users.id', '=', auth()->user()->id);
+                $q->where('users.id', '=', auth()->user()->id);
+            })
+            ->whereHas('owner', function ($q) {
+                $q->where('active', '=', true);
             })
             ->get();
 
