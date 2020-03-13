@@ -38,8 +38,8 @@
 
             <div class="col-md-5">
 
-                <iframe width="400" height="200" src="{{$course->video_url}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+{{--                <iframe width="400" height="200" src="{{$course->video_url}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>--}}
+                <video src="{{$course->video_url}}" width="400" height="200" controls>Video nije podržan</video>
             </div>
 
         @endif

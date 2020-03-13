@@ -4,11 +4,8 @@
     <list default="true" id="442411f5-d34a-45d1-97e0-f1150e714626" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EducatorProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EducatorProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/courses/create-course.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/create-course.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/courses/edit-course.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/edit-course.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profiles/edit-profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profiles/edit-profile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profiles/fill-profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profiles/fill-profile.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/courses/show-by-category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/show-by-category.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/courses/show-single.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/show-single.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,7 +176,7 @@
       <workItem from="1583919770102" duration="20902000" />
       <workItem from="1584001113610" duration="24030000" />
       <workItem from="1584047757802" duration="5213000" />
-      <workItem from="1584088881892" duration="24011000" />
+      <workItem from="1584088881892" duration="25720000" />
     </task>
     <servers />
   </component>

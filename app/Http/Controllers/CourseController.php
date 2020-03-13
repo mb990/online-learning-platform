@@ -168,12 +168,16 @@ class CourseController extends Controller
         $course->goals = $request->input('goals');
         $course->category_id = $request->input('category_id');
 
-        $video = $request->file('video_url');
+        if ($request->file('video_url')) {
 
-        Storage::disk('public')->putFileAs('course-videos/', $video, $course->id . '.' . $video
-                ->getClientOriginalExtension());
+            $video = $request->file('video_url');
 
-        $course->video_url = asset('storage/course-videos/' . $course->id . '.' . $video->getClientOriginalExtension());
+            Storage::disk('public')->putFileAs('course-videos/', $video, $course->id . '.' . $video
+                    ->getClientOriginalExtension());
+
+            $course->video_url = asset('storage/course-videos/' . $course->id . '.' . $video->getClientOriginalExtension());
+
+        }
 
         if ($request->file('image_url')) {
 
