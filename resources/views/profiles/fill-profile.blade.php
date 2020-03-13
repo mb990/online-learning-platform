@@ -16,7 +16,7 @@
 
                 <div class="panel-body">
 
-                    <form action="{{action('ProfileController@store', $user->slug)}}" method="POST">
+                    <form action="{{action('EducatorProfileController@store', $user->slug)}}" method="POST">
                         @csrf
                         @method('PUT')
 
@@ -29,8 +29,8 @@
                         <label for="education">Education</label>
                         <input class="form-control" name="education" type="text" id="education" placeholder="Your education"><br>
 
-                        <label for="image_url">Image URL</label>
-                        <input class="form-control" name="image_url" type="url" id="image_url" placeholder="Your profile picture"><br>
+                        <label for="image_url">Image</label>
+                        <input type="file" class="form-control-file" name="image_url" id="image_url" value="{{asset('storage/profile-images/default.png')}}"><br>
 
                         <label for="title">Title</label>
                         <input class="form-control" name="title" type="text" id="title" placeholder="Your title"><br>

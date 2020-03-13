@@ -58,8 +58,22 @@
 
         <div class="col-md-3">
 
-            <img src="{{$course->owner->profile->image_url}}" width="150" height="150" alt="profile picture">
-            <p class="lead">by {{$course->owner->first_name}} {{$course->owner->last_name}}</p>
+            <a href="/educators/{{$course->owner->slug}}">
+
+                @if(!$course->owner->profile->image_url)
+
+                    <img width="150" height="150" class="rounded-circle"
+                         src="{{asset('storage/profile-images/default.png')}}" alt="educator-picture">
+
+                @else
+
+                    <img width="150" height="150" class="rounded-circle" src="{{$course->owner->profile->image_url}}"
+                         alt="educator-picture">
+
+                @endif
+                <p class="lead">by {{$course->owner->first_name}} {{$course->owner->last_name}}</p>
+
+            </a>
 
         </div>
 

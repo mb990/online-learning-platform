@@ -43,7 +43,7 @@
                     @if(auth()->user()->id === $course->user_id)
 
                         <a href="/courses/{{$course->slug}}/edit">Izmeni</a>
-                        <form action="{{action('EducatorController@destroy', $course->slug)}}" method="POST">
+                        <form action="{{action('CourseController@destroy', $course->slug)}}" method="POST">
 
                             @method('DELETE')
                             @csrf
@@ -52,7 +52,7 @@
                         </form>
 
                         @if(!$course->active)
-                            <p class="text-danger">Ovaj kurs sadrzi nedozvoljen sadrzaj.</p>
+                            <p class="text-danger">Ovaj kurs sadrži nedozvoljen sadrzaj.</p>
                         @endif
 
                     @endif

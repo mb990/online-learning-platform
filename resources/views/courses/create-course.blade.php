@@ -16,7 +16,7 @@
 
                 <div class="panel-body">
 
-                    <form action="{{action('EducatorController@store')}}" method="POST" xmlns="http://www.w3.org/1999/html">
+                    <form action="{{action('CourseController@store')}}" enctype="multipart/form-data" method="POST" xmlns="http://www.w3.org/1999/html">
                         @csrf
                         <label for="course_name">Ime kursa</label>
                         <input class="form-control" name="name" type="text" id="name" placeholder="Ime kursa"><br>
@@ -31,7 +31,7 @@
                         <input class="form-control" name="video_url" type="url" id="video_url" placeholder="Video"><br>
 
                         <label for="image_url">Slika</label>
-                        <input class="form-control" name="image_url" type="url" id="image_url" placeholder="Slika"><br>
+                        <input type="file" class="form-control-file" name="image_url" id="image_url"><br>
 
                         <label for="category">Kategorija</label>
                         <select class="form-control" name="category_id">

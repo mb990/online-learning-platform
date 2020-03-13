@@ -28,6 +28,8 @@ Route::middleware(['role:admin'])->group(function () {
     Route::get('/admin/students/{id}', 'AdminStudentController@showSingle');
     Route::get('/admin/students/{id}/edit', 'AdminStudentController@edit');
     Route::put('/admin/students/{id}/submit', 'AdminStudentController@update');
+    Route::put('/admin/students/{id}/deactivate', 'AdminStudentController@deactivate');
+    Route::put('/admin/students/{id}/activate', 'AdminStudentController@activate');
     Route::delete('/admin/students/{id}/delete', 'AdminStudentController@destroy');
 
     Route::get('/admin/users', 'AdminUserController@showAll');
@@ -42,15 +44,15 @@ Route::middleware(['role:admin'])->group(function () {
 });
 
 Route::middleware(['role:educator'])->group(function () {
-    Route::get('/courses/{slug}/edit', 'EducatorController@edit');
-    Route::put('/courses/{slug}/submit', 'EducatorController@update');
-    Route::get('/courses/new', 'EducatorController@create');
-    Route::post('/courses/new/submit', 'EducatorController@store');
-    Route::delete('/courses/{slug}/delete', 'EducatorController@destroy');
-    Route::get('/profiles/{slug}/edit', 'ProfileController@edit');
-    Route::put('/profiles/{slug}/submit', 'ProfileController@update');
-    Route::get('/profiles/{slug}/fill', 'ProfileController@fill');
-    Route::put('/profiles/{slug}/fill/submit', 'ProfileController@store');
+    Route::get('/courses/{slug}/edit', 'CourseController@edit');
+    Route::put('/courses/{slug}/submit', 'CourseController@update');
+    Route::get('/courses/new', 'CourseController@create');
+    Route::post('/courses/new/submit', 'CourseController@store');
+    Route::delete('/courses/{slug}/delete', 'CourseController@destroy');
+    Route::get('/profiles/{slug}/edit', 'EducatorProfileController@edit');
+    Route::put('/profiles/{slug}/submit', 'EducatorProfileController@update');
+    Route::get('/profiles/{slug}/fill', 'EducatorProfileController@fill');
+    Route::put('/profiles/{slug}/fill/submit', 'EducatorProfileController@store');
 });
 
 Route::middleware(['role:student'])->group(function () {
@@ -75,6 +77,6 @@ Route::post('register/educator/submit', 'Auth\RegisterController@storeEducator')
 Route::get('register/student', 'Auth\RegisterController@createStudent');
 Route::post('register/student/submit', 'Auth\RegisterController@storeStudent');
 
-Route::get('/profiles/{slug}', 'ProfileController@show');
+Route::get('/profiles/{slug}', 'EducatorProfileController@show');
 
 Route::get('/my-courses', 'PageController@myCourses');

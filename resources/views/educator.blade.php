@@ -20,13 +20,24 @@
 
         <div class="col-md-2">
 
-            <img width="150" height="150" class="rounded-circle" src="{{$user->profile->image_url}}" alt="educator-picture">
+            @if(!$user->profile->image_url)
+
+                <img width="150" height="150" class="rounded-circle"
+                     src="{{asset('storage/profile-images/default.png')}}" alt="educator-picture">
+
+            @else
+
+                <img width="150" height="150" class="rounded-circle" src="{{$user->profile->image_url}}"
+                     alt="educator-picture">
+
+            @endif
 
         </div>
 
         <div class="col-md-4">
 
-            <br><br><h2 class="text-primary"><strong>{{$user->first_name}} {{$user->last_name}}</strong></h2>
+            <br><br>
+            <h2 class="text-primary"><strong>{{ucfirst($user->first_name)}} {{ucfirst($user->last_name)}}</strong></h2>
 
         </div>
 
@@ -48,11 +59,11 @@
 
     <div class="row justify-content-center">
 
-        <h2 class="text-primary"><strong>O PREDAVACU</strong></h2>
+        <h2 class="text-primary"><strong>O PREDAVAČU</strong></h2>
 
     </div><br><br>
 
-    <div class="row">
+    <div class="row justify-content-center">
 
         @if($user->profile->biography)
 
@@ -60,7 +71,7 @@
 
         @else
 
-            <p class="p-3 mb-2 bg-warning text-dark">Ovaj predavac trenutno nema svoj opis.</p>
+            <p class="p-3 mb-2 bg-warning text-dark">Ovaj predavač trenutno nema svoj opis.</p>
 
         @endif
 
@@ -88,17 +99,17 @@
                     @auth
                         @if(auth()->user()->id === $course->user_id)
 
-                            <a href="/courses/{{$course->slug}}/edit">Edit</a>
-                            <form action="{{action('EducatorController@destroy', $course->slug)}}" method="POST">
+                            <a href="/courses/{{$course->slug}}/edit">Izmeni</a>
+                            <form action="{{action('CourseController@destroy', $course->slug)}}" method="POST">
 
                                 @method('DELETE')
                                 @csrf
-                                <input class="btn btn-danger" type="submit" value="Delete">
+                                <input class="btn btn-danger" type="submit" value="Obriši">
 
                             </form>
 
                             @if(!$course->active)
-                                <p class="text-danger">Ovaj kurs sadrzi nedozvoljen sadrzaj.</p>
+                                <p class="text-danger">Ovaj kurs sadrži nedozvoljen sadrzaj.</p>
                             @endif
 
                         @endif
@@ -111,7 +122,7 @@
 
         @else
 
-            <p class="p-3 mb-2 bg-warning text-dark">Ovaj predavac nema kurseve.</p>
+            <p class="p-3 mb-2 bg-warning text-dark">Ovaj predavač nema kurseve.</p>
 
         @endif
 

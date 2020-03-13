@@ -20,11 +20,12 @@ $factory->define(Course::class, function (Faker $faker) {
 
 
     return [
-        'name' => $faker->title,
-        'description' => $faker->text,
+        'name' => $faker->realText(10),
+        'description' => $faker->realText(200),
         'goals' => $faker->text($maxNbChars = 10),
         'video_url' => $faker->url,
         'category_id' => $faker->randomElement($categories),
-        'user_id' => $faker->randomElement($owners)
+        'user_id' => $faker->randomElement($owners),
+        'image_url' => $faker->imageUrl()
     ];
 });

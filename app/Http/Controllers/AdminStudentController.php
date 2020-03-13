@@ -62,12 +62,34 @@ class AdminStudentController extends Controller
             ->with('student', $student);
     }
 
+    public function deactivate($slug) {
+
+        $student = User::where('slug', '=', $slug)
+            ->first();
+
+        $student->active = false;
+        $student->save();
+
+        return redirect('/admin/students');
+    }
+
+    public function activate($slug) {
+
+        $student = User::where('slug', '=', $slug)
+            ->first();
+
+        $student->active = true;
+        $student->save();
+
+        return redirect('/admin/students');
+    }
+
     public function destroy($slug) {
 
         $student = User::where('slug', '=', $slug)
             ->first();
 
-        $student->delete();
+        $student->forceDelete();
 
         return redirect('/admin/students')->with('success', 'Student is deleted.');
     }

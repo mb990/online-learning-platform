@@ -18,7 +18,7 @@ class CourseUserTableSeeder extends Seeder
         User::whereHas('roles', function($q){
             $q->where('name', '=', 'student');
         })->each(function ($user) use ($courses) {
-            $user->boughtCourses()->attach($courses->random((rand(1, 3))));
+            $user->followedCourses()->attach($courses->random((rand(1, 3))));
         });
     }
 }

@@ -23,7 +23,7 @@
 
                 <div class="col-md-4">
 
-                    <a href="/courses/{{$course->slug}}/view">
+                    <a href="/courses/{{$course->slug}}">
 
                         <iframe width="300" height="155" src="{{$course->video_url}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         <p class="lead"><strong>Ime kursa:</strong> {{$course->name}}</p>

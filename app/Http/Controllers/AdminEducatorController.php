@@ -12,8 +12,7 @@ class AdminEducatorController extends Controller
 
     public function showAll() {
 
-        $educators = User::withTrashed()
-            ->whereHas('roles', function($q){
+        $educators = User::whereHas('roles', function($q){
             $q->whereIn('name', ['educator']);
         })
             ->paginate(10);
@@ -23,8 +22,7 @@ class AdminEducatorController extends Controller
 
     public function showSingle($slug) {
 
-        $educator = User::withTrashed()
-            ->where('slug', '=', $slug)
+        $educator = User::where('slug', '=', $slug)
             ->first();
 
         return view('admin.show-educator')->with('educator', $educator);

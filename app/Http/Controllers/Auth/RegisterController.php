@@ -91,7 +91,7 @@ class RegisterController extends Controller
 
         Auth::login($user);
 
-        return redirect('/profiles/' . $user->id . '/fill');
+        return redirect('/profiles/' . $user->slug . '/fill');
     }
 
     protected function createStudent() {

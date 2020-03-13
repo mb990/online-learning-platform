@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DRIVER', 'local'),
+    'default' => env('FILESYSTEM_DRIVER', 'public'),
 
     /*
     |--------------------------------------------------------------------------
@@ -46,6 +46,16 @@ return [
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),
+//            'permissions' => [
+//                'file' => [
+//                    'public' => 0664,
+//                    'private' => 0600,
+//                ],
+//                'dir' => [
+//                    'public' => 0775,
+//                    'private' => 0700,
+//                ],
+//            ],
         ],
 
         'public' => [
@@ -63,6 +73,13 @@ return [
             'bucket' => env('AWS_BUCKET'),
             'url' => env('AWS_URL'),
         ],
+
+//        'sftp' => [
+//            'driver' => 'sftp',
+//            'host' => 'localhost',
+//            'username' => 'root',
+//            'password' => '',
+//        ],
 
     ],
 

@@ -10,39 +10,58 @@
     </div>
 
     @if(count($students))
-        {{--    {{dd($educators)}}--}}
+
         @foreach ($students as $student)
 
             <div class="row text-center">
 
                 <div class="col-md-4">
 
-                    <p class="text-secondary"><strong>Ime:</strong> {{$student->first_name}}</p>
-                    <p class="text-secondary"><strong>Prezime:</strong> {{$student->last_name}}</p>
-                    {{--                            <p class="text-secondary"><strong>Role:</strong> {{$educator->roles[0]->name}}</p><br>--}}
+                    <a href="/admin/educators/{{$student->slug}}">
 
+                        <p class="text-secondary"><strong>Polaznik:</strong> {{$student->first_name}} {{$student->last_name}}</p>
 
-                </div>
-
-                <div class="col-md-4"><br>
-
-                    <a href="/admin/students/{{$student->slug}}">Profil</a><br>
-{{--                    <a href="/admin/students/{{$student->id}}/edit">Edit profile</a><br><br>--}}
-
+                    </a>
 
                 </div>
 
                 <div class="col-md-4">
-                    <form action="{{action('AdminStudentController@destroy', $student->slug)}}" method="POST">
+
+                    @if($student->active)
+
+                        <form action="{{action('AdminStudentController@deactivate', $student->slug)}}" method="POST">
+
+                            @method('PUT')
+                            @csrf
+                            <input class="btn btn-danger" type="submit" value="Deaktiviraj">
+
+                        </form>
+
+                    @else
+
+                        <form action="{{action('AdminStudentController@activate', $student->slug)}}" method="POST">
+
+                            @method('PUT')
+                            @csrf
+                            <input class="btn btn-success " type="submit" value="Aktiviraj">
+
+                        </form>
+
+                    @endif
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <form action="{{action('AdminEducatorController@destroy', $student->slug)}}" method="POST">
 
                         @method('DELETE')
                         @csrf
-                        <input class="btn btn-danger" type="submit" value="Delete user">
+                        <input class="btn btn-danger" type="submit" value="Obrisi">
 
                     </form>
 
                 </div>
-
 
             </div>
 
@@ -52,7 +71,7 @@
 
     @else
 
-        <p>No educators to show.</p>
+        <p class="p-3 mb-2 bg-warning text-dark">Trenutno nema polaznika.</p>
 
     @endif
 

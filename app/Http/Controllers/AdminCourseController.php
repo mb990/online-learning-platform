@@ -9,8 +9,7 @@ class AdminCourseController extends Controller
 {
     public function index() {
 
-        $courses = Course::withTrashed()
-            ->paginate(10);
+        $courses = Course::paginate(10);
 
         return view('admin.courses')->with('courses', $courses);
     }

@@ -16,7 +16,7 @@
                     @if(auth()->user()->hasRole('admin'))
 
                         <li><a class="nav-link {{ Request::is('admin/educators') ? 'active' : '' }}"
-                               href="/admin/educators">Predavaci-admin</a></li>&nbsp | &nbsp
+                               href="/admin/educators">Predavači-admin</a></li>&nbsp | &nbsp
                         <li><a class="nav-link {{ Request::is('admin/courses') ? 'active' : '' }}"
                                href="/admin/courses">Kursevi-admin</a></li>&nbsp | &nbsp
                         <li><a class="nav-link {{ Request::is('admin/students') ? 'active' : '' }}"
@@ -30,7 +30,7 @@
 
                 @endauth
 
-                    <li><a class="nav-link {{ Request::is('educators') ? 'active' : '' }}" href="/educators">Predavaci</a></li>&nbsp | &nbsp
+                    <li><a class="nav-link {{ Request::is('educators') ? 'active' : '' }}" href="/educators">Predavači</a></li>&nbsp | &nbsp
                     <li><a class="nav-link {{ Request::is('courses') ? 'active' : '' }}" href="/courses">Kursevi</a></li>
 
             </ul>

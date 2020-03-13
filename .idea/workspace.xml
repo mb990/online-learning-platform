@@ -5,32 +5,35 @@
       <change beforePath="$PROJECT_DIR$/.idea/online-learning-platform.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/online-learning-platform.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Category.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Course.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Course.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminCourseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminCourseController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminEducatorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminEducatorController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminStudentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminStudentController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminUserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EducatorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EducatorController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EducatorController.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EducatorProfileController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/app.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/edit-educator.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/edit-educator.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/edit-student.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/edit-student.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/show-educator.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/show-educator.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/show-educators.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/show-educators.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/show-student.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/show-student.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/filesystems.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/filesystems.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/CourseFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/CourseFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/ProfileFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/ProfileFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_24_125856_create_profiles_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_24_125856_create_profiles_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_12_125721_add_deleted_at_to_courses.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/CategoriesTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/CategoriesTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/ContentsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ContentsTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/CourseUserTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/CourseUserTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/RoleUserTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/RoleUserTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/RolesTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/RolesTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/show-students.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/show-students.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/show-user.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/show-user.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/show-users.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/show-users.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/courses/create-course.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/create-course.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/courses/edit-course.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/edit-course.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/courses/show-by-category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/show-by-category.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/courses/show-courses.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/show-courses.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/courses/show-single.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/show-single.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/educator.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/educator.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/educators.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/educators.blade.php" afterDir="false" />
@@ -146,6 +149,10 @@
       <path value="$PROJECT_DIR$/vendor/laravel/ui" />
       <path value="$PROJECT_DIR$/vendor/cviebrock/eloquent-sluggable" />
       <path value="$PROJECT_DIR$/vendor/cocur/slugify" />
+      <path value="$PROJECT_DIR$/vendor/phpseclib/phpseclib" />
+      <path value="$PROJECT_DIR$/vendor/league/flysystem-sftp" />
+      <path value="$PROJECT_DIR$/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/vendor/league/flysystem-cached-adapter" />
     </include_path>
   </component>
   <component name="ProjectId" id="1YFZT7WtdNg3F6YsWIKDE9KdP1q" />
@@ -160,7 +167,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../.." />
+    <property name="last_opened_file_path" value="D:/.." />
     <property name="settings.editor.selected.configurable" value="editor.preferences.smartKeys" />
   </component>
   <component name="RecentsManager">
@@ -205,6 +212,8 @@
       <workItem from="1583828780214" duration="25360000" />
       <workItem from="1583919770102" duration="20902000" />
       <workItem from="1584001113610" duration="24030000" />
+      <workItem from="1584047757802" duration="5213000" />
+      <workItem from="1584088881892" duration="21207000" />
     </task>
     <servers />
   </component>
@@ -212,13 +221,19 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="746" y="27" width="476" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1583752425459">
-      <screen x="67" y="27" width="1853" height="1053" />
+    <state x="462" y="167" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1584109690078">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="462" y="167" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1584109690078" />
+    <state x="501" y="0" width="476" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1584093701791">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="501" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1584093701791" />
     <state x="746" y="27" width="476" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1583752425459" />
-    <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1584023424498">
-      <screen x="67" y="27" width="1853" height="1053" />
+    <state x="486" y="196" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1584110576639">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="486" y="196" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1584110576639" />
     <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1584023424498" />
     <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1582704393805">
       <screen x="67" y="27" width="1853" height="1053" />

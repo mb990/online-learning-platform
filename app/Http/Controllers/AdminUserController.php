@@ -24,8 +24,7 @@ class AdminUserController extends Controller
 
     public function showALl() {
 
-        $users = User::withTrashed()
-            ->whereHas('roles')
+        $users = User::whereHas('roles')
             ->paginate(10);
 
         return view('admin.show-users')->with('users', $users);

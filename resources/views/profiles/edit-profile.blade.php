@@ -30,7 +30,7 @@
 
                     <div class="panel-body">
 
-                        <form action="{{action('ProfileController@update', $user->slug)}}" method="POST">
+                        <form action="{{action('EducatorProfileController@update', $user->slug)}}" method="POST">
                             @csrf
                             @method('PUT')
                             <label for="first_name">Ime</label>

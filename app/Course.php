@@ -4,11 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Course extends Model
 {
-    use Sluggable, SoftDeletes;
+    use Sluggable;
 
     protected $fillable = ['name', 'slug', 'description', 'goals', 'category_id', 'video_url', 'image_url', 'user_id'];
 

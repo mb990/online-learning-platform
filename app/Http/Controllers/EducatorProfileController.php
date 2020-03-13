@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use App\Role;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
-class ProfileController extends Controller
+class EducatorProfileController extends Controller
 {
 
 public function show($slug) {
@@ -67,12 +68,19 @@ public function show($slug) {
             ->first();
 
         $user->profile->age = $request->input('age');
-        $user->profile->image_url = $request->input('image_url');
         $user->profile->title = $request->input('title');
         $user->profile->biography = $request->input('biography');
         $user->profile->education = $request->input('education');
         $user->profile->linkedin = $request->input('linkedin');
 
+        $user->profile->save();
+
+        $image = $request->file('image_url');
+
+        Storage::disk('public')->putFileAs('profile-images/', $image, $user->id . '.' . $image
+                ->getClientOriginalExtension());
+
+        $user->profile->image_url = asset('storage/course-images/' . $user->id . '.' . $image->getClientOriginalExtension());
         $user->profile->save();
 
         return redirect('/profiles/' . $user->slug);
