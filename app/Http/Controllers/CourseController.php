@@ -122,11 +122,18 @@ class CourseController extends Controller
         $course->user_id = auth()->user()->id;
         $course->description = $request->input('description');
         $course->goals = $request->input('goals');
-        $course->video_url = $request->input('video_url');
         $course->category_id = $request->input('category_id');
+        $course->video_url = 'temp';
         $course->image_url = 'temp';
 
         $course->save();
+
+        $video = $request->file('video_url');
+
+        Storage::disk('public')->putFileAs('course-videos/', $video, $course->id . '.' . $video
+                ->getClientOriginalExtension());
+
+        $course->video_url = asset('storage/course-videos/' . $course->id . '.' . $video->getClientOriginalExtension());
 
         $image = $request->file('image_url');
 
@@ -159,10 +166,24 @@ class CourseController extends Controller
         $course->name = $request->input('name');
         $course->description = $request->input('description');
         $course->goals = $request->input('goals');
-        $course->video_url = $request->input('video');
-        $course->category_id = $request->input('category');
-        $course->image_url = $request->input('image');
+        $course->category_id = $request->input('category_id');
 
+        $video = $request->file('video_url');
+
+        Storage::disk('public')->putFileAs('course-videos/', $video, $course->id . '.' . $video
+                ->getClientOriginalExtension());
+
+        $course->video_url = asset('storage/course-videos/' . $course->id . '.' . $video->getClientOriginalExtension());
+
+        if ($request->file('image_url')) {
+
+            $image = $request->file('image_url');
+
+            Storage::disk('public')->putFileAs('course-images/', $image, $course->id . '.' . $image
+                    ->getClientOriginalExtension());
+
+            $course->image_url = asset('storage/course-images/' . $course->id . '.' . $image->getClientOriginalExtension());
+        }
 
         $course->save();
 

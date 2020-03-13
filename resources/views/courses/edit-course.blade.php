@@ -35,7 +35,7 @@
 
                     <div class="panel-body">
 
-                        <form action="{{action('CourseController@update', $course->slug)}}" method="POST" xmlns="http://www.w3.org/1999/html">
+                        <form action="{{action('CourseController@update', $course->slug)}}" enctype="multipart/form-data" method="POST" xmlns="http://www.w3.org/1999/html">
                             @csrf
                             @method('PUT')
                             <label for="course_name">Ime kursa</label>
@@ -48,12 +48,15 @@
                             <input class="form-control" name="goals" type="text" id="goals" value="{{$course->goals}}"><br>
 
                             <label for="video_url">Video</label>
-                            <input class="form-control" name="video_url" type="url" id="video_url" value="{{$course->video_url}}"><br>
+                            <input type="file" class="form-control-file" name="video_url" id="video_url"><br>
+
+                            <label for="image_url">Slika</label>
+                            <input type="file" class="form-control-file" name="image_url" id="image_url"><br>
 
                             <label for="category">Kategorija</label>
                             <select class="form-control" name="category_id">
                                 @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    <option @if($category->id = $course->category_id) selected @endif value="{{ $category->id }}">{{ $category->name }}</option>
                                 @endforeach
                             </select><br>
 

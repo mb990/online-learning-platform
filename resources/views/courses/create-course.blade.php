@@ -28,7 +28,7 @@
                         <input class="form-control" name="goals" type="text" id="goals" placeholder="Ciljevi kursa"><br>
 
                         <label for="video_url">Video</label>
-                        <input class="form-control" name="video_url" type="url" id="video_url" placeholder="Video"><br>
+                        <input type="file" class="form-control-file" name="video_url" id="video_url"><br>
 
                         <label for="image_url">Slika</label>
                         <input type="file" class="form-control-file" name="image_url" id="image_url"><br>

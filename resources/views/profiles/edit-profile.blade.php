@@ -30,7 +30,7 @@
 
                     <div class="panel-body">
 
-                        <form action="{{action('EducatorProfileController@update', $user->slug)}}" method="POST">
+                        <form action="{{action('EducatorProfileController@update', $user->slug)}}" enctype="multipart/form-data" method="POST">
                             @csrf
                             @method('PUT')
                             <label for="first_name">Ime</label>
@@ -54,8 +54,8 @@
                             <label for="education">Obrazovanje</label>
                             <input class="form-control" name="education" type="text" id="education" placeholder="Your education" value="{{$user->profile->education}}"><br>
 
-                            <label for="image_url">Profilna slika</label>
-                            <input class="form-control" name="image_url" type="url" id="image_url" placeholder="Your profile picture" value="{{$user->profile->image_url}}"><br>
+                            <label for="image_url">Slika</label>
+                            <input type="file" class="form-control-file" name="image_url" id="image_url"><br>
 
                             <label for="title">Zvanje</label>
                             <input class="form-control" name="title" type="text" id="title" placeholder="Your title" value="{{$user->profile->title}}"><br>

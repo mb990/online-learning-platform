@@ -30,7 +30,8 @@ public function show($slug) {
             ->with('roles', $roles);
     }
 
-    public function update(Request $request, $slug) {
+    public function update(Request $request, $slug)
+    {
 
         $user = User::where('slug', '=', $slug)
             ->first();
@@ -38,11 +39,21 @@ public function show($slug) {
         $user->first_name = $request->input('first_name');
         $user->last_name = $request->input('last_name');
         $user->profile->age = $request->input('age');
-        $user->profile->image_url = $request->input('image_url');
         $user->profile->title = $request->input('title');
         $user->profile->biography = $request->input('biography');
         $user->profile->education = $request->input('education');
         $user->profile->linkedin = $request->input('linkedin');
+
+        if ($request->file('image_url')) {
+
+            $image = $request->file('image_url');
+
+            Storage::disk('public')->putFileAs('profile-images/', $image, $user->id . '.' . $image
+                    ->getClientOriginalExtension());
+
+            $user->profile->image_url = asset('storage/profile-images/' . $user->id . '.' . $image->getClientOriginalExtension());
+
+        }
 
         $user->save();
         $user->profile->save();
@@ -80,7 +91,7 @@ public function show($slug) {
         Storage::disk('public')->putFileAs('profile-images/', $image, $user->id . '.' . $image
                 ->getClientOriginalExtension());
 
-        $user->profile->image_url = asset('storage/course-images/' . $user->id . '.' . $image->getClientOriginalExtension());
+        $user->profile->image_url = asset('storage/profile-images/' . $user->id . '.' . $image->getClientOriginalExtension());
         $user->profile->save();
 
         return redirect('/profiles/' . $user->slug);
