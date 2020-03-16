@@ -34,7 +34,7 @@
 
     @auth
 
-        @if($course->followedBy(auth()->user()->id) || $course->owner->id === auth()->user()->id)
+        @if($course->followedBy(auth()->user()->id) || $course->owner->id === auth()->user()->id || auth()->user()->hasRole('admin'))
 
             <div class="col-md-5">
 
@@ -93,7 +93,7 @@
 
         @auth
 
-            @if($course->followedBy(auth()->user()->id) || $course->owner->id === auth()->user()->id)
+            @if($course->followedBy(auth()->user()->id) || $course->owner->id === auth()->user()->id || auth()->user()->hasRole('admin'))
 
                 @if(count($course->contents))
 
