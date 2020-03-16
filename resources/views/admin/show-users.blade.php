@@ -26,9 +26,9 @@
                 <div class="col-md-4"><br>
 
                     @if($user->hasRole('educator'))
-                        <a href="/admin/educators/{{$user->slug}}">View profile</a><br>
+                        <a href="/admin/educators/{{$user->slug}}">Profil</a><br>
                     @else
-                        <a href="/admin/students/{{$user->slug}}">View profile</a><br>
+                        <a href="/admin/students/{{$user->slug}}">Profil</a><br>
                     @endif
 
                 </div>

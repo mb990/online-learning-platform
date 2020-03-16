@@ -6,11 +6,11 @@
 @section('content')
 
     <h2 class="text-center">
-        This is admin panel<br>
-    </h2>
+        Admin panel<br>
+    </h2><br>
 
     <h2 class="lead text-center">
-        Check navbar for your options
+        Opcije su smeštene u navbar-u.
     </h2>
 
 @endsection

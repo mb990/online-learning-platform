@@ -3,9 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="442411f5-d34a-45d1-97e0-f1150e714626" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminUserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/courses.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/courses.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/create-new-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/create-new-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/show-educators.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/show-educators.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/show-students.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/show-students.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/show-users.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/show-users.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register-educator.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register-educator.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register-student.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register-student.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/courses/show-by-category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/show-by-category.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/courses/show-single.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/show-single.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/educators.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/educators.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +186,9 @@
       <workItem from="1583919770102" duration="20902000" />
       <workItem from="1584001113610" duration="24030000" />
       <workItem from="1584047757802" duration="5213000" />
-      <workItem from="1584088881892" duration="25720000" />
+      <workItem from="1584088881892" duration="26505000" />
+      <workItem from="1584216400726" duration="1460000" />
+      <workItem from="1584344541356" duration="5947000" />
     </task>
     <servers />
   </component>

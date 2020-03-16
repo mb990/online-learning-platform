@@ -21,7 +21,7 @@
                         <p class="text-secondary"><strong>Ime:</strong> {{ucfirst($course->name)}}</p>
                     </a>
                     <a href="/admin/educators/{{$course->owner->slug}}">
-                        <p class="text-secondary"><strong>Predavac:</strong> {{$course->owner->first_name}} {{$course->owner->last_name}}</p>
+                        <p class="text-secondary"><strong>Predavač:</strong> {{$course->owner->first_name}} {{$course->owner->last_name}}</p>
                     </a>
                     <a href="/category/{{$course->category->slug}}">
                         <p class="text-secondary"><strong>Kategorija:</strong> {{ucfirst($course->category->name)}}</p>
@@ -61,7 +61,7 @@
 
                         @method('DELETE')
                         @csrf
-                        <input class="btn btn-danger" type="submit" value="Obrisi">
+                        <input class="btn btn-danger" type="submit" value="Obriši">
 
                     </form>
 

@@ -27,7 +27,7 @@
 
 {{--                        <iframe width="300" height="155" src="{{$course->video_url}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>--}}
                         <video src="{{$course->video_url}}" width="300" height="150" controls>Video nije podržan</video>
-                        <p class="lead"><strong>Ime kursa:</strong> {{$course->name}}</p>
+                        <p class="lead">{{$course->name}}</p>
 
                     </a>
 

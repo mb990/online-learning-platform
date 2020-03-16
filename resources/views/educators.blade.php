@@ -59,7 +59,7 @@
 
             <div class="col-md-3">
 
-                <a href="/educators/{{$educator->id}}">
+                <a href="/educators/{{$educator->slug}}">
 
                     @if(!$educator->profile->image_url)
 

@@ -46,6 +46,13 @@ class AdminUserController extends Controller
 
     public function storeAdmin(Request $request) {
 
+        $request->validate([
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => 'string|required|min:8|confirmed',
+        ]);
+
         $admin = new User();
 
         $admin->first_name = $request->input('first_name');

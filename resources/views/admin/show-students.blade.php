@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('title')
-    Studenti
+    Polaznici
 @endsection
 
 @section('content')
 
     <div class="jumbotron">
-        <h1 class="text-center">Studenti</h1>
+        <h1 class="text-center">Polaznici</h1>
     </div>
 
     @if(count($students))
@@ -57,7 +57,7 @@
 
                         @method('DELETE')
                         @csrf
-                        <input class="btn btn-danger" type="submit" value="Obrisi">
+                        <input class="btn btn-danger" type="submit" value="Obriši">
 
                     </form>
 

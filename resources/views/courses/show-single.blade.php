@@ -24,7 +24,7 @@
 
     @if(auth()->user()->hasRole('student') && !$course->followedBy(auth()->user()->id))
 
-        <h2 class="text-center text-danger">Kupite ovaj kurs da vidite ceo sadrzaj</h2><br>
+        <h2 class="text-center text-danger">Kupite ovaj kurs da vidite ceo sadržaj</h2><br>
 
     @endif
 
@@ -71,7 +71,7 @@
                          alt="educator-picture">
 
                 @endif
-                <p class="lead">by {{$course->owner->first_name}} {{$course->owner->last_name}}</p>
+                <p class="lead">od {{$course->owner->first_name}} {{$course->owner->last_name}}</p>
 
             </a>
 
@@ -87,7 +87,7 @@
 
     <div class="row">
 
-        <h3>Sadrzaj kursa</h3>
+        <h3>Sadržaj kursa</h3>
 
         <ol class="connected list no2" style="width: 1000px; min-height:200px; border: 1px solid black">
 
@@ -108,7 +108,7 @@
                 @else
 
                     <li>
-                        Ovaj kurs nema sadrzaj.
+                        Ovaj kurs nema sadržaj.
                     </li>
 
                 @endif
@@ -130,7 +130,7 @@
                 @else
 
                     <li>
-                        Ovaj kurs nema sadrzaj.
+                        Ovaj kurs nema sadržaj.
                     </li>
 
                 @endif

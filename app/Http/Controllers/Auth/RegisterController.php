@@ -76,6 +76,12 @@ class RegisterController extends Controller
 
     protected function storeEducator(Request $request)
     {
+        $request->validate([
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => 'string|required|min:8|confirmed',
+        ]);
 
         $user = new User();
         $user->first_name = $request->input('first_name');
@@ -101,6 +107,13 @@ class RegisterController extends Controller
 
     protected function storeStudent(Request $request)
     {
+        $request->validate([
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => 'string|required|min:8|confirmed',
+        ]);
+
         $user = new User();
         $user->first_name = $request->input('first_name');
         $user->last_name = $request->input('last_name');

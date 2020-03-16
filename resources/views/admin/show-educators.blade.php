@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('title')
-    Predavaci
+    Predavači
 @endsection
 
 @section('content')
 
     <div class="jumbotron">
-        <h1 class="text-center">Predavaci</h1>
+        <h1 class="text-center">Predavači</h1>
     </div>
 
     @if(count($educators))
@@ -19,7 +19,7 @@
 
                     <a href="/admin/educators/{{$educator->slug}}">
 
-                        <p class="text-secondary"><strong>Predavac:</strong> {{$educator->first_name}} {{$educator->last_name}}</p>
+                        <p class="text-secondary"><strong>Predavač:</strong> {{$educator->first_name}} {{$educator->last_name}}</p>
 
                     </a>
 
@@ -57,7 +57,7 @@
 
                         @method('DELETE')
                         @csrf
-                        <input class="btn btn-danger" type="submit" value="Obrisi">
+                        <input class="btn btn-danger" type="submit" value="Obriši">
 
                     </form>
 
