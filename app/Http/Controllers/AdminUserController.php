@@ -39,6 +39,14 @@ class AdminUserController extends Controller
         return view('admin.show-user')->with('user', $user);
     }
 
+    public function showAdmin($slug) {
+
+        $admin = User::where('slug', '=', $slug)
+            ->first();
+
+        return view('admin.show-admin')->with('admin', $admin);
+    }
+
     public function createAdmin() {
 
         return view('admin.create-new-admin');

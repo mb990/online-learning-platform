@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Auth;
 
 Route::middleware(['role:admin'])->group(function () {
     Route::get('/admin', 'PageController@admin');
+    Route::get('/admin/admins/{slug}', 'AdminUserController@showAdmin');
+
     Route::get('/admin/educators', 'AdminEducatorController@showAll');
     Route::get('/admin/educators/{slug}', 'AdminEducatorController@showSingle');
     Route::put('/admin/educators/{slug}/submit', 'AdminEducatorController@update');

@@ -5,7 +5,7 @@
 
 @section('content')
 
-    <h2>Profil studenta {{$student->slug}}</h2><hr>
+    <h2>Profil studenta</h2><hr>
 
     <p class="lead"><strong>Id:</strong> {{$student->id}}</p><br>
     <p class="lead"><strong>Ime:</strong> {{$student->first_name}}</p><br>

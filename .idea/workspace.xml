@@ -4,18 +4,9 @@
     <list default="true" id="442411f5-d34a-45d1-97e0-f1150e714626" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminUserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/courses.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/courses.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/create-new-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/create-new-admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/show-educators.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/show-educators.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/show-students.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/show-students.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/show-student.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/show-student.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/show-users.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/show-users.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register-educator.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register-educator.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register-student.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register-student.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/courses/show-by-category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/show-by-category.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/courses/show-single.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/show-single.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/educators.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/educators.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +179,7 @@
       <workItem from="1584047757802" duration="5213000" />
       <workItem from="1584088881892" duration="26505000" />
       <workItem from="1584216400726" duration="1460000" />
-      <workItem from="1584344541356" duration="5947000" />
+      <workItem from="1584344541356" duration="6902000" />
     </task>
     <servers />
   </component>
@@ -214,9 +205,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1582704393805" />
-    <state x="789" y="478" width="399" height="149" key="NewPhpFileDialog" timestamp="1584014641395">
-      <screen x="67" y="27" width="1853" height="1053" />
+    <state x="532" y="312" width="295" height="151" key="NewPhpFileDialog" timestamp="1584353422455">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="532" y="312" width="295" height="151" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1584353422455" />
     <state x="789" y="478" width="399" height="149" key="NewPhpFileDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1584014641395" />
     <state x="476" y="271" key="SettingsEditor" timestamp="1583137054196">
       <screen x="67" y="27" width="1853" height="1053" />

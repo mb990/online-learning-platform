@@ -27,8 +27,10 @@
 
                     @if($user->hasRole('educator'))
                         <a href="/admin/educators/{{$user->slug}}">Profil</a><br>
-                    @else
+                    @elseif($user->hasRole('student'))
                         <a href="/admin/students/{{$user->slug}}">Profil</a><br>
+                    @else
+                        <a href="/admin/admins/{{$user->slug}}">Profil</a><br>
                     @endif
 
                 </div>
