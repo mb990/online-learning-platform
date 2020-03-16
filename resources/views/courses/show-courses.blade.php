@@ -45,7 +45,7 @@
 
                             @if(auth()->user()->hasRole('student') && !$recentCourse->followedBy(auth()->user()->id))
 
-                                <form action="{{action('StudentController@followCourse', $recentCourse->id)}}" method="POST">
+                                <form action="{{action('StudentController@followCourse', $recentCourse->slug)}}" method="POST">
                                     @csrf
                                     <input class="form-control" type="submit" value="Prijavi se">
 
@@ -53,7 +53,7 @@
 
                             @elseif(auth()->user()->hasRole('student') && $recentCourse->followedBy(auth()->user()->id))
 
-                                <form action="{{action('StudentController@unfollowCourse', $recentCourse->id)}}" method="POST">
+                                <form action="{{action('StudentController@unfollowCourse', $recentCourse->slug)}}" method="POST">
 
                                     @method('DELETE')
                                     @csrf

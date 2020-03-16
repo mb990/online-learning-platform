@@ -197,7 +197,7 @@ class CourseController extends Controller
     public function destroy($slug)
     {
 
-        $course = Course::where('slug', '=', $slug);
+        $course = Course::where('slug', '=', $slug)->first();
 
         $course->delete();
 

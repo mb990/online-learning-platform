@@ -7,21 +7,21 @@ use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
-    public function followCourse($id) {
+    public function followCourse($slug) {
 
-        $course = Course::find($id);
+        $course = Course::where('slug', '=', $slug)->first();
 
         $course->followers()->attach(auth()->user()->id);
 
-        return redirect('/my-courses/' . auth()->user()->id);
+        return redirect('/my-courses/');
     }
 
-    public function unfollowCourse($id) {
+    public function unfollowCourse($slug) {
 
-        $course = Course::find($id);
+        $course = Course::where('slug', '=', $slug)->first();
 
         $course->followers()->detach(auth()->user()->id);
 
-        return redirect('/my-courses/' . auth()->user()->id);
+        return redirect('/my-courses/');
     }
 }

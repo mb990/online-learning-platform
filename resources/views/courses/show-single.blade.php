@@ -5,7 +5,7 @@
 @endsection
 {{--{{dd($course->boughtBy(auth()->user()->id))}}--}}
 @section('content')
-
+{{--    {{dd($course->contents)}}--}}
 <br>
 <div class="row text-center">
 
@@ -24,7 +24,7 @@
 
     @if(auth()->user()->hasRole('student') && !$course->followedBy(auth()->user()->id))
 
-        <h2 class="text-center text-danger">Kupite ovaj kurs da vidite ceo sadržaj</h2><br>
+        <h2 class="text-center text-danger">Prijavite se na ovaj kurs da vidite ceo sadržaj</h2><br>
 
     @endif
 
@@ -124,7 +124,7 @@
                     </li>
 
                     <li>
-                        <strong>Kupite ovaj kurs da vidite ostatak.</strong>
+                        <strong>Prijavite se na ovaj kurs da vidite ostatak.</strong>
                     </li>
 
                 @else
@@ -177,7 +177,7 @@
 
                 <div class="col-md-12">
 
-                    <h2 class="text-primary">Preporuceni kursevi</h2>
+                    <h2 class="text-primary">Preporučeni kursevi</h2><br>
 
                 </div>
 
@@ -202,7 +202,7 @@
 
                 @else
 
-                    <p class="p-3 mb-2 bg-warning text-dark">Trenutno nema preporucenih kurseva.</p>
+                    <p class="p-3 mb-2 bg-warning text-dark">Trenutno nema preporučenih kurseva.</p>
 
                 @endif
 
