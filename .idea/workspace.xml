@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="442411f5-d34a-45d1-97e0-f1150e714626" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/show-educator.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/show-educator.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/courses/show-single.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/show-single.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/includes/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/navbar.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +176,41 @@
       <workItem from="1584047757802" duration="5213000" />
       <workItem from="1584088881892" duration="26505000" />
       <workItem from="1584216400726" duration="1460000" />
-      <workItem from="1584344541356" duration="8644000" />
+      <workItem from="1584344541356" duration="9697000" />
+      <workItem from="1584437237896" duration="36000" />
+      <workItem from="1584438615261" duration="4398000" />
+      <workItem from="1584457137414" duration="989000" />
+      <workItem from="1584523239955" duration="827000" />
+      <workItem from="1584531481697" duration="1230000" />
+      <workItem from="1584619829739" duration="543000" />
+      <workItem from="1584690410682" duration="2193000" />
+      <workItem from="1584952888449" duration="32000" />
+      <workItem from="1585134149126" duration="19000" />
+      <workItem from="1585310121685" duration="681000" />
+      <workItem from="1585321120452" duration="444000" />
+      <workItem from="1585560009646" duration="1636000" />
+      <workItem from="1585563082965" duration="604000" />
+      <workItem from="1585656515337" duration="8000" />
+      <workItem from="1586422865293" duration="5344000" />
+      <workItem from="1586436379471" duration="627000" />
+      <workItem from="1586504052983" duration="1343000" />
+      <workItem from="1586512785996" duration="2578000" />
+      <workItem from="1586764327972" duration="9000" />
+      <workItem from="1586764396027" duration="585000" />
+      <workItem from="1586769715320" duration="3769000" />
+      <workItem from="1586868305435" duration="1923000" />
+      <workItem from="1586872559733" duration="795000" />
+      <workItem from="1587646638163" duration="97000" />
+      <workItem from="1587723021936" duration="20000" />
+      <workItem from="1587724603224" duration="400000" />
+      <workItem from="1587843975664" duration="53000" />
+      <workItem from="1588068075675" duration="539000" />
+      <workItem from="1588069186774" duration="429000" />
+      <workItem from="1588079682772" duration="325000" />
+      <workItem from="1588096321848" duration="40000" />
+      <workItem from="1588096655996" duration="486000" />
+      <workItem from="1588363238989" duration="7000" />
+      <workItem from="1588591696861" duration="21000" />
     </task>
     <servers />
   </component>
@@ -224,16 +257,5 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="718" y="465" width="540" height="175" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1583240749465" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/app/Http/Controllers/PageController.php</url>
-          <line>43</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
